@@ -9,7 +9,7 @@ const StakeholderFeedback: FC = () => {
           <p className="text-black-500 text-xl font-bold mt-3">
             Profile of Respondent
           </p>
-          <select className="mt-3 mb-5 bg-white border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500">
+          <select className="mt-3 mb-5 bg-white border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-yellow-500">
             <option value="" disabled selected>Choose Type of Respondent</option>
             <option value="option1">Internal</option>
             <option value="option2">External</option>
