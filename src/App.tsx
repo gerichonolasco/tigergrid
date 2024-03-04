@@ -66,6 +66,7 @@ const App: FC = () => {
                       <Route path="/landingpage" element={<LandingPage />} />
                       <Route path="/stakeholderfeedback" element={<StakeholderFeedback />} />
                       <Route path="/dataprivacySF" element={<DataPrivacySF />} />
+                      {/* <Route path="/about" element={<About />} /> */}
                       
                     </Routes>
               </>

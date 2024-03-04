@@ -7,11 +7,11 @@ const Home: React.FC = () => {
         <div className="grid   max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
           <div className="mr-auto place-self-center lg:col-span-7">
             <h1 className="text-5xl font-bold leading-none sm:text-6xl">
-              <span className="text-gray-500">Comprehensive</span>
+              <span className="text-gray-500">UST-OPQM</span>
               <br />
-              <span className="">Risk Monitoring</span>
+              <span className="">TigerGrid</span>
               <br />
-              <span className="text-yellow-500">Platform</span>
+              <span className="text-yellow-500">Dashboard</span>
             </h1>
 
             <p className="mt-6 mb-8 text-lg sm:mb-12">
@@ -22,10 +22,10 @@ const Home: React.FC = () => {
               turpis pulvinar, est scelerisque ligula sem
             </p>
             <a
-              href="/RIF"
+              href="/login"
               className="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-yellow-500 hover:bg-primary-800 focus:ring-4 focus:ring-yellow-300"
             >
-              Get started
+              Sign in
               <svg
                 className="w-5 h-5 ml-2 -mr-1"
                 fill="currentColor"
@@ -40,10 +40,10 @@ const Home: React.FC = () => {
               </svg>
             </a>
             <a
-              href="/Faqs"
+              href="/about"
               className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-yellow-500 border-2 border-yellow-500 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100"
             >
-              Frequently Asked Questions
+              About the Dashboard
             </a>
           </div>
           <div className="hidden lg:flex lg:mt-10 lg:col-span-5 h-auto">
