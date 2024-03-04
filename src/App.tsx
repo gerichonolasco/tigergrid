@@ -16,6 +16,8 @@ import DocumentGrid from "./admin/pages/DocumentGrid";
 import Home from "./user-side/pages/Home";
 import LandingPage from "./user-side/pages/LandingPage";
 
+import Sample from "./user-side/pages/sample";
+
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import SideNavbar from "./admin/components/SideNavbar";
 import SideNavbarUser from "./user-side/components/SideNavbarUser";
@@ -59,15 +61,16 @@ const App: FC = () => {
             path="/*"
             element={
               <>
-                <SideNavbarUser />
+                {/* <SideNavbarUser />
                 <div className="p-4 sm:ml-64">
-                  <div className="p-2 border-2 border-gray-200 border-dashed rounded-lg mt-14">
+                  <div className="p-2 border-2 border-gray-200 border-dashed rounded-lg mt-14"> */}
                     <Routes>
                       <Route path="/" element={<Home />} />
                       <Route path="/landingpage" element={<LandingPage />} />
+                      <Route path="/sample" element={<Sample />} />
                     </Routes>
-                  </div>
-                </div>
+                  {/* </div>
+                </div> */}
               </>
             }
           />
