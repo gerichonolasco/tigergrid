@@ -32,7 +32,7 @@ const Dashboard: FC = () => {
     <>
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
         <Link to="/admin/addform">
-          <button className="px-4 py-2 mb-3 ml-1 mt-2 text-sm text-blue-100 bg-blue-500">
+          <button className="px-4 py-2 mb-3 ml-1 mt-2 text-sm text-blue-100 bg-yellow-500">
             Add Form
           </button>
         </Link>
@@ -53,7 +53,7 @@ const Dashboard: FC = () => {
                 {items.content}
               </p>
               <div className="flex justify-center items-center">
-                <Link to={items.route || '#'} className="px-4 py-2 text-sm text-blue-100 bg-blue-500 rounded shadow">
+                <Link to={items.route || '#'} className="px-4 py-2 text-sm text-blue-100 bg-yellow-500 rounded shadow">
                   View
                 </Link>
               </div>

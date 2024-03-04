@@ -2,7 +2,7 @@ import React, { FC } from "react";
 
 const ManageQMSEval: FC = () => {
   return (
-    <div className="w-screen-xl px-4 bg-white min-h-screen">
+    <div className="w-screen-xl px-4 bg-white min-h-screen">+
       <div className="flex flex-col items-right">
         <h2 className="font-bold text-5xl mt-5 tracking-tight">Manage Quality Management System Form</h2>
         <div className="flex justify-between items-center">
@@ -11,7 +11,7 @@ const ManageQMSEval: FC = () => {
           </p>
         </div><br></br>
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-          <button className="px-4 py-2 mb-3 ml-1 text-sm text-blue-100 bg-blue-500">
+          <button className="px-4 py-2 mb-3 ml-1 text-sm text-blue-100 bg-yellow-500">
                                 Add Question
                             </button>
           <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">

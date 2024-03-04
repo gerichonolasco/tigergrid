@@ -11,7 +11,7 @@ const ManageStakeholderFeedback: FC = () => {
           </p>
           </div><br></br>
           <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-          <button className="px-4 py-2 mb-3 ml-1 text-sm text-blue-100 bg-blue-500">
+          <button className="px-4 py-2 mb-3 ml-1 text-sm text-blue-100 bg-yellow-500">
                                 Add Question
                             </button>
           <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
