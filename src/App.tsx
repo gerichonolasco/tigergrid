@@ -15,12 +15,12 @@ import DocumentGrid from "./admin/pages/DocumentGrid";
 
 import Home from "./user-side/pages/Home";
 import LandingPage from "./user-side/pages/LandingPage";
-
-import Sample from "./user-side/pages/sample";
+import DataPrivacySF from "./user-side/pages/DataPrivacySF";
+import StakeholderFeedback from "./user-side/pages/StakeholderFeedback";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import SideNavbar from "./admin/components/SideNavbar";
-import SideNavbarUser from "./user-side/components/SideNavbarUser";
+// import SideNavbarUser from "./user-side/components/SideNavbarUser";
 
 const App: FC = () => {
   return (
@@ -60,17 +60,14 @@ const App: FC = () => {
           <Route
             path="/*"
             element={
-              <>
-                {/* <SideNavbarUser />
-                <div className="p-4 sm:ml-64">
-                  <div className="p-2 border-2 border-gray-200 border-dashed rounded-lg mt-14"> */}
+              <>  
                     <Routes>
                       <Route path="/" element={<Home />} />
                       <Route path="/landingpage" element={<LandingPage />} />
-                      <Route path="/sample" element={<Sample />} />
+                      <Route path="/stakeholderfeedback" element={<StakeholderFeedback />} />
+                      <Route path="/dataprivacySF" element={<DataPrivacySF />} />
+                      
                     </Routes>
-                  {/* </div>
-                </div> */}
               </>
             }
           />

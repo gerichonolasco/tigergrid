@@ -7,7 +7,7 @@ const LandingPage: FC = () => {
         title: "Stakeholder's Feedback",
         img: "../public/images/meeting.jpg",
         content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        route: "/admin/sfanalytics"
+        route: "/dataprivacySF"
     },
     {
         title: "Internal Auditor's Evaluation",
@@ -30,14 +30,7 @@ const LandingPage: FC = () => {
 
   return (
     <>
-      <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-        <Link to="#">
-          <button className="px-4 py-2 mb-3 ml-1 mt-2 text-sm text-blue-100 bg-blue-500">
-            Add Form
-          </button>
-        </Link>
-      </div>
-      <div className="grid gap-2 lg:grid-cols-4">
+      <div className="grid gap-2 lg:grid-cols-4 mt-2 mx-4">
         {posts.map((items, key) => (
           <div className="w-full rounded-lg shadow-md lg:max-w-sm" key={key}>
             <img
