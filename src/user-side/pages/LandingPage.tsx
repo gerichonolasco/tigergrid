@@ -13,13 +13,13 @@ const LandingPage: FC = () => {
         title: "Internal Auditor's Evaluation",
         img: "../public/images/audit.jpg",
         content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        route: "/admin/iaeanalytics"
+        route: "#"
     },
     {
         title: "QMS Evaluation",
         img: "../public/images/magnifying.jpg",
         content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        route: "/admin/unitoria"
+        route: "#"
     },
     {
         title: "RIF Tracker",

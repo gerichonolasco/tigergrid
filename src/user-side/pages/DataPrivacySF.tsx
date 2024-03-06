@@ -5,9 +5,9 @@ const DataPrivacySF: FC = () => {
  return (
     <div className="w-screen-xl px-4 bg-white min-h-screen flex flex-col items-center justify-center">
       {/* Stepper Component */}
-      <div className="flex justify-center"> {/* Add this container */}
+      <div className="flex justify-center">
         <ol className="items-center space-y-4 sm:flex sm:space-x-8 sm:space-y-0">
-          <li className="flex items-center text-blue-600 dark:text-blue-500 space-x-2.5">
+          <li className="flex items-center font-bold text-blue-600 dark:text-blue-500 space-x-2.5">
             <span className="flex items-center justify-center w-8 h-8 border border-blue-600 rounded-full shrink-0 dark:border-blue-500">
               1
             </span>
@@ -33,7 +33,8 @@ const DataPrivacySF: FC = () => {
             </span>
           </li>
         </ol>
-      </div> {/* Close the container */}
+      </div> 
+
       {/* Gray Container */}
       <div className="flex flex-col items-center justify-center mt-10">
         <div className="bg-gray-100 p-8 rounded-lg w-2/3 flex flex-col items-center justify-center"> 
