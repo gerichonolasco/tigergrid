@@ -1,13 +1,13 @@
 import React, { FC } from "react";
 import { Link } from "react-router-dom";
 
-const DataPrivacySF: FC = () => {
+const DataPrivacyIAE: FC = () => {
  return (
     <div className="w-screen-xl px-4 bg-white min-h-screen flex flex-col items-center justify-center">
       {/* Stepper Component */}
       <div className="flex justify-center">
         <ol className="items-center space-y-4 sm:flex sm:space-x-8 sm:space-y-0">
-        <li className="flex items-center font-bold text-yellow-600 dark:text-yellow-500 space-x-2.5">
+          <li className="flex items-center font-bold text-yellow-600 dark:text-yellow-500 space-x-2.5">
             <span className="flex items-center justify-center w-8 h-8 border border-yellow-600 rounded-full shrink-0 dark:border-yellow-500">
               1
             </span>
@@ -48,7 +48,7 @@ const DataPrivacySF: FC = () => {
           <div className="flex justify-center mt-5">
             {/* Use Link instead of button with "to" attribute */}
             <Link to="/landingpage" className="bg-yellow-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-32">Disagree</Link>
-            <Link to="/stakeholderfeedback" className="bg-yellow-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Agree</Link>
+            <Link to="/iaeval" className="bg-yellow-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Agree</Link>
           </div>
         </div>
       </div>
@@ -56,4 +56,4 @@ const DataPrivacySF: FC = () => {
  );
 };
 
-export default DataPrivacySF;
+export default DataPrivacyIAE;

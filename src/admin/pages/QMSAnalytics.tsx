@@ -1,6 +1,14 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
+import { Link } from 'react-router-dom';
 
 const QMSAnalytics: FC = () => {
+
+const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
+
+const toggleDropdown = () => {
+  setDropdownOpen(!dropdownOpen);
+  };
+
   return (
     <div className="w-screen-xl px-4 bg-white min-h-screen">
       <div className="flex flex-col items-right">
@@ -11,7 +19,64 @@ const QMSAnalytics: FC = () => {
           </p>
         </div>
         <br></br>
-        <div className="overflow-x-auto">
+
+        <div>
+          <button
+            id="dropdownDefaultButton"
+            onClick={toggleDropdown}
+            className="text-white bg-yellow-500 hover:bg-yellow-80099 focus:outline-none focus:ring-yellow-500 font-medium rounded-lg text-sm px-3 py-2.5 text-center inline-flex items-center dark:bg-yellow-500 dark:hover:bg-yellow-500 dark:focus:ring-yellow-500"
+            type="button"
+          >
+            Choose Academic Year/Term
+            <svg
+              className="w-2.5 h-2.5 ms-3"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 10 6"
+            >
+              <path
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="m1 1 4 4 4-4"
+              />
+            </svg>
+          </button>
+          {/* Dropdown menu */}
+          {dropdownOpen && (
+            <div
+              id="dropdown"
+              className="z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
+            >
+              <ul
+                className="py-2 text-sm text-gray-700 dark:text-gray-200"
+                aria-labelledby="dropdownDefaultButton"
+              >
+                <li>
+                 <a
+                    href="#"
+                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                 >
+                    AY.2023-2024
+                 </a>
+                </li>
+                <li>
+                 <a
+                    href="#"
+                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                 >
+                    AY.2022-2023
+                 </a>
+                </li>
+              </ul>
+            </div>
+          )}
+        </div>
+      </div>
+
+        <div className="overflow-x-auto mt-4">
           <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
             <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
               <tr>
@@ -46,6 +111,14 @@ const QMSAnalytics: FC = () => {
             </tbody>
           </table>
           
+          <div className="flex justify-between mt-4">
+          <Link to="/admin/dashboard">
+            <button type="button" className="text-white bg-yellow-500 hover:bg-yellow-700 focus:ring-4 focus:ring-yellow-500 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-yellow-500 dark:hover:bg-yellow-500 focus:outline-none dark:focus:ring-yellow-500">Back</button>
+          </Link>
+
+          <Link to="#">
+            <button type="button" className="text-white bg-yellow-500 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-500 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-yellow-500 dark:hover:bg-yellow-500 focus:outline-none dark:focus:ring-yellow-500">Generate File</button>
+          </Link>
         </div>
       </div>
     </div>

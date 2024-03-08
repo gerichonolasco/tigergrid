@@ -17,8 +17,8 @@ const StakeholderFeedback2: FC = () => {
               2
             </span>
           </li>
-          <li className="flex items-center font-bold text-blue-600 dark:text-blue-500 space-x-2.5">
-            <span className="flex items-center justify-center w-8 h-8 border border-blue-600 rounded-full shrink-0 dark:border-blue-500">
+          <li className="flex items-center font-bold text-yellow-600 dark:text-yellow-500 space-x-2.5">
+            <span className="flex items-center justify-center w-8 h-8 border border-yellow-600 rounded-full shrink-0 dark:border-yellow-500">
               3
             </span>
           </li>
@@ -42,8 +42,12 @@ const StakeholderFeedback2: FC = () => {
           </p>
           <select className="mt-3 mb-5 bg-white border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500">
             <option value="" disabled selected>Choose Type of Internal Stakeholder</option>
-            <option value="option1">Internal</option>
-            <option value="option2">External</option>
+            <option value="option1">Administrative/Academic Official</option>
+            <option value="option2">Academic Staff</option>
+            <option value="option3">Support Staff</option>
+            <option value="option4">Student</option>
+            <option value="option5">Casual</option>
+            <option value="option6">Other</option>
           </select>
 
           <p className="text-black-500 text-xl font-bold mt-3">
@@ -51,17 +55,17 @@ const StakeholderFeedback2: FC = () => {
           </p>
           <select className="mt-3 mb-5 bg-white border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500">
             <option value="" disabled selected>Choose Type of Transaction</option>
-            <option value="option1">Internal</option>
-            <option value="option2">External</option>
+            <option value="option1">Online</option>
+            <option value="option2">Onsite</option>
           </select>
 
           <p className="text-black-500 text-xl font-bold mt-3">
-            Type of Field
+            Type of Office
           </p>
           <select className="mt-3 mb-5 bg-white border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500">
             <option value="" disabled selected>Choose Type of Field</option>
-            <option value="option1">Internal</option>
-            <option value="option2">External</option>
+            <option value="option1">Academic Unit</option>
+            <option value="option2">Administrative Unit</option>
           </select>
         
           <div className="flex justify-center mt-5">
