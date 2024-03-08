@@ -17,6 +17,7 @@ import Home from "./user-side/pages/Home";
 import LandingPage from "./user-side/pages/LandingPage";
 import DataPrivacySF from "./user-side/pages/DataPrivacySF";
 import DataPrivacyIAE from "./user-side/pages/DataPrivacyIAE";
+import DataPrivacyQMS from "./user-side/pages/DataPrivacyQMS";
 import StakeholderFeedback from "./user-side/pages/StakeholderFeedback";
 import StakeholderFeedback2 from "./user-side/pages/StakeholderFeedback2";
 import StakeholderFeedback3 from "./user-side/pages/StakeholderFeedback3";
@@ -25,6 +26,10 @@ import IAEval from "./user-side/pages/IAEval";
 import IAEval2 from "./user-side/pages/IAEval2";
 import IAEval3 from "./user-side/pages/IAEval3";
 import IAEval4 from "./user-side/pages/IAEval4";
+import UnitorIAQMSForm from "./user-side/pages/UnitorIAQMSForm";
+import AcadorAdminForm from "./user-side/pages/AcadorAdminForm";
+import AcademicFormPlan from "./user-side/pages/AcademicFormPlan";
+import AcademicFormDo from "./user-side/pages/AcademicFormDo";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import SideNavbar from "./admin/components/SideNavbar";
@@ -82,6 +87,11 @@ const App: FC = () => {
                       <Route path="/iaeval4" element={<IAEval4 />} />
                       <Route path="/dataprivacySF" element={<DataPrivacySF />} />
                       <Route path="/dataprivacyIAE" element={<DataPrivacyIAE />} />
+                      <Route path="/dataprivacyQMS" element={<DataPrivacyQMS />} />
+                      <Route path="/unitoriaform" element={<UnitorIAQMSForm />} />
+                      <Route path="/acadoradminform" element={<AcadorAdminForm />} />
+                      <Route path="/academicformplan" element={<AcademicFormPlan />} />
+                      <Route path="/academicformdo" element={<AcademicFormDo />} />
                     </Routes>
               </>
             }

@@ -105,7 +105,7 @@ const handleChange3 = (event: React.ChangeEvent<HTMLInputElement>) => {
             </div>
 
             <p className="text-black-500 text-xl font-bold mt-8">
-            3. The audit, in general, provided inputs that are beneficial for continuous improvement
+            3. The audit, in general, provided inputs that are beneficial for continuous improvement.
             </p>
             <div className="flex justify-center mt-5">
               <div className="flex flex-row space-x-4">
