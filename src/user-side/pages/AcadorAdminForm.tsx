@@ -14,7 +14,7 @@ const AcadorAdminForm: FC = () => {
                     <span className="text-sm mt-1 font-bold">Academic</span>
                 </div>
             </Link>
-            <Link to="/route2"> {/* Add Link component and specify route */}
+            <Link to="/adminformplan"> {/* Add Link component and specify route */}
                 <div className="flex flex-col items-center">
                     <svg className="h-56 w-56 text-black-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <circle cx="12" cy="12" r="3" />

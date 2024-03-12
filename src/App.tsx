@@ -30,6 +30,17 @@ import UnitorIAQMSForm from "./user-side/pages/UnitorIAQMSForm";
 import AcadorAdminForm from "./user-side/pages/AcadorAdminForm";
 import AcademicFormPlan from "./user-side/pages/AcademicFormPlan";
 import AcademicFormDo from "./user-side/pages/AcademicFormDo";
+import AcademicFormCheck from "./user-side/pages/AcademicFormCheck";
+import AcademicFormAct from "./user-side/pages/AcademicFormAct";
+import AdminFormPlan from "./user-side/pages/AdminFormPlan";
+import AdminFormDo from "./user-side/pages/AdminFormDo";
+import AdminFormCheck from "./user-side/pages/AdminFormCheck";
+import AdminFormAct from "./user-side/pages/AdminFormAct";
+import QMSIAPlan from "./user-side/pages/QMSIAPlan";
+import QMSIADo from "./user-side/pages/QMSIADo";
+import QMSIACheck from "./user-side/pages/QMSIACheck";
+import QMSIAAct from "./user-side/pages/QMSIAAct";
+
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import SideNavbar from "./admin/components/SideNavbar";
@@ -92,6 +103,16 @@ const App: FC = () => {
                       <Route path="/acadoradminform" element={<AcadorAdminForm />} />
                       <Route path="/academicformplan" element={<AcademicFormPlan />} />
                       <Route path="/academicformdo" element={<AcademicFormDo />} />
+                      <Route path="/academicformcheck" element={<AcademicFormCheck />} />
+                      <Route path="/academicformact" element={<AcademicFormAct />} />
+                      <Route path="/adminformplan" element={<AdminFormPlan />} />
+                      <Route path="/adminformdo" element={<AdminFormDo />} />
+                      <Route path="/adminformcheck" element={<AdminFormCheck />} />
+                      <Route path="/adminformact" element={<AdminFormAct />} />
+                      <Route path="/qmsiaplan" element={<QMSIAPlan />} />
+                      <Route path="/qmsiado" element={<QMSIADo />} />
+                      <Route path="/qmsiacheck" element={<QMSIACheck />} />
+                      <Route path="/qmsiaact" element={<QMSIAAct />} />
                     </Routes>
               </>
             }

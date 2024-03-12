@@ -1,7 +1,7 @@
 import React, { FC, useState } from "react";
 import { Link } from "react-router-dom";
 
-const AcademicFormDo: FC = () => {
+const QMSIADo: FC = () => {
  const [selectedValue, setSelectedValue] = useState<number | null>(null);
  const [selectedValue2, setSelectedValue2] = useState<number | null>(null);
  const [selectedValue3, setSelectedValue3] = useState<number | null>(null);
@@ -419,8 +419,8 @@ const AcademicFormDo: FC = () => {
             </div>
 
             <div className="flex justify-center mt-5">
-              <Link to="/academicformplan" className="bg-yellow-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-5">Back</Link>
-              <Link to="/academicformcheck" className="bg-yellow-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Next</Link>
+              <Link to="/qmsiaplan" className="bg-yellow-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-5">Back</Link>
+              <Link to="/qmsiacheck" className="bg-yellow-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Next</Link>
             </div>
           </div>
         </div>
@@ -429,4 +429,4 @@ const AcademicFormDo: FC = () => {
  );
 };
 
-export default AcademicFormDo
+export default QMSIADo;

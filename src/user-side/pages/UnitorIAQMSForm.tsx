@@ -13,7 +13,7 @@ const UnitorIAQMSForm: FC = () => {
                     <span className="text-sm mt-1 font-bold">Unit</span>
                 </div>
             </Link>
-            <Link to="#"> {/* Add Link component and specify route */}
+            <Link to="/qmsiaplan"> {/* Add Link component and specify route */}
                 <div className="flex flex-col items-center">
                     <svg className="h-56 w-56 text-black-500" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z"/>
@@ -28,6 +28,7 @@ const UnitorIAQMSForm: FC = () => {
                 </div>
             </Link>
         </div>
+        
     );
 }
 

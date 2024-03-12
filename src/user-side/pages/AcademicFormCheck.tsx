@@ -1,7 +1,7 @@
 import React, { FC, useState } from "react";
 import { Link } from "react-router-dom";
 
-const AcademicFormDo: FC = () => {
+const AcademicFormCheck: FC = () => {
  const [selectedValue, setSelectedValue] = useState<number | null>(null);
  const [selectedValue2, setSelectedValue2] = useState<number | null>(null);
  const [selectedValue3, setSelectedValue3] = useState<number | null>(null);
@@ -10,11 +10,6 @@ const AcademicFormDo: FC = () => {
  const [selectedValue6, setSelectedValue6] = useState<number | null>(null); 
  const [selectedValue7, setSelectedValue7] = useState<number | null>(null); 
  const [selectedValue8, setSelectedValue8] = useState<number | null>(null); 
- const [selectedValue9, setSelectedValue9] = useState<number | null>(null); 
- const [selectedValue10, setSelectedValue10] = useState<number | null>(null); 
- const [selectedValue11, setSelectedValue11] = useState<number | null>(null); 
- const [selectedValue12, setSelectedValue12] = useState<number | null>(null); 
- const [selectedValue13, setSelectedValue13] = useState<number | null>(null); 
 
  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedValue(Number(event.target.value));
@@ -48,24 +43,6 @@ const AcademicFormDo: FC = () => {
     setSelectedValue8(Number(event.target.value));
  };
 
- const handleChange9 = (event: React.ChangeEvent<HTMLInputElement>) => { 
-    setSelectedValue9(Number(event.target.value));
- };
-
- const handleChange10 = (event: React.ChangeEvent<HTMLInputElement>) => { 
-    setSelectedValue10(Number(event.target.value));
- };
- const handleChange11 = (event: React.ChangeEvent<HTMLInputElement>) => { 
-    setSelectedValue11(Number(event.target.value));
- };
-
- const handleChange12 = (event: React.ChangeEvent<HTMLInputElement>) => { 
-    setSelectedValue12(Number(event.target.value));
- };
-
- const handleChange13 = (event: React.ChangeEvent<HTMLInputElement>) => { 
-    setSelectedValue13(Number(event.target.value));
- };
 
  return (
     <div className="w-screen-xl px-4 bg-white min-h-screen flex flex-col items-center justify-center">
@@ -82,13 +59,13 @@ const AcademicFormDo: FC = () => {
               2
             </span>
           </li>
-          <li className="flex items-center font-bold text-yellow-600 dark:text-yellow-500 space-x-2.5">
-            <span className="flex items-center justify-center w-8 h-8 border border-yellow-600 rounded-full shrink-0 dark:border-yellow-500">
+          <li className="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5">
+            <span className="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
               3
             </span>
           </li>
-          <li className="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5">
-            <span className="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+          <li className="flex items-center font-bold text-yellow-600 dark:text-yellow-500 space-x-2.5">
+            <span className="flex items-center justify-center w-8 h-8 border border-yellow-600 rounded-full shrink-0 dark:border-yellow-500">
               4
             </span>
           </li>
@@ -102,14 +79,11 @@ const AcademicFormDo: FC = () => {
 
       <div className="flex flex-col items-center justify-center mt-10 mb-6">
         <div>
-        <div className="bg-gray-100 p-8 rounded-lg w-full sm:w-[700px] h-auto sm:h-[2200px] flex flex-col items-center justify-center">
-        <p className="text-black-500 text-xl font-bold mt-3">2. Do</p><br></br>
+        <div className="bg-gray-100 p-8 rounded-lg w-full sm:w-[700px] h-auto sm:h-[1500px] flex flex-col items-center justify-center">
+        <p className="text-black-500 text-xl font-bold mt-3">3. Check</p><br></br>
             
             <p className="text-black-500 text-xl font-bold mt-3">
-            2.1. Policies, processes, and practices in the delivery of services relevant to the following are clear and communicated to concerned parties:
-            </p>
-            <p className="text-black-500 text-xl font-bold mt-3">
-            a. Instruction
+            3.1. Quantitative and qualitative monitoring of the attainment of the quality objectives is implemented.
             </p>
             <div className="flex justify-center mt-5">
               <div className="flex flex-row space-x-4">
@@ -131,8 +105,9 @@ const AcademicFormDo: FC = () => {
                 ))}
               </div>
             </div>
+
             <p className="text-black-500 text-xl font-bold mt-8">
-            b. Research
+            3.2. Review of the status of quality objectives, including analysis of the issues, challenges, or factors preventing their attainment, is implemented.
             </p>
             <div className="flex justify-center mt-5">
               <div className="flex flex-row space-x-4">
@@ -154,8 +129,9 @@ const AcademicFormDo: FC = () => {
                 ))}
               </div>
             </div>
+
             <p className="text-black-500 text-xl font-bold mt-8">
-            c. Community Service
+            3.3. Tools/instruments for monitoring and measuring internal and external conformity to quality criteria and standards are available, adequate, and utilized.
             </p>
             <div className="flex justify-center mt-5">
               <div className="flex flex-row space-x-4">
@@ -179,7 +155,7 @@ const AcademicFormDo: FC = () => {
             </div> <br></br>
 
             <p className="text-black-500 text-xl font-bold mt-8">
-            2.2. Criteria, standards, and expectations that must be met in the delivery of services are disseminated and upheld.
+            3.4. Systems, processes, and activities are benchmarked with local and international counterparts to ensure their improvement.
             </p>
             <div className="flex justify-center mt-5">
               <div className="flex flex-row space-x-4">
@@ -203,7 +179,7 @@ const AcademicFormDo: FC = () => {
             </div>
 
                 <p className="text-black-500 text-xl font-bold mt-8">
-            2.3. Documented information, whenever applicable or necessary, are available, up-to-date, protected, and suitably managed.
+            3.5. There are feedback mechanisms implemented to know the various stakeholders’ satisfaction levels. 
             </p>
             <div className="flex justify-center mt-5">
             <div className="flex flex-row space-x-4">
@@ -227,7 +203,7 @@ const AcademicFormDo: FC = () => {
             </div>
 
                 <p className="text-black-500 text-xl font-bold mt-8">
-            2.4. Authority, responsibilities, and accountability to ensure the delivery of services and performance of tasks are well-defined and clear to concerned parties.
+            3.6. Results of feedback mechanisms are analyzed and disseminated to concerned parties.
             </p>
             <div className="flex justify-center mt-5">
             <div className="flex flex-row space-x-4">
@@ -250,8 +226,8 @@ const AcademicFormDo: FC = () => {
             </div>
             </div>
 
-                <p className="text-black-500 text-xl font-bold mt-8">
-            2.5. Both vertical and horizontal coordinations are considered to facilitate implementation of planned programs and activities.
+            <p className="text-black-500 text-xl font-bold mt-8">
+            3.7. Review of policies affecting academic and administrative services is done on a regular basis.
             </p>
             <div className="flex justify-center mt-5">
             <div className="flex flex-row space-x-4">
@@ -275,7 +251,7 @@ const AcademicFormDo: FC = () => {
             </div>
 
             <p className="text-black-500 text-xl font-bold mt-8">
-            2.6. Competences of administrative, academic, and support personnel are identified, developed, and evaluated to meet workplace needs and expectations.
+            3.8. Changes in plans, policies, and procedures are made part of documented information, and are retrievable for future reference.  
             </p>
             <div className="flex justify-center mt-5">
             <div className="flex flex-row space-x-4">
@@ -298,129 +274,9 @@ const AcademicFormDo: FC = () => {
             </div>
             </div>
 
-            <p className="text-black-500 text-xl font-bold mt-8">
-            2.7. External networks and partnerships are explored, established, and optimized to achieve quality objectives.
-            </p>
             <div className="flex justify-center mt-5">
-            <div className="flex flex-row space-x-4">
-                {[1, 2, 3, 4, 5].map((number) => (
-                <div key={number} className="flex flex-col items-center">
-                    <input
-                    type="radio"
-                    id={`radio9-${number}`}
-                    name="rating9"
-                    value={number}
-                    checked={selectedValue9 === number}
-                    onChange={handleChange9}
-                    className="form-radio h-5 w-5 text-gray-600"
-                    />
-                    <label htmlFor={`radio9-${number}`} className="block text-center text-gray-700 dark:text-gray-500">
-                    {number}
-                    </label>
-                </div>
-                ))}
-            </div>
-            </div><br></br>
-
-            <p className="text-black-500 text-xl font-bold mt-8">
-            2.8. The following resources are sufficient and are optimized to support attainment of targets:
-            </p>
-            <p className="text-black-500 text-xl font-bold mt-8">
-            a. Human
-            </p>
-            <div className="flex justify-center mt-5">
-            <div className="flex flex-row space-x-4">
-                {[1, 2, 3, 4, 5].map((number) => (
-                <div key={number} className="flex flex-col items-center">
-                    <input
-                    type="radio"
-                    id={`radio10-${number}`}
-                    name="rating10"
-                    value={number}
-                    checked={selectedValue10 === number}
-                    onChange={handleChange10}
-                    className="form-radio h-5 w-5 text-gray-600"
-                    />
-                    <label htmlFor={`radio10-${number}`} className="block text-center text-gray-700 dark:text-gray-500">
-                    {number}
-                    </label>
-                </div>
-                ))}
-            </div>
-            </div>
-            <p className="text-black-500 text-xl font-bold mt-8">
-            b. Financial
-            </p>
-            <div className="flex justify-center mt-5">
-            <div className="flex flex-row space-x-4">
-                {[1, 2, 3, 4, 5].map((number) => (
-                <div key={number} className="flex flex-col items-center">
-                    <input
-                    type="radio"
-                    id={`radio11-${number}`}
-                    name="rating11"
-                    value={number}
-                    checked={selectedValue11 === number}
-                    onChange={handleChange11}
-                    className="form-radio h-5 w-5 text-gray-600"
-                    />
-                    <label htmlFor={`radio11-${number}`} className="block text-center text-gray-700 dark:text-gray-500">
-                    {number}
-                    </label>
-                </div>
-                ))}
-            </div>
-            </div>
-            <p className="text-black-500 text-xl font-bold mt-8">
-            c. Physical
-            </p>
-            <div className="flex justify-center mt-5">
-            <div className="flex flex-row space-x-4">
-                {[1, 2, 3, 4, 5].map((number) => (
-                <div key={number} className="flex flex-col items-center">
-                    <input
-                    type="radio"
-                    id={`radio12-${number}`}
-                    name="rating12"
-                    value={number}
-                    checked={selectedValue12 === number}
-                    onChange={handleChange12}
-                    className="form-radio h-5 w-5 text-gray-600"
-                    />
-                    <label htmlFor={`radio12-${number}`} className="block text-center text-gray-700 dark:text-gray-500">
-                    {number}
-                    </label>
-                </div>
-                ))}
-            </div>
-            </div>
-            <p className="text-black-500 text-xl font-bold mt-8">
-            d. Technological
-            </p>
-            <div className="flex justify-center mt-5">
-            <div className="flex flex-row space-x-4">
-                {[1, 2, 3, 4, 5].map((number) => (
-                <div key={number} className="flex flex-col items-center">
-                    <input
-                    type="radio"
-                    id={`radio13-${number}`}
-                    name="rating13"
-                    value={number}
-                    checked={selectedValue13 === number}
-                    onChange={handleChange13}
-                    className="form-radio h-5 w-5 text-gray-600"
-                    />
-                    <label htmlFor={`radio13-${number}`} className="block text-center text-gray-700 dark:text-gray-500">
-                    {number}
-                    </label>
-                </div>
-                ))}
-            </div>
-            </div>
-
-            <div className="flex justify-center mt-5">
-              <Link to="/academicformplan" className="bg-yellow-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-5">Back</Link>
-              <Link to="/academicformcheck" className="bg-yellow-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Next</Link>
+              <Link to="/academicformdo" className="bg-yellow-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-5">Back</Link>
+              <Link to="/academicformact" className="bg-yellow-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Next</Link>
             </div>
           </div>
         </div>
@@ -429,4 +285,4 @@ const AcademicFormDo: FC = () => {
  );
 };
 
-export default AcademicFormDo
+export default AcademicFormCheck
