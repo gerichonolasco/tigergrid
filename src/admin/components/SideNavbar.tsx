@@ -35,12 +35,7 @@ const SideNavbar: React.FC = () => {
                   ></path>
                 </svg>
               </button>
-              <a href="https://flowbite.com" className="flex ms-2 md:me-24">
-                <img
-                  src="https://scontent.fmnl25-1.fna.fbcdn.net/v/t1.15752-9/426963797_1083902849549118_5791859232688171486_n.png?_nc_cat=103&ccb=1-7&_nc_sid=8cd0a2&_nc_ohc=SLqvOkzzRY4AX-eGOLW&_nc_ht=scontent.fmnl25-1.fna&oh=03_AdQg1yKPWUhRV8ynkQ8WmwT1SIV8OCwl_23mWq9ZTM8E3g&oe=65F263F0"
-                  className="h-8 me-3"
-                  alt="FlowBite Logo"
-                />
+              <a className="flex ms-2 md:me-24 ml-8">
                 <Link to = "dashboard" className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap text-yellow-500">
                   TigerGrid
                 </Link>
@@ -48,7 +43,7 @@ const SideNavbar: React.FC = () => {
             </div>
             <div className="flex items-center">
               <div className="flex items-center ms-3">
-                <div>
+                {/* <div>
                   <button
                     type="button"
                     className="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
@@ -62,7 +57,7 @@ const SideNavbar: React.FC = () => {
                       alt="user photo"
                     />
                   </button>
-                </div>
+                </div> */}
                 <div
                   className="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600"
                   id="dropdown-user"
