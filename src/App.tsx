@@ -40,11 +40,11 @@ import QMSIAPlan from "./user-side/pages/QMSIAPlan";
 import QMSIADo from "./user-side/pages/QMSIADo";
 import QMSIACheck from "./user-side/pages/QMSIACheck";
 import QMSIAAct from "./user-side/pages/QMSIAAct";
-
+import Login from "./admin/pages/Login";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import SideNavbar from "./admin/components/SideNavbar";
-// import SideNavbarUser from "./user-side/components/SideNavbarUser";
+import SideNavbarUser from "./user-side/components/SideNavbarUser";
 
 const App: FC = () => {
   return (
@@ -85,7 +85,11 @@ const App: FC = () => {
             path="/*"
             element={
               <>  
+              <SideNavbarUser />
+                <div className="p-4 sm:ml-64">
+                  <div className="p-2 border-2 border-gray-200 border-dashed rounded-lg mt-14">
                     <Routes>
+
                       <Route path="/" element={<Home />} />
                       <Route path="/landingpage" element={<LandingPage />} />
                       <Route path="/stakeholderfeedback" element={<StakeholderFeedback />} />
@@ -113,11 +117,16 @@ const App: FC = () => {
                       <Route path="/qmsiado" element={<QMSIADo />} />
                       <Route path="/qmsiacheck" element={<QMSIACheck />} />
                       <Route path="/qmsiaact" element={<QMSIAAct />} />
+                      <Route path="/login" element={<Login />} />
                     </Routes>
+                    </div>
+                    </div>
               </>
             }
           />
         </Routes>
+
+        
       </Router>
     </>
   );

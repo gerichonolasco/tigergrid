@@ -35,8 +35,8 @@ const SideNavbar: React.FC = () => {
                   ></path>
                 </svg>
               </button>
-              <a className="flex ms-2 md:me-24 ml-8">
-                <Link to = "dashboard" className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap text-yellow-500">
+              <a className="flex ms-2 md:me-24 ml-9">
+                <Link to = "dashboard" className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap text-yellow-500 ml-7">
                   TigerGrid
                 </Link>
               </a>

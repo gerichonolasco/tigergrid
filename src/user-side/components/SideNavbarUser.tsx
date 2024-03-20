@@ -31,16 +31,72 @@ const SideNavbarUser: React.FC = () => {
                  ></path>
                 </svg>
               </button>
-              <a href="https://flowbite.com" className="flex ms-2 md:me-24">
-                <img
-                 src="https://scontent.fmnl25-1.fna.fbcdn.net/v/t1.15752-9/426963797_1083902849549118_5791859232688171486_n.png?_nc_cat=103&ccb=1-7&_nc_sid=8cd0a2&_nc_ohc=SLqvOkzzRY4AX-eGOLW&_nc_ht=scontent.fmnl25-1.fna&oh=03_AdQg1yKPWUhRV8ynkQ8WmwT1SIV8OCwl_23mWq9ZTM8E3g&oe=65F263F0"
-                 className="h-8 me-3"
-                 alt="FlowBite Logo"
-                />
-                <Link to="dashboard" className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap text-yellow-500">
+              <a className="flex ms-2 md:me-24 ml-9">
+                <Link to="landingpage" className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap text-yellow-500 ml-7">
                  TigerGrid
                 </Link>
               </a>
+            </div>
+            <div className="flex items-center">
+              <div className="flex items-center ms-3">
+                <div
+                 className="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600"
+                 id="dropdown-user"
+                >
+                 <div className="px-4 py-3" role="none">
+                    <p
+                      className="text-sm text-gray-900 dark:text-white"
+                      role="none"
+                    >
+                      Neil Sims
+                    </p>
+                    <p
+                      className="text-sm font-medium text-gray-900 truncate dark:text-gray-300"
+                      role="none"
+                    >
+                      neil.sims@flowbite.com
+                    </p>
+                 </div>
+                 <ul className="py-1" role="none">
+                    <li>
+                      <a
+                        href="#"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                        role="menuitem"
+                      >
+                        Dashboard
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                        role="menuitem"
+                      >
+                        Settings
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                        role="menuitem"
+                      >
+                        Earnings
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                        role="menuitem"
+                      >
+                        Sign out
+                      </a>
+                    </li>
+                 </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -50,23 +106,16 @@ const SideNavbarUser: React.FC = () => {
         id="logo-sidebar"
         className="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0"
         aria-label="Sidebar"
-        style={{ position: 'relative' }} // Make the aside element a relative positioning context
       >
         <div className="h-full px-3 pb-4 overflow-y-auto bg-white">
           <ul className="space-y-2 font-medium">
-            {/* Removed existing routes */}
+            {/* Removed all the Link components */}
           </ul>
-          {/* Container for "Hello User" and Logout button */}
-          <div style={{ position: 'absolute', bottom: 0, width: '100%' }}>
-            <div className="px-3 pb-4">
-              <p className="text-sm text-gray-700 font-bold">Hello, User</p>
-              <button
-                className="mt-4 mb-10 bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
-                style={{ width: '50%', marginRight: '10px' }} // Adjusted width and added margin-right
-                >
-                Logout
-                </button>
-            </div>
+          {/* Added a logout button at the bottom */}
+          <div className="absolute bottom-0 left-0 w-full p-4 ml-12">
+            <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mb-6">
+              Sign Out
+            </button>
           </div>
         </div>
       </aside>
