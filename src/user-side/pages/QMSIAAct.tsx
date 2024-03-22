@@ -75,14 +75,14 @@ const QMSIAAct: FC = () => {
                  <div key={number} className="flex flex-col items-center">
                     <input
                       type="radio"
-                      id={`radio-${number}`}
+                      id={`QMSIA-act-q1-${number}`}
                       name="rating"
                       value={number}
                       checked={selectedValue === number}
                       onChange={handleChange}
                       className="form-radio h-5 w-5 text-gray-600"
                     />
-                    <label htmlFor={`radio-${number}`} className="block text-center text-gray-700 dark:text-gray-500">
+                    <label htmlFor={`QMSIA-act-q1-${number}`} className="block text-center text-gray-700 dark:text-gray-500">
                       {number}
                     </label>
                  </div>
@@ -99,14 +99,14 @@ const QMSIAAct: FC = () => {
                  <div key={number} className="flex flex-col items-center">
                     <input
                       type="radio"
-                      id={`radio2-${number}`}
+                      id={`QMSIA-act-q2-${number}`}
                       name="rating2"
                       value={number}
                       checked={selectedValue2 === number}
                       onChange={handleChange2}
                       className="form-radio h-5 w-5 text-gray-600"
                     />
-                    <label htmlFor={`radio2-${number}`} className="block text-center text-gray-700 dark:text-gray-500">
+                    <label htmlFor={`QMSIA-act-q2-${number}`} className="block text-center text-gray-700 dark:text-gray-500">
                       {number}
                     </label>
                  </div>
@@ -123,14 +123,14 @@ const QMSIAAct: FC = () => {
                  <div key={number} className="flex flex-col items-center">
                     <input
                       type="radio"
-                      id={`radio3-${number}`}
+                      id={`QMSIA-act-q3-${number}`}
                       name="rating3"
                       value={number}
                       checked={selectedValue3 === number}
                       onChange={handleChange3}
                       className="form-radio h-5 w-5 text-gray-600"
                     />
-                    <label htmlFor={`radio3-${number}`} className="block text-center text-gray-700 dark:text-gray-500">
+                    <label htmlFor={`QMSIA-act-q3-${number}`} className="block text-center text-gray-700 dark:text-gray-500">
                       {number}
                     </label>
                  </div>
@@ -147,14 +147,14 @@ const QMSIAAct: FC = () => {
                  <div key={number} className="flex flex-col items-center">
                     <input
                       type="radio"
-                      id={`radio4-${number}`}
+                      id={`QMSIA-act-q4-${number}`}
                       name="rating4"
                       value={number}
                       checked={selectedValue4 === number}
                       onChange={handleChange4}
                       className="form-radio h-5 w-5 text-gray-600"
                     />
-                    <label htmlFor={`radio4-${number}`} className="block text-center text-gray-700 dark:text-gray-500">
+                    <label htmlFor={`QMSIA-act-q4-${number}`} className="block text-center text-gray-700 dark:text-gray-500">
                       {number}
                     </label>
                  </div>
@@ -171,14 +171,14 @@ const QMSIAAct: FC = () => {
                 <div key={number} className="flex flex-col items-center">
                     <input
                     type="radio"
-                    id={`radio5-${number}`}
+                    id={`QMSIA-act-q5-${number}`}
                     name="rating5"
                     value={number}
                     checked={selectedValue5 === number}
                     onChange={handleChange5}
                     className="form-radio h-5 w-5 text-gray-600"
                     />
-                    <label htmlFor={`radio5-${number}`} className="block text-center text-gray-700 dark:text-gray-500">
+                    <label htmlFor={`QMSIA-act-q5-${number}`} className="block text-center text-gray-700 dark:text-gray-500">
                     {number}
                     </label>
                 </div>

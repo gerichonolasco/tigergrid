@@ -95,14 +95,14 @@ const AdminFormPlan: FC = () => {
                  <div key={number} className="flex flex-col items-center">
                     <input
                       type="radio"
-                      id={`radio-${number}`}
+                      id={`admin-plan-q1-${number}`}
                       name="rating"
                       value={number}
                       checked={selectedValue === number}
                       onChange={handleChange}
                       className="form-radio h-5 w-5 text-gray-600"
                     />
-                    <label htmlFor={`radio-${number}`} className="block text-center text-gray-700 dark:text-gray-500">
+                    <label htmlFor={`admin-plan-q1-${number}`} className="block text-center text-gray-700 dark:text-gray-500">
                       {number}
                     </label>
                  </div>
@@ -119,14 +119,14 @@ const AdminFormPlan: FC = () => {
                  <div key={number} className="flex flex-col items-center">
                     <input
                       type="radio"
-                      id={`radio2-${number}`}
+                      id={`admin-plan-q2-${number}`}
                       name="rating2"
                       value={number}
                       checked={selectedValue2 === number}
                       onChange={handleChange2}
                       className="form-radio h-5 w-5 text-gray-600"
                     />
-                    <label htmlFor={`radio2-${number}`} className="block text-center text-gray-700 dark:text-gray-500">
+                    <label htmlFor={`admin-plan-q2-${number}`} className="block text-center text-gray-700 dark:text-gray-500">
                       {number}
                     </label>
                  </div>
@@ -143,14 +143,14 @@ const AdminFormPlan: FC = () => {
                  <div key={number} className="flex flex-col items-center">
                     <input
                       type="radio"
-                      id={`radio3-${number}`}
+                      id={`admin-plan-q3-${number}`}
                       name="rating3"
                       value={number}
                       checked={selectedValue3 === number}
                       onChange={handleChange3}
                       className="form-radio h-5 w-5 text-gray-600"
                     />
-                    <label htmlFor={`radio3-${number}`} className="block text-center text-gray-700 dark:text-gray-500">
+                    <label htmlFor={`admin-plan-q3-${number}`} className="block text-center text-gray-700 dark:text-gray-500">
                       {number}
                     </label>
                  </div>
@@ -167,14 +167,14 @@ const AdminFormPlan: FC = () => {
                  <div key={number} className="flex flex-col items-center">
                     <input
                       type="radio"
-                      id={`radio4-${number}`}
+                      id={`admin-plan-q4-${number}`}
                       name="rating4"
                       value={number}
                       checked={selectedValue4 === number}
                       onChange={handleChange4}
                       className="form-radio h-5 w-5 text-gray-600"
                     />
-                    <label htmlFor={`radio4-${number}`} className="block text-center text-gray-700 dark:text-gray-500">
+                    <label htmlFor={`admin-plan-q4-${number}`} className="block text-center text-gray-700 dark:text-gray-500">
                       {number}
                     </label>
                  </div>
@@ -191,14 +191,14 @@ const AdminFormPlan: FC = () => {
                 <div key={number} className="flex flex-col items-center">
                     <input
                     type="radio"
-                    id={`radio5-${number}`}
+                    id={`admin-plan-q5-${number}`}
                     name="rating5"
                     value={number}
                     checked={selectedValue5 === number}
                     onChange={handleChange5}
                     className="form-radio h-5 w-5 text-gray-600"
                     />
-                    <label htmlFor={`radio5-${number}`} className="block text-center text-gray-700 dark:text-gray-500">
+                    <label htmlFor={`admin-plan-q5-${number}`} className="block text-center text-gray-700 dark:text-gray-500">
                     {number}
                     </label>
                 </div>
@@ -215,14 +215,14 @@ const AdminFormPlan: FC = () => {
                 <div key={number} className="flex flex-col items-center">
                     <input
                     type="radio"
-                    id={`radio6-${number}`}
+                    id={`admin-plan-q6-${number}`}
                     name="rating6"
                     value={number}
                     checked={selectedValue6 === number}
                     onChange={handleChange6}
                     className="form-radio h-5 w-5 text-gray-600"
                     />
-                    <label htmlFor={`radio6-${number}`} className="block text-center text-gray-700 dark:text-gray-500">
+                    <label htmlFor={`admin-plan-q6-${number}`} className="block text-center text-gray-700 dark:text-gray-500">
                     {number}
                     </label>
                 </div>
@@ -239,14 +239,14 @@ const AdminFormPlan: FC = () => {
                 <div key={number} className="flex flex-col items-center">
                     <input
                     type="radio"
-                    id={`radio7-${number}`}
+                    id={`admin-plan-q7-${number}`}
                     name="rating7"
                     value={number}
                     checked={selectedValue7 === number}
                     onChange={handleChange7}
                     className="form-radio h-5 w-5 text-gray-600"
                     />
-                    <label htmlFor={`radio7-${number}`} className="block text-center text-gray-700 dark:text-gray-500">
+                    <label htmlFor={`admin-plan-q7-${number}`} className="block text-center text-gray-700 dark:text-gray-500">
                     {number}
                     </label>
                 </div>
@@ -263,14 +263,14 @@ const AdminFormPlan: FC = () => {
                 <div key={number} className="flex flex-col items-center">
                     <input
                     type="radio"
-                    id={`radio8-${number}`}
+                    id={`admin-plan-q8-${number}`}
                     name="rating8"
                     value={number}
                     checked={selectedValue8 === number}
                     onChange={handleChange8}
                     className="form-radio h-5 w-5 text-gray-600"
                     />
-                    <label htmlFor={`radio8-${number}`} className="block text-center text-gray-700 dark:text-gray-500">
+                    <label htmlFor={`admin-plan-q8-${number}`} className="block text-center text-gray-700 dark:text-gray-500">
                     {number}
                     </label>
                 </div>
@@ -287,14 +287,14 @@ const AdminFormPlan: FC = () => {
                 <div key={number} className="flex flex-col items-center">
                     <input
                     type="radio"
-                    id={`radio9-${number}`}
+                    id={`admin-plan-q9-${number}`}
                     name="rating9"
                     value={number}
                     checked={selectedValue9 === number}
                     onChange={handleChange9}
                     className="form-radio h-5 w-5 text-gray-600"
                     />
-                    <label htmlFor={`radio9-${number}`} className="block text-center text-gray-700 dark:text-gray-500">
+                    <label htmlFor={`admin-plan-q9-${number}`} className="block text-center text-gray-700 dark:text-gray-500">
                     {number}
                     </label>
                 </div>

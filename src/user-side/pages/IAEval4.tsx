@@ -65,14 +65,14 @@ const handleChange3 = (event: React.ChangeEvent<HTMLInputElement>) => {
                  <div key={number} className="flex flex-col items-center">
                     <input
                       type="radio"
-                      id={`radio-${number}`}
+                      id={`IAE-page4-q1-${number}`}
                       name="rating"
                       value={number}
                       checked={selectedValue === number}
                       onChange={handleChange}
                       className="form-radio h-5 w-5 text-gray-600"
                     />
-                    <label htmlFor={`radio-${number}`} className="block text-center text-gray-700 dark:text-gray-500">
+                    <label htmlFor={`IAE-page4-q1-${number}`} className="block text-center text-gray-700 dark:text-gray-500">
                       {number}
                     </label>
                  </div>
@@ -89,14 +89,14 @@ const handleChange3 = (event: React.ChangeEvent<HTMLInputElement>) => {
                  <div key={number} className="flex flex-col items-center">
                     <input
                       type="radio"
-                      id={`radio2-${number}`}
+                      id={`IAE-page4-q2-${number}`}
                       name="rating2"
                       value={number}
                       checked={selectedValue2 === number}
                       onChange={handleChange2}
                       className="form-radio h-5 w-5 text-gray-600"
                     />
-                    <label htmlFor={`radio2-${number}`} className="block text-center text-gray-700 dark:text-gray-500">
+                    <label htmlFor={`IAE-page4-q2-${number}`} className="block text-center text-gray-700 dark:text-gray-500">
                       {number}
                     </label>
                  </div>
@@ -113,14 +113,14 @@ const handleChange3 = (event: React.ChangeEvent<HTMLInputElement>) => {
                  <div key={number} className="flex flex-col items-center">
                     <input
                       type="radio"
-                      id={`radio3-${number}`}
+                      id={`IAE-page4-q3-${number}`}
                       name="rating3"
                       value={number}
                       checked={selectedValue3 === number}
                       onChange={handleChange3}
                       className="form-radio h-5 w-5 text-gray-600"
                     />
-                    <label htmlFor={`radio3-${number}`} className="block text-center text-gray-700 dark:text-gray-500">
+                    <label htmlFor={`IAE-page4-q3-${number}`} className="block text-center text-gray-700 dark:text-gray-500">
                       {number}
                     </label>
                  </div>
