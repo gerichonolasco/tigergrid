@@ -10,40 +10,38 @@ const StakeholderFeedback4: FC = () => {
     setAnswers(newAnswers);
   };
 
-  
-
   return (
     <div className="w-screen-xl px-4 bg-white min-h-screen flex flex-col items-center justify-center">
-
-<div className="flex justify-center mt-10 mb-4"> {/* Add this container */}
-        <ol className="items-center space-y-4 sm:flex sm:space-x-8 sm:space-y-0">
-        <li className="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5">
-            <span className="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
-              1
-            </span>
-          </li>
-          <li className="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5">
-            <span className="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
-              2
-            </span>
-          </li>
-          <li className="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5">
-            <span className="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
-              3
-            </span>
-          </li>
-          <li className="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5">
-            <span className="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
-              4
-            </span>
-          </li>
-          <li className="flex items-center font-bold text-yellow-600 dark:text-yellow-500 space-x-2.5">
-            <span className="flex items-center justify-center w-8 h-8 border border-yellow-600 rounded-full shrink-0 dark:border-yellow-500">
-              5
-            </span>
-          </li>
-        </ol>
-      </div> 
+    <div className="flex justify-center mt-12">
+      <ol className="items-center space-y-4 sm:flex sm:space-x-8 sm:space-y-0">
+        {/* Updated IDs for the steppers */}
+        <li id="SF-page4-step1" className="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5">
+          <span className="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+            1
+          </span>
+        </li>
+        <li id="SF-page4-step2" className="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5">
+          <span className="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+            2
+          </span>
+        </li>
+        <li id="SF-page4-step3" className="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5">
+          <span className="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+            3
+          </span>
+        </li>
+        <li id="SF-page4-step4" className="flex items-center font-bold text-yellow-600 dark:text-yellow-500 space-x-2.5">
+          <span className="flex items-center justify-center w-8 h-8 border border-yellow-600 rounded-full shrink-0 dark:border-yellow-500">
+            4
+          </span>
+        </li>
+        <li id="SF-page4-step5" className="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5">
+          <span className="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+            5
+          </span>
+        </li>
+      </ol>
+    </div>
 
       {/* Gray Container with Questions and Radio Buttons */}
       <div className="mt-2 bg-gray-100 p-8 rounded-lg w-full sm:w-[800px]">
@@ -59,72 +57,84 @@ const StakeholderFeedback4: FC = () => {
         </div>
         <QuestionWithRadioButtons
           question="Information obtained was clear."
+          id="page4-q1-longradio"
           options={[1, 2, 3, 4, 5, "N/A"]}
           answer={answers[0]}
           onOptionChange={(option) => handleOptionChange(0, option)}
         />
         <QuestionWithRadioButtons
           question="Information obtained was complete."
+          id="page4-q2-longradio"
           options={[1, 2, 3, 4, 5, "N/A"]}
           answer={answers[1]}
           onOptionChange={(option) => handleOptionChange(1, option)}
         />
         <QuestionWithRadioButtons
           question="Information obtained was useful."
+          id="page4-q3-longradio"
           options={[1, 2, 3, 4, 5, "N/A"]}
           answer={answers[2]}
           onOptionChange={(option) => handleOptionChange(2, option)}
         />
         <QuestionWithRadioButtons
-          question="Person(s) who attended to the concern was corteous. "
+          question="Person(s) who attended to the concern was corteous."
+          id="page4-q4-longradio"
           options={[1, 2, 3, 4, 5, "N/A"]}
           answer={answers[3]}
           onOptionChange={(option) => handleOptionChange(3, option)}
         />
         <QuestionWithRadioButtons
           question="Person(s) who attended to the concern was competent."
+          id="page4-q5-longradio"
           options={[1, 2, 3, 4, 5, "N/A"]}
           answer={answers[3]}
           onOptionChange={(option) => handleOptionChange(3, option)}
         />
                 <QuestionWithRadioButtons
           question="The time it took to complete the transaction was quick."
+          id="page4-q6-longradio"
           options={[1, 2, 3, 4, 5, "N/A"]}
           answer={answers[3]}
           onOptionChange={(option) => handleOptionChange(3, option)}
         />
                 <QuestionWithRadioButtons
           question="The time it took to complete the transaction was reasonable."
+          id="page4-q7-longradio"
           options={[1, 2, 3, 4, 5, "N/A"]}
           answer={answers[3]}
           onOptionChange={(option) => handleOptionChange(3, option)}
         />
                 <QuestionWithRadioButtons
           question="Over-all experience was pleasant."
+          id="page4-q8-longradio"
           options={[1, 2, 3, 4, 5, "N/A"]}
           answer={answers[3]}
           onOptionChange={(option) => handleOptionChange(3, option)}
         />
                 <QuestionWithRadioButtons
           question="Person(s) who attended to the concern was competent."
+          id="page4-q9-longradio"
           options={[1, 2, 3, 4, 5, "N/A"]}
           answer={answers[3]}
           onOptionChange={(option) => handleOptionChange(3, option)}
         />
                 <QuestionWithRadioButtons
           question="The time it took to complete the transaction was quick."
+          id="page4-q10-longradio"
           options={[1, 2, 3, 4, 5, "N/A"]}
           answer={answers[3]}
           onOptionChange={(option) => handleOptionChange(3, option)}
         />
                 <QuestionWithRadioButtons
           question="The time it took to complete the transaction was reasonable."
+          id="page4-q11-longradio"
           options={[1, 2, 3, 4, 5, "N/A"]}
           answer={answers[3]}
           onOptionChange={(option) => handleOptionChange(3, option)}
         />
                 <QuestionWithRadioButtons
           question="Over-all experience was pleasant."
+          id="page4-q12-longradio"
           options={[1, 2, 3, 4, 5, "N/A"]}
           answer={answers[3]}
           onOptionChange={(option) => handleOptionChange(3, option)}
@@ -134,6 +144,7 @@ const StakeholderFeedback4: FC = () => {
         How can we serve you better?
         </p>
         <input type="textarea"
+        id="SF-page4-feedbackText"
         className="mt-2 mb-2 bg-white border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500"
         placeholder="Type here"
         style={{ width: "100%" }} // This will make the input take the full width of its container
@@ -150,12 +161,13 @@ const StakeholderFeedback4: FC = () => {
 
 interface QuestionWithRadioButtonsProps {
   question: string;
+  id: string;
   options: (number | string)[];
   answer: number | string | null;
   onOptionChange: (option: number | string) => void;
 }
 
-const QuestionWithRadioButtons: FC<QuestionWithRadioButtonsProps> = ({ question, options, answer, onOptionChange }) => {
+const QuestionWithRadioButtons: FC<QuestionWithRadioButtonsProps> = ({ question, id, options, answer, onOptionChange }) => {
   return (
     <div className="flex items-center justify-between mb-4">
       <p>{question}</p>
@@ -164,6 +176,7 @@ const QuestionWithRadioButtons: FC<QuestionWithRadioButtonsProps> = ({ question,
           <div key={option} className="flex flex-col items-center mr-5">
             <input
               type="radio"
+              id={id}
               value={option}
               checked={answer === option}
               onChange={() => onOptionChange(option)}

@@ -10,6 +10,7 @@ import QMSAnalytics from "./admin/pages/QMSAnalytics";
 import AddForm from "./admin/pages/AddForm";
 import IAChooseType from "./admin/pages/IAChooseType";
 import QMSunitorIA from "./admin/pages/QMSunitorIA";
+import AcadPDCA from "./admin/pages/AcadPDCA";
 import AcademicOrAdmin from "./admin/pages/AcademicOrAdmin";
 import DocumentGrid from "./admin/pages/DocumentGrid";
 
@@ -73,6 +74,7 @@ const App: FC = () => {
                       <Route path="iachoosetype" element={<IAChooseType />} />
                       <Route path="unitoria" element={<QMSunitorIA />} />
                       <Route path="acadoradmin" element={<AcademicOrAdmin />} />
+                      <Route path="acadPDCA" element={<AcadPDCA />} />
                       <Route path="grid" element={<DocumentGrid />} />
                     </Routes>
                   </div>

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"; // Import Link from react-router-dom
 const AcademicOrAdmin: FC = () => {
     return (
         <div className="flex justify-center h-screen mt-32">
-            <Link to="/route1"> {/* Add Link component and specify route */}
+            <Link to="/admin/acadPDCA"> {/* Add Link component and specify route */}
                 <div className="flex flex-col items-center">
                     <svg className="h-56 w-56 text-black-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z"/>

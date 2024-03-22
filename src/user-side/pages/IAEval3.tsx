@@ -39,37 +39,37 @@ const IAEval3: FC = () => {
  };
 
  return (
-    <div className="w-screen-xl px-4 bg-white min-h-screen flex flex-col items-center justify-center">
-
-<div className="flex justify-center mt-12"> 
-        <ol className="items-center space-y-4 sm:flex sm:space-x-8 sm:space-y-0">
-          <li className="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5">
-            <span className="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
-              1
-            </span>
-          </li>
-          <li className="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5">
-            <span className="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
-              2
-            </span>
-          </li>
-          <li className="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5">
-            <span className="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
-              3
-            </span>
-          </li>
-          <li className="flex items-center font-bold text-yellow-600 dark:text-yellow-500 space-x-2.5">
-            <span className="flex items-center justify-center w-8 h-8 border border-yellow-600 rounded-full shrink-0 dark:border-yellow-500">
-              4
-            </span>
-          </li>
-          <li className="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5">
-            <span className="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
-              5
-            </span>
-          </li>
-        </ol>
-      </div> 
+  <div className="w-screen-xl px-4 bg-white min-h-screen flex flex-col items-center justify-center">
+  <div className="flex justify-center">
+    <ol className="items-center space-y-4 sm:flex sm:space-x-8 sm:space-y-0">
+      {/* Updated IDs for the steppers */}
+      <li id="IAE-page3-step1" className="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5">
+        <span className="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+          1
+        </span>
+      </li>
+      <li id="IAE-page3-step2" className="flex items-center font-bold text-yellow-600 dark:text-yellow-500 space-x-2.5">
+        <span className="flex items-center justify-center w-8 h-8 border border-yellow-600 rounded-full shrink-0 dark:border-yellow-500">
+          2
+        </span>
+      </li>
+      <li id="IAE-page3-step3" className="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5">
+        <span className="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+          3
+        </span>
+      </li>
+      <li id="IAE-page3-step4" className="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5">
+        <span className="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+          4
+        </span>
+      </li>
+      <li id="IAE-page3-step5" className="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5">
+        <span className="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+          5
+        </span>
+      </li>
+    </ol>
+  </div> 
 
       <div className="flex flex-col items-center justify-center mt-10 mb-6">
         <div>
