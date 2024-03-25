@@ -65,6 +65,8 @@ const App: FC = () => {
     <>
       <Router>
         <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
           <Route
             path="/admin/*"
             element={
@@ -118,7 +120,7 @@ const App: FC = () => {
                   <div className="p-2 border-2 border-gray-200 border-dashed rounded-lg mt-14">
                     <Routes>
 
-                      <Route path="/" element={<Home />} />
+
                       <Route path="/landingpage" element={<LandingPage />} />
                       <Route path="/stakeholderfeedback" element={<StakeholderFeedback />} />
                       <Route path="/stakeholderfeedback2" element={<StakeholderFeedback2 />} />
@@ -145,7 +147,6 @@ const App: FC = () => {
                       <Route path="/qmsiado" element={<QMSIADo />} />
                       <Route path="/qmsiacheck" element={<QMSIACheck />} />
                       <Route path="/qmsiaact" element={<QMSIAAct />} />
-                      <Route path="/login" element={<Login />} />
                     </Routes>
                     </div>
                     </div>
