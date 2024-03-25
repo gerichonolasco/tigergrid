@@ -6,11 +6,24 @@ import ManageIAEval from "./admin/pages/ManageIAEval";
 import ManageQMSEval from "./admin/pages/ManageQMSEval";
 import SFAnalytics from "./admin/pages/SFAnalytics";
 import IAEAnalytics from "./admin/pages/IAEAnalytics";
-import QMSAnalytics from "./admin/pages/QMSAnalytics";
+import AcadTablePlan from "./admin/pages/AcadTablePlan";
+import AcadTableDo from "./admin/pages/AcadTableDo";
+import AcadTableCheck from "./admin/pages/AcadTableCheck";
+import AcadTableAct from "./admin/pages/AcadTableAct";
+import AdminTablePlan from "./admin/pages/AdminTablePlan";
+import AdminTableDo from "./admin/pages/AdminTableDo";
+import AdminTableCheck from "./admin/pages/AdminTableCheck";
+import AdminTableAct from "./admin/pages/AdminTableAct";
+import IATablePlan from "./admin/pages/IATablePlan";
+import IATableDo from "./admin/pages/IATableDo";
+import IATableCheck from "./admin/pages/IATableCheck";
+import IATableAct from "./admin/pages/IATableAct";
 import AddForm from "./admin/pages/AddForm";
 import IAChooseType from "./admin/pages/IAChooseType";
 import QMSunitorIA from "./admin/pages/QMSunitorIA";
 import AcadPDCA from "./admin/pages/AcadPDCA";
+import AdminPDCA from "./admin/pages/AdminPDCA";
+import IAPDCA from "./admin/pages/IAPDCA";
 import AcademicOrAdmin from "./admin/pages/AcademicOrAdmin";
 import DocumentGrid from "./admin/pages/DocumentGrid";
 
@@ -70,11 +83,24 @@ const App: FC = () => {
                       <Route path="sfanalytics" element={<SFAnalytics />} />
                       <Route path="iaeanalytics" element={<IAEAnalytics />} />
                       <Route path="addform" element={<AddForm />} />
-                      <Route path="qmsanalytics" element={<QMSAnalytics />} />
+                      <Route path="acadtableplan" element={<AcadTablePlan />} />
+                      <Route path="acadtabledo" element={<AcadTableDo />} />
+                      <Route path="acadtablecheck" element={<AcadTableCheck />} />
+                      <Route path="acadtableact" element={<AcadTableAct />} />
+                      <Route path="admintableplan" element={<AdminTablePlan />} />
+                      <Route path="admintabledo" element={<AdminTableDo />} />
+                      <Route path="admintablecheck" element={<AdminTableCheck />} />
+                      <Route path="admintableact" element={<AdminTableAct />} />
+                      <Route path="iatableplan" element={<IATablePlan />} />
+                      <Route path="iatabledo" element={<IATableDo />} />
+                      <Route path="iatablecheck" element={<IATableCheck />} />
+                      <Route path="iatableact" element={<IATableAct />} />
                       <Route path="iachoosetype" element={<IAChooseType />} />
                       <Route path="unitoria" element={<QMSunitorIA />} />
                       <Route path="acadoradmin" element={<AcademicOrAdmin />} />
                       <Route path="acadPDCA" element={<AcadPDCA />} />
+                      <Route path="adminPDCA" element={<AdminPDCA />} />
+                      <Route path="iaPDCA" element={<IAPDCA />} />
                       <Route path="grid" element={<DocumentGrid />} />
                     </Routes>
                   </div>
