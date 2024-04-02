@@ -2,18 +2,20 @@ import React, { FC, useState } from "react";
 import { Link } from "react-router-dom";
 
 const IAEval2: FC = () => {
- const [selectedValue, setSelectedValue] = useState<number | null>(null);
- const [selectedValue2, setSelectedValue2] = useState<number | null>(null);
+  const [selectedValue, setSelectedValue] = useState<number | null>(null);
+  const [selectedValue2, setSelectedValue2] = useState<number | null>(null);
 
- const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedValue(Number(event.target.value));
- };
+  };
 
- const handleChange2 = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange2 = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedValue2(Number(event.target.value));
- };
+  };
 
- return (
+  const isNextButtonDisabled = selectedValue === null || selectedValue2 === null;
+
+  return (
     <div className="w-screen-xl px-4 bg-white min-h-screen flex flex-col items-center justify-center">
       <div className="flex justify-center">
         <ol className="items-center space-y-4 sm:flex sm:space-x-8 sm:space-y-0">
@@ -102,12 +104,12 @@ const IAEval2: FC = () => {
           <div className="flex justify-center mt-5">
             {/* Navigation buttons */}
             <Link to="/iaeval" className="bg-yellow-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-5">Back</Link>
-            <Link to="/iaeval3" className="bg-yellow-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Next</Link>
+            <Link to="/iaeval3" className={`bg-yellow-500 ${isNextButtonDisabled ? 'cursor-not-allowed opacity-50' : 'hover:bg-blue-700'} text-white font-bold py-2 px-4 rounded`} disabled={isNextButtonDisabled}>Next</Link>
           </div>
         </div>
       </div>
     </div>
- );
+  );
 };
 
 export default IAEval2;

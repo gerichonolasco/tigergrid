@@ -1,8 +1,18 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import { Link } from "react-router-dom";
 
 const IAEval: FC = () => {
- return (
+  const [selectedUnit, setSelectedUnit] = useState<string>("");
+
+  const handleNextClick = () => {
+    if (selectedUnit === "") {
+      alert("Please select a unit.");
+    }
+  };
+
+  const isNextButtonDisabled = selectedUnit === "";
+
+  return (
     <div className="w-screen-xl px-4 bg-white min-h-screen flex flex-col items-center justify-center">
       <div className="flex justify-center">
         <ol className="items-center space-y-4 sm:flex sm:space-x-8 sm:space-y-0">
@@ -40,22 +50,27 @@ const IAEval: FC = () => {
           <p className="text-black-500 text-xl font-bold mt-3">
             Unit
           </p>
-          <select id="IAE-page1-unitSelect" className="mt-3 mb-5 bg-white border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500">
-            <option value="" disabled selected>Choose Unit</option>
-            <option value="option1">APQAO</option>
-            <option value="option2">Archives</option>
-            <option value="option3">Average Score</option>
+          <select
+            id="IAE-page1-unitSelect"
+            className="mt-3 mb-5 bg-white border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500"
+            value={selectedUnit}
+            onChange={(e) => setSelectedUnit(e.target.value)}
+          >
+            <option value="" disabled>Choose Unit</option>
+            <option value="APQAO">APQAO</option>
+            <option value="Archives">Archives</option>
+            <option value="Average Score">Average Score</option>
           </select>
         
           <div className="flex justify-center mt-5">
             {/* Navigation buttons */}
             <Link to="/dataprivacyIAE" className="bg-yellow-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-5">Back</Link>
-            <Link to="/iaeval2" className="bg-yellow-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Next</Link>
+            <Link to="/iaeval2" onClick={handleNextClick} className={`bg-yellow-500 ${isNextButtonDisabled ? 'cursor-not-allowed opacity-50' : 'hover:bg-blue-700'} text-white font-bold py-2 px-4 rounded`} disabled={isNextButtonDisabled}>Next</Link>
           </div>
         </div>
       </div>
     </div>
- );
+  );
 };
 
 export default IAEval;

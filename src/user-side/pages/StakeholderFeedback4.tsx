@@ -12,7 +12,7 @@ const StakeholderFeedback4: FC = () => {
 
   const handleNextClick = () => {
     if (answers.some(answer => answer === null || answer === '')) {
-      alert("Please answer all fields.");
+      alert("Please answer all fields before submitting.");
     }
   };
 

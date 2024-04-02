@@ -2,87 +2,96 @@ import React, { FC, useState } from "react";
 import { Link } from "react-router-dom";
 
 const IAEval3: FC = () => {
- const [selectedValue, setSelectedValue] = useState<number | null>(null);
- const [selectedValue2, setSelectedValue2] = useState<number | null>(null);
- const [selectedValue3, setSelectedValue3] = useState<number | null>(null);
- const [selectedValue4, setSelectedValue4] = useState<number | null>(null);
- const [selectedValue5, setSelectedValue5] = useState<number | null>(null);
- const [selectedValue6, setSelectedValue6] = useState<number | null>(null); 
- const [selectedValue7, setSelectedValue7] = useState<number | null>(null); 
+  const [selectedValue, setSelectedValue] = useState<number | null>(null);
+  const [selectedValue2, setSelectedValue2] = useState<number | null>(null);
+  const [selectedValue3, setSelectedValue3] = useState<number | null>(null);
+  const [selectedValue4, setSelectedValue4] = useState<number | null>(null);
+  const [selectedValue5, setSelectedValue5] = useState<number | null>(null);
+  const [selectedValue6, setSelectedValue6] = useState<number | null>(null);
+  const [selectedValue7, setSelectedValue7] = useState<number | null>(null);
 
- const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedValue(Number(event.target.value));
- }
+  };
 
- const handleChange2 = (event: React.ChangeEvent<HTMLInputElement>) => { 
+  const handleChange2 = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedValue2(Number(event.target.value));
- };
+  };
 
- const handleChange3 = (event: React.ChangeEvent<HTMLInputElement>) => { 
-    setSelectedValue3(Number(event.target.value)); 
- };
+  const handleChange3 = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSelectedValue3(Number(event.target.value));
+  };
 
- const handleChange4 = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedValue4(Number(event.target.value)); 
- };
+  const handleChange4 = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSelectedValue4(Number(event.target.value));
+  };
 
- const handleChange5 = (event: React.ChangeEvent<HTMLInputElement>) => { 
+  const handleChange5 = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedValue5(Number(event.target.value));
- };
+  };
 
- const handleChange6 = (event: React.ChangeEvent<HTMLInputElement>) => { 
+  const handleChange6 = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedValue6(Number(event.target.value));
- };
+  };
 
- const handleChange7 = (event: React.ChangeEvent<HTMLInputElement>) => { 
+  const handleChange7 = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedValue7(Number(event.target.value));
- };
+  };
 
- return (
-  <div className="w-screen-xl px-4 bg-white min-h-screen flex flex-col items-center justify-center">
-  <div className="flex justify-center">
-    <ol className="items-center space-y-4 sm:flex sm:space-x-8 sm:space-y-0">
-      {/* Updated IDs for the steppers */}
-      <li id="IAE-page3-step1" className="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5">
-        <span className="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
-          1
-        </span>
-      </li>
-      <li id="IAE-page3-step2" className="flex items-center font-bold text-yellow-600 dark:text-yellow-500 space-x-2.5">
-        <span className="flex items-center justify-center w-8 h-8 border border-yellow-600 rounded-full shrink-0 dark:border-yellow-500">
-          2
-        </span>
-      </li>
-      <li id="IAE-page3-step3" className="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5">
-        <span className="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
-          3
-        </span>
-      </li>
-      <li id="IAE-page3-step4" className="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5">
-        <span className="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
-          4
-        </span>
-      </li>
-      <li id="IAE-page3-step5" className="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5">
-        <span className="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
-          5
-        </span>
-      </li>
-    </ol>
-  </div> 
+  const isNextButtonDisabled =
+    selectedValue === null ||
+    selectedValue2 === null ||
+    selectedValue3 === null ||
+    selectedValue4 === null ||
+    selectedValue5 === null ||
+    selectedValue6 === null ||
+    selectedValue7 === null;
+
+  return (
+    <div className="w-screen-xl px-4 bg-white min-h-screen flex flex-col items-center justify-center">
+      <div className="flex justify-center">
+        <ol className="items-center space-y-4 sm:flex sm:space-x-8 sm:space-y-0">
+          {/* Updated IDs for the steppers */}
+          <li id="IAE-page3-step1" className="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5">
+            <span className="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+              1
+            </span>
+          </li>
+          <li id="IAE-page3-step2" className="flex items-center font-bold text-yellow-600 dark:text-yellow-500 space-x-2.5">
+            <span className="flex items-center justify-center w-8 h-8 border border-yellow-600 rounded-full shrink-0 dark:border-yellow-500">
+              2
+            </span>
+          </li>
+          <li id="IAE-page3-step3" className="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5">
+            <span className="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+              3
+            </span>
+          </li>
+          <li id="IAE-page3-step4" className="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5">
+            <span className="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+              4
+            </span>
+          </li>
+          <li id="IAE-page3-step5" className="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5">
+            <span className="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+              5
+            </span>
+          </li>
+        </ol>
+      </div> 
 
       <div className="flex flex-col items-center justify-center mt-10 mb-6">
         <div>
-        <div className="bg-gray-100 p-8 rounded-lg w-full sm:w-[700px] h-auto sm:h-[1120px] flex flex-col items-center justify-center">
-        <p className="text-black-500 text-xl font-bold mt-3">Audit Proper</p><br></br>
+          <div className="bg-gray-100 p-8 rounded-lg w-full sm:w-[700px] h-auto sm:h-[1120px] flex flex-col items-center justify-center">
+            <p className="text-black-500 text-xl font-bold mt-3">Audit Proper</p><br></br>
             
             <p className="text-black-500 text-xl font-bold mt-3">
-            1. The auditor observed well the audit schedule.
+              1. The auditor observed well the audit schedule.
             </p>
             <div className="flex justify-center mt-5">
               <div className="flex flex-row space-x-4">
                 {[1, 2, 3, 4, 5].map((number) => (
-                 <div key={number} className="flex flex-col items-center">
+                  <div key={number} className="flex flex-col items-center">
                     <input
                       type="radio"
                       id={`IAE-page3-q1-${number}`}
@@ -95,10 +104,11 @@ const IAEval3: FC = () => {
                     <label htmlFor={`IAE-page3-q1-${number}`} className="block text-center text-gray-700 dark:text-gray-500">
                       {number}
                     </label>
-                 </div>
+                  </div>
                 ))}
               </div>
             </div>
+
 
             <p className="text-black-500 text-xl font-bold mt-8">
             2. The auditor clearly introduced the methodologies, activities, or objectives of the audit.
@@ -247,7 +257,7 @@ const IAEval3: FC = () => {
             <div className="flex justify-center mt-5">
               {/* Navigation buttons */}
               <Link to="/iaeval2" className="bg-yellow-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-5">Back</Link>
-              <Link to="/iaeval4" className="bg-yellow-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Next</Link>
+              <Link to="/iaeval4" className={`bg-yellow-500 ${isNextButtonDisabled ? 'cursor-not-allowed opacity-50' : 'hover:bg-blue-700'} text-white font-bold py-2 px-4 rounded`} disabled={isNextButtonDisabled}>Next</Link>
             </div>
           </div>
         </div>
