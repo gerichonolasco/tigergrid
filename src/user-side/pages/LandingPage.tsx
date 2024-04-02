@@ -46,7 +46,7 @@ const LandingPage: FC = () => {
                 {items.content}
               </p>
               <div className="flex justify-center items-center">
-                <Link to={items.route || '#'} className="px-4 py-2 text-sm text-blue-100 bg-yellow-500 rounded shadow">
+                <Link to={items.route || '#'} className="px-4 py-2 text-sm text-blue-100 bg-yellow-500 rounded shadow text-white">
                   Add Feedback
                 </Link>
               </div>
