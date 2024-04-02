@@ -1,8 +1,22 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import { Link } from "react-router-dom";
 
 const StakeholderFeedback3: FC = () => {
- return (
+  // State variables to track selected values
+  const [academicUnit, setAcademicUnit] = useState<string>("");
+  const [transactionPurpose, setTransactionPurpose] = useState<string>("");
+  const [concern, setConcern] = useState<string>("");
+  const [designation, setDesignation] = useState<string>("");
+  const [details, setDetails] = useState<string>("");
+
+  // Function to handle Next button click
+  const handleNextClick = () => {
+    if (!academicUnit || !transactionPurpose || !concern || !designation || !details) {
+      alert("Please fill in all fields.");
+    }
+  };
+
+  return (
     <div className="w-screen-xl px-4 bg-white min-h-screen flex flex-col items-center justify-center">
       <div className="flex justify-center mt-12">
         <ol className="items-center space-y-4 sm:flex sm:space-x-8 sm:space-y-0">
@@ -41,8 +55,8 @@ const StakeholderFeedback3: FC = () => {
           Specific ACADEMIC UNIT/OFFICE you transacted business with:
           </p>
           {/* Updated ID for the select element */}
-          <select id="page3-academicUnit" className="mt-3 mb-5 bg-white border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500">
-            <option value="" disabled selected>Choose specific Academic Unit/Office</option>
+          <select id="page3-academicUnit" className="mt-3 mb-5 bg-white border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500" value={academicUnit} onChange={(e) => setAcademicUnit(e.target.value)}>
+            <option value="">Choose specific Academic Unit/Office</option>
             <option value="option1">ACOUNTANCY, College of</option>
             <option value="option2">ARCHITECTURE, College of</option>
             <option value="option3">ARTS AND LETTERS, College of</option>
@@ -72,7 +86,7 @@ const StakeholderFeedback3: FC = () => {
             Purpose of Transaction
           </p>
           {/* Updated ID for the select element */}
-          <select id="page3-transactionPurpose" className="mt-3 mb-5 bg-white border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500">
+          <select id="page3-transactionPurpose" className="mt-3 mb-5 bg-white border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500" value={transactionPurpose} onChange={(e) => setTransactionPurpose(e.target.value)}>
             <option value="" disabled selected>Choose Purpose of Transaction</option>
             <option value="option1">Inquiry</option>
             <option value="option2">Follow-up</option>
@@ -86,7 +100,7 @@ const StakeholderFeedback3: FC = () => {
           Choose specific concern
           </p>
           {/* Updated ID for the select element */}
-          <select id="page3-concern" className="mt-3 mb-5 bg-white border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500">
+          <select id="page3-concern" className="mt-3 mb-5 bg-white border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500" value={concern} onChange={(e) => setConcern(e.target.value)}>
             <option value="" disabled selected>Choose Concern</option>
             <option value="option1">Admission</option>
             <option value="option2">Application</option>
@@ -112,7 +126,7 @@ const StakeholderFeedback3: FC = () => {
           Designation of person who attended to your transaction
           </p>
           {/* Updated ID for the select element */}
-          <select id="page3-designation" className="mt-3 mb-5 bg-white border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500">
+          <select id="page3-designation" className="mt-3 mb-5 bg-white border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500" value={designation} onChange={(e) => setDesignation(e.target.value)}>
             <option value="" disabled selected>Choose Specific Academic Unit/Office</option>
             <option value="option1">Administrative/Academic Official</option>
             <option value="option2">Support Staff</option>
@@ -126,19 +140,21 @@ const StakeholderFeedback3: FC = () => {
             <input
             id="page3-details"
             type="text"
-            className="mt-3 mb-4 bg-white border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500"
+            className="mt-3 mb-4 bg-white border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500" 
             placeholder="Type here"
+            value={details}
+            onChange={(e) => setDetails(e.target.value)}
             />
 
-          <div className="flex justify-center mt-8">
+            <div className="flex justify-center mt-8">
             {/* Navigation buttons */}
             <Link to="/stakeholderfeedback2" className="bg-yellow-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-5">Back</Link>
-            <Link to="/stakeholderfeedback4" className="bg-yellow-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Next</Link>
+            <Link to={academicUnit && transactionPurpose && concern && designation && details ? "/stakeholderfeedback4" : "#"} onClick={handleNextClick} className={`bg-yellow-500 ${academicUnit && transactionPurpose && concern && designation && details ? "hover:bg-blue-700" : "cursor-not-allowed opacity-50"} text-white font-bold py-2 px-4 rounded`}>Next</Link>
           </div>
         </div>
       </div>
     </div>
- );
+  );
 };
 
 export default StakeholderFeedback3;

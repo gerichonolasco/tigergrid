@@ -37,7 +37,6 @@ const Login = () => {
 
   return (
     <>
-    {/* <Navbar /> */}
     <div style={{ backgroundImage: "url('/images/mainbldg.png')", height: '100vh', backgroundSize: 'cover', backgroundPosition: 'center' }}> 
     <div className="flex justify-center items-center bg-cover bg-center bg-main-building">
     <div className="container w-full md:w-3/4 lg:w-1/2 xl:w-1/3 bg-white p-8 rounded-lg shadow-md mt-28">

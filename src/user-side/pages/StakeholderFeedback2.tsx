@@ -1,8 +1,19 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import { Link } from "react-router-dom";
 
 const StakeholderFeedback2: FC = () => {
- return (
+  // Generate unique IDs for select elements
+  const [stakeholderType, setStakeholderType] = useState<string>("");
+  const [transactionType, setTransactionType] = useState<string>("");
+  const [officeType, setOfficeType] = useState<string>("");
+
+  const handleNextClick = () => {
+    if (!stakeholderType || !transactionType || !officeType) {
+      alert("Please select options for all fields.");
+    }
+  };
+
+  return (
     <div className="w-screen-xl px-4 bg-white min-h-screen flex flex-col items-center justify-center">
       <div className="flex justify-center">
         <ol className="items-center space-y-4 sm:flex sm:space-x-8 sm:space-y-0">
@@ -41,8 +52,8 @@ const StakeholderFeedback2: FC = () => {
             Type of Internal Stakeholder
           </p>
           {/* Updated ID for the select element */}
-          <select id="page2-stakeholderType" className="mt-3 mb-5 bg-white border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500">
-            <option value="" disabled selected>Choose Type of Internal Stakeholder</option>
+          <select id="page2-stakeholderType" className="mt-3 mb-5 bg-white border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500" value={stakeholderType} onChange={(e) => setStakeholderType(e.target.value)}>
+            <option value="">Choose Type of Internal Stakeholder</option>
             <option value="option1">Administrative/Academic Official</option>
             <option value="option2">Academic Staff</option>
             <option value="option3">Support Staff</option>
@@ -55,8 +66,8 @@ const StakeholderFeedback2: FC = () => {
             Type of Transaction
           </p>
           {/* Updated ID for the select element */}
-          <select id="page2-transactionType" className="mt-3 mb-5 bg-white border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500">
-            <option value="" disabled selected>Choose Type of Transaction</option>
+          <select id="page2-transactionType" className="mt-3 mb-5 bg-white border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500" value={transactionType} onChange={(e) => setTransactionType(e.target.value)}>
+            <option value="">Choose Type of Transaction</option>
             <option value="option1">Online</option>
             <option value="option2">Onsite</option>
           </select>
@@ -65,8 +76,8 @@ const StakeholderFeedback2: FC = () => {
             Type of Office
           </p>
           {/* Updated ID for the select element */}
-          <select id="page2-officeType" className="mt-3 mb-5 bg-white border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500">
-            <option value="" disabled selected>Choose Type of Field</option>
+          <select id="page2-officeType" className="mt-3 mb-5 bg-white border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500" value={officeType} onChange={(e) => setOfficeType(e.target.value)}>
+            <option value="">Choose Type of Field</option>
             <option value="option1">Academic Unit</option>
             <option value="option2">Administrative Unit</option>
           </select>
@@ -74,12 +85,12 @@ const StakeholderFeedback2: FC = () => {
           <div className="flex justify-center mt-5">
             {/* Navigation buttons */}
             <Link to="/stakeholderfeedback" className="bg-yellow-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-5">Back</Link>
-            <Link to="/stakeholderfeedback3" className="bg-yellow-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Next</Link>
+            <Link to={stakeholderType && transactionType && officeType ? "/stakeholderfeedback3" : "#"} onClick={handleNextClick} className={`bg-yellow-500 ${stakeholderType && transactionType && officeType ? "hover:bg-blue-700" : "cursor-not-allowed opacity-50"} text-white font-bold py-2 px-4 rounded`}>Next</Link>
           </div>
         </div>
       </div>
     </div>
- );
+  );
 };
 
 export default StakeholderFeedback2;
