@@ -25,13 +25,13 @@ const IAEval2: FC = () => {
               1
             </span>
           </li>
-          <li id="IAE-page2-step2" className="flex items-center font-bold text-yellow-600 dark:text-yellow-500 space-x-2.5">
-            <span className="flex items-center justify-center w-8 h-8 border border-yellow-600 rounded-full shrink-0 dark:border-yellow-500">
+          <li id="IAE-page2-step1" className="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5">
+            <span className="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
               2
             </span>
           </li>
-          <li id="IAE-page2-step3" className="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5">
-            <span className="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+          <li id="IAE-page2-step2" className="flex items-center font-bold text-yellow-600 dark:text-yellow-500 space-x-2.5">
+            <span className="flex items-center justify-center w-8 h-8 border border-yellow-600 rounded-full shrink-0 dark:border-yellow-500">
               3
             </span>
           </li>
