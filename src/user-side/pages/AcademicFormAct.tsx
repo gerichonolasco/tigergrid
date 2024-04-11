@@ -7,26 +7,47 @@ const AcademicFormAct: FC = () => {
  const [selectedValue3, setSelectedValue3] = useState<number | null>(null);
  const [selectedValue4, setSelectedValue4] = useState<number | null>(null);
  const [selectedValue5, setSelectedValue5] = useState<number | null>(null);
+ const [nextDisabled, setNextDisabled] = useState(true);
 
  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedValue(Number(event.target.value));
+    checkCompletion();
  }
 
  const handleChange2 = (event: React.ChangeEvent<HTMLInputElement>) => { 
     setSelectedValue2(Number(event.target.value));
+    checkCompletion();
  };
 
  const handleChange3 = (event: React.ChangeEvent<HTMLInputElement>) => { 
     setSelectedValue3(Number(event.target.value)); 
+    checkCompletion();
  };
 
  const handleChange4 = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedValue4(Number(event.target.value)); 
+    checkCompletion();
  };
 
  const handleChange5 = (event: React.ChangeEvent<HTMLInputElement>) => { 
     setSelectedValue5(Number(event.target.value));
+    checkCompletion();
  };
+
+ const checkCompletion = () => {
+  if (
+      selectedValue !== null &&
+      selectedValue2 !== null &&
+      selectedValue3 !== null &&
+      selectedValue4 !== null &&
+      selectedValue5 !== null 
+
+  ) {
+      setNextDisabled(false);
+  } else {
+      setNextDisabled(true);
+  }
+}
 
  return (
     <div className="w-screen-xl px-4 bg-white min-h-screen flex flex-col items-center justify-center">
@@ -188,7 +209,7 @@ const AcademicFormAct: FC = () => {
 
             <div className="flex justify-center mt-5">
               <Link to="/academicformcheck" className="bg-yellow-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-5">Back</Link>
-              <Link to="#" className="bg-yellow-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</Link>
+              <Link to={nextDisabled ? "#" : "/landingpage"} className={`bg-yellow-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ${nextDisabled ? 'opacity-50 cursor-not-allowed' : ''}`}> Submit </Link>
             </div>
           </div>
         </div>

@@ -334,9 +334,9 @@ const AcademicFormPlan: FC = () => {
               <Link to={nextDisabled ? "#" : "/academicformdo"} className={`bg-yellow-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ${nextDisabled ? 'opacity-50 cursor-not-allowed' : ''}`}> Next </Link>
             </div>
             </div>
+            </div>
+            </div>
           </div>
-        </div>
-      </div>
  );
 };
 

@@ -24,6 +24,7 @@ import QMSunitorIA from "./admin/pages/QMSunitorIA";
 import AcadPDCA from "./admin/pages/AcadPDCA";
 import AdminPDCA from "./admin/pages/AdminPDCA";
 import IAPDCA from "./admin/pages/IAPDCA";
+import AdminProfile from "./admin/pages/AdminProfile";
 import AcademicOrAdmin from "./admin/pages/AcademicOrAdmin";
 import DocumentGrid from "./admin/pages/DocumentGrid";
 
@@ -54,6 +55,7 @@ import QMSIAPlan from "./user-side/pages/QMSIAPlan";
 import QMSIADo from "./user-side/pages/QMSIADo";
 import QMSIACheck from "./user-side/pages/QMSIACheck";
 import QMSIAAct from "./user-side/pages/QMSIAAct";
+import UserProfile from "./user-side/pages/UserProfile";
 import Login from "./admin/pages/Login";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -103,6 +105,7 @@ const App: FC = () => {
                       <Route path="acadPDCA" element={<AcadPDCA />} />
                       <Route path="adminPDCA" element={<AdminPDCA />} />
                       <Route path="iaPDCA" element={<IAPDCA />} />
+                      <Route path="adminprofile" element={<AdminProfile />} />
                       <Route path="grid" element={<DocumentGrid />} />
                     </Routes>
                   </div>
@@ -147,6 +150,7 @@ const App: FC = () => {
                       <Route path="/qmsiado" element={<QMSIADo />} />
                       <Route path="/qmsiacheck" element={<QMSIACheck />} />
                       <Route path="/qmsiaact" element={<QMSIAAct />} />
+                      <Route path="/userprofile" element={<UserProfile />} />
                     </Routes>
                     </div>
                     </div>

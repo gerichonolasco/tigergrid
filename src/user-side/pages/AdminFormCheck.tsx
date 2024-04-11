@@ -10,38 +10,64 @@ const AdminFormCheck: FC = () => {
  const [selectedValue6, setSelectedValue6] = useState<number | null>(null); 
  const [selectedValue7, setSelectedValue7] = useState<number | null>(null); 
  const [selectedValue8, setSelectedValue8] = useState<number | null>(null); 
+ const [nextDisabled, setNextDisabled] = useState(true);
 
  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedValue(Number(event.target.value));
+    checkCompletion();
  }
 
  const handleChange2 = (event: React.ChangeEvent<HTMLInputElement>) => { 
     setSelectedValue2(Number(event.target.value));
+    checkCompletion();
  };
 
  const handleChange3 = (event: React.ChangeEvent<HTMLInputElement>) => { 
     setSelectedValue3(Number(event.target.value)); 
+    checkCompletion();
  };
 
  const handleChange4 = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedValue4(Number(event.target.value)); 
+    checkCompletion();
  };
 
  const handleChange5 = (event: React.ChangeEvent<HTMLInputElement>) => { 
     setSelectedValue5(Number(event.target.value));
+    checkCompletion();
  };
 
  const handleChange6 = (event: React.ChangeEvent<HTMLInputElement>) => { 
     setSelectedValue6(Number(event.target.value));
+    checkCompletion();
  };
 
  const handleChange7 = (event: React.ChangeEvent<HTMLInputElement>) => { 
     setSelectedValue7(Number(event.target.value));
+    checkCompletion();
  };
 
  const handleChange8 = (event: React.ChangeEvent<HTMLInputElement>) => { 
     setSelectedValue8(Number(event.target.value));
+    checkCompletion();
  };
+
+ const checkCompletion = () => {
+  if (
+      selectedValue !== null &&
+      selectedValue2 !== null &&
+      selectedValue3 !== null &&
+      selectedValue4 !== null &&
+      selectedValue5 !== null &&
+      selectedValue6 !== null &&
+      selectedValue7 !== null &&
+      selectedValue8 !== null 
+  ) {
+      setNextDisabled(false);
+  } else {
+      setNextDisabled(true);
+  }
+}
 
 
  return (
@@ -276,7 +302,7 @@ const AdminFormCheck: FC = () => {
 
             <div className="flex justify-center mt-5">
               <Link to="/adminformdo" className="bg-yellow-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-5">Back</Link>
-              <Link to="/adminformact" className="bg-yellow-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Next</Link>
+              <Link to={nextDisabled ? "#" : "/adminformact"} className={`bg-yellow-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ${nextDisabled ? 'opacity-50 cursor-not-allowed' : ''}`}> Next </Link>
             </div>
           </div>
         </div>
