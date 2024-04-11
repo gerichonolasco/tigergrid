@@ -193,16 +193,16 @@ const StakeholderFeedback3: FC = () => {
           </select>
 
           <p className="text-black-500 text-xl font-bold mt-3">
-            You can provide more details about your concern here
+            You can provide more details about your concern here:
           </p>
-          {/* Updated ID for the input element */}
-          <input
+          <textarea
             id="page3-details"
-            type="text"
             className="mt-3 mb-4 bg-white border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500"
             placeholder="Type here"
             value={details}
             onChange={(e) => setDetails(e.target.value)}
+            rows={8} // You can adjust the number of visible rows here
+            style={{ width: "100%", maxWidth: "100%", resize: "vertical" }} // Adjust width and allow vertical resizing
           />
 
           <div className="flex justify-center mt-8">

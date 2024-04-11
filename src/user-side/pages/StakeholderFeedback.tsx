@@ -29,7 +29,7 @@ const StakeholderFeedback: FC = () => {
             id="SF-page1-step2"
             className="flex items-center font-bold text-yellow-600 dark:text-yellow-500 space-x-2.5"
           >
-            <span className="flex items-center justify-center w-8 h-8 border border-yellow-600 rounded-full shrink-0 dark:border-yellow-500">
+            <span className="flex items-center justify*-center w-8 h-8 border border-yellow-600 rounded-full shrink-0 dark:border-yellow-500">
               2
             </span>
           </li>

@@ -9,7 +9,7 @@ const QMSunitorIA: FC = () => {
         {/* Add Link component and specify route */}
         <div className="flex flex-col items-center">
           <svg
-            className="h-56 w-56 text-black-500"
+            className="h-44 w-64 text-black-500"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -28,7 +28,7 @@ const QMSunitorIA: FC = () => {
         {/* Add Link component and specify route */}
         <div className="flex flex-col items-center">
           <svg
-            className="h-56 w-56 text-black-500"
+            className="h-44 w-56 text-black-500"
             width="24"
             height="24"
             viewBox="0 0 24 24"
