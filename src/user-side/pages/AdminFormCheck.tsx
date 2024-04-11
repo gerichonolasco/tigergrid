@@ -69,7 +69,6 @@ const AdminFormCheck: FC = () => {
   }
 }
 
-
  return (
     <div className="w-screen-xl px-4 bg-white min-h-screen flex flex-col items-center justify-center">
 

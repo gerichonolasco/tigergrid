@@ -102,6 +102,7 @@ const AcademicFormDo: FC = () => {
       setNextDisabled(true);
   }
 }
+
  return (
     <div className="w-screen-xl px-4 bg-white min-h-screen flex flex-col items-center justify-center">
 
