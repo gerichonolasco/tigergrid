@@ -33,7 +33,7 @@
 //             </span>
 //           </li>
 //         </ol>
-//       </div> 
+//       </div>
 
 //       <div className="flex flex-col items-center justify-center mt-10">
 //         <div className="bg-gray-100 p-8 rounded-lg w-full sm:w-[700px] h-auto sm:h-[500px] flex flex-col items-center justify-center">
@@ -63,7 +63,7 @@
 //             <option value="option1">Internal</option>
 //             <option value="option2">External</option>
 //           </select>
-        
+
 //           <div className="flex justify-center mt-5">
 //             {/* Navigation buttons */}
 //             <Link to="/stakeholderfeedback" className="bg-yellow-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-5">Back</Link>

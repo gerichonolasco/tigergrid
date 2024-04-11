@@ -1,5 +1,5 @@
 import React, { FC, useState } from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const AcadTableDo: FC = () => {
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
@@ -16,10 +16,14 @@ const AcadTableDo: FC = () => {
   return (
     <div className="w-screen-xl px-4 bg-white min-h-screen">
       <div className="flex flex-col items-right">
-        <h2 className="font-bold text-5xl mt-5 tracking-tight"> Quality Management System Evaluation</h2>
+        <h2 className="font-bold text-5xl mt-5 tracking-tight">
+          {" "}
+          Quality Management System Evaluation
+        </h2>
         <div className="flex justify-between items-center">
           <p className="text-neutral-500 text-xl mt-3">
-            Analytics for the feedbacks for the Quality Management System Evaluation Forms (Academic)
+            Analytics for the feedbacks for the Quality Management System
+            Evaluation Forms (Academic)
           </p>
         </div>
         <br></br>
@@ -158,23 +162,44 @@ const AcadTableDo: FC = () => {
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
               {/* Adjusted column widths */}
-              <th scope="col" className="px-4 py-3" colSpan={2}>2. Do</th>
-              <th scope="col" className="px-4 py-3">AcU 18</th>
-              <th scope="col" className="px-4 py-3">AcU 19</th>
-              <th scope="col" className="px-4 py-3">AcU 20</th>
-              <th scope="col" className="px-4 py-3">AcU 21</th>
-              <th scope="col" className="px-4 py-3">AcU 22</th>
-              <th scope="col" className="px-4 py-3">AcU 23</th>
-              <th scope="col" className="px-4 py-3">AVERAGE</th>
+              <th scope="col" className="px-4 py-3" colSpan={2}>
+                2. Do
+              </th>
+              <th scope="col" className="px-4 py-3">
+                AcU 18
+              </th>
+              <th scope="col" className="px-4 py-3">
+                AcU 19
+              </th>
+              <th scope="col" className="px-4 py-3">
+                AcU 20
+              </th>
+              <th scope="col" className="px-4 py-3">
+                AcU 21
+              </th>
+              <th scope="col" className="px-4 py-3">
+                AcU 22
+              </th>
+              <th scope="col" className="px-4 py-3">
+                AcU 23
+              </th>
+              <th scope="col" className="px-4 py-3">
+                AVERAGE
+              </th>
             </tr>
           </thead>
           <tbody>
             {/* SAMPLE INPUTS */}
             {/* SAMPLE INPUTS */}
             {/* Repeat the following structure for each row */}
-            {[1.1, 1.2, 1.3, 1.4].map(row => (
-              <tr key={row} className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                <td className="px-4 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">{row}</td>
+            {[1.1, 1.2, 1.3, 1.4].map((row) => (
+              <tr
+                key={row}
+                className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700"
+              >
+                <td className="px-4 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  {row}
+                </td>
                 <td className="px-4 py-4">Sample Input</td>
                 <td className="px-4 py-4">Text Input</td>
                 {/* Add 7 more <td> elements for each action */}
@@ -188,19 +213,34 @@ const AcadTableDo: FC = () => {
             ))}
           </tbody>
         </table>
-        
+
         <div className="flex justify-between mt-4">
           <Link to="/admin/dashboard">
-            <button type="button" className="text-white bg-yellow-500 hover:bg-yellow-700 focus:ring-4 focus:ring-yellow-500 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-yellow-500 dark:hover:bg-yellow-500 focus:outline-none dark:focus:ring-yellow-500">Back</button>
+            <button
+              type="button"
+              className="text-white bg-yellow-500 hover:bg-yellow-700 focus:ring-4 focus:ring-yellow-500 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-yellow-500 dark:hover:bg-yellow-500 focus:outline-none dark:focus:ring-yellow-500"
+            >
+              Back
+            </button>
           </Link>
 
           <div>
-          <Link to="#">
-            <button type="button" className="text-white bg-yellow-500 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-500 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-yellow-500 dark:hover:bg-yellow-500 focus:outline-none dark:focus:ring-yellow-500">View Report</button>
-          </Link>
-          <Link to="#">
-            <button type="button" className="text-white bg-yellow-500 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-500 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-yellow-500 dark:hover:bg-yellow-500 focus:outline-none dark:focus:ring-yellow-500">Generate File</button>
-          </Link>
+            <Link to="#">
+              <button
+                type="button"
+                className="text-white bg-yellow-500 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-500 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-yellow-500 dark:hover:bg-yellow-500 focus:outline-none dark:focus:ring-yellow-500"
+              >
+                View Report
+              </button>
+            </Link>
+            <Link to="#">
+              <button
+                type="button"
+                className="text-white bg-yellow-500 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-500 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-yellow-500 dark:hover:bg-yellow-500 focus:outline-none dark:focus:ring-yellow-500"
+              >
+                Generate File
+              </button>
+            </Link>
           </div>
         </div>
       </div>
@@ -209,4 +249,3 @@ const AcadTableDo: FC = () => {
 };
 
 export default AcadTableDo;
-

@@ -6,7 +6,7 @@ const UserProfile: FC = () => {
   const user = {
     name: "John Doe",
     role: "Stakeholder",
-    img: "../images/ustlogo.png"
+    img: "../images/ustlogo.png",
   };
 
   return (

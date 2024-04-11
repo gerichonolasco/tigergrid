@@ -2,7 +2,20 @@ import React, { FC, useState } from "react";
 import { Link } from "react-router-dom";
 
 const StakeholderFeedback4: FC = () => {
-  const [answers, setAnswers] = useState<(number | string | null)[]>([null, null, null, null, null, null, null, null, null, null, null, null]);
+  const [answers, setAnswers] = useState<(number | string | null)[]>([
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+  ]);
 
   const handleOptionChange = (index: number, option: number | string) => {
     const newAnswers = [...answers];
@@ -11,7 +24,7 @@ const StakeholderFeedback4: FC = () => {
   };
 
   const handleNextClick = () => {
-    if (answers.some(answer => answer === null || answer === '')) {
+    if (answers.some((answer) => answer === null || answer === "")) {
       alert("Please answer all fields before submitting.");
     }
   };
@@ -21,27 +34,42 @@ const StakeholderFeedback4: FC = () => {
       <div className="flex justify-center mt-12">
         <ol className="items-center space-y-4 sm:flex sm:space-x-8 sm:space-y-0">
           {/* Updated IDs for the steppers */}
-          <li id="SF-page4-step1" className="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5">
+          <li
+            id="SF-page4-step1"
+            className="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5"
+          >
             <span className="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
               1
             </span>
           </li>
-          <li id="SF-page4-step2" className="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5">
+          <li
+            id="SF-page4-step2"
+            className="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5"
+          >
             <span className="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
               2
             </span>
           </li>
-          <li id="SF-page4-step3" className="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5">
+          <li
+            id="SF-page4-step3"
+            className="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5"
+          >
             <span className="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
               3
             </span>
           </li>
-          <li id="SF-page4-step3" className="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5">
+          <li
+            id="SF-page4-step3"
+            className="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5"
+          >
             <span className="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
               4
             </span>
           </li>
-          <li id="SF-page4-step4" className="flex items-center font-bold text-yellow-600 dark:text-yellow-500 space-x-2.5">
+          <li
+            id="SF-page4-step4"
+            className="flex items-center font-bold text-yellow-600 dark:text-yellow-500 space-x-2.5"
+          >
             <span className="flex items-center justify-center w-8 h-8 border border-yellow-600 rounded-full shrink-0 dark:border-yellow-500">
               5
             </span>
@@ -55,8 +83,20 @@ const StakeholderFeedback4: FC = () => {
           <p className="text-xl font-semibold"></p>
           <div className="flex">
             {[1, 2, 3, 4, 5, "n/a"].map((option) => (
-              <div key={option} className="flex flex-col items-center mr-4 mx-3">
-                <label className="text-center" style={{ minHeight: "30px", display: "flex", alignItems: "center" }}>{option}</label>
+              <div
+                key={option}
+                className="flex flex-col items-center mr-4 mx-3"
+              >
+                <label
+                  className="text-center"
+                  style={{
+                    minHeight: "30px",
+                    display: "flex",
+                    alignItems: "center",
+                  }}
+                >
+                  {option}
+                </label>
               </div>
             ))}
           </div>
@@ -156,8 +196,18 @@ const StakeholderFeedback4: FC = () => {
         />
 
         <div className="flex items-center justify-center mt-6">
-          <Link to="/stakeholderfeedback3" className="bg-yellow-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-5">Back</Link>
-          <button onClick={handleNextClick} className="bg-yellow-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
+          <Link
+            to="/stakeholderfeedback3"
+            className="bg-yellow-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-5"
+          >
+            Back
+          </Link>
+          <button
+            onClick={handleNextClick}
+            className="bg-yellow-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          >
+            Submit
+          </button>
         </div>
       </div>
     </div>
@@ -172,7 +222,13 @@ interface QuestionWithRadioButtonsProps {
   onOptionChange: (option: number | string) => void;
 }
 
-const QuestionWithRadioButtons: FC<QuestionWithRadioButtonsProps> = ({ question, id, options, answer, onOptionChange }) => {
+const QuestionWithRadioButtons: FC<QuestionWithRadioButtonsProps> = ({
+  question,
+  id,
+  options,
+  answer,
+  onOptionChange,
+}) => {
   return (
     <div className="flex items-center justify-between mb-4">
       <p>{question}</p>

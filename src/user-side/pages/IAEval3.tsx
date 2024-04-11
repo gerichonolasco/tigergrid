@@ -52,39 +52,57 @@ const IAEval3: FC = () => {
       <div className="flex justify-center">
         <ol className="items-center space-y-4 sm:flex sm:space-x-8 sm:space-y-0">
           {/* Updated IDs for the steppers */}
-          <li id="IAE-page3-step1" className="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5">
+          <li
+            id="IAE-page3-step1"
+            className="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5"
+          >
             <span className="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
               1
             </span>
           </li>
-          <li id="IAE-page3-step1" className="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5">
+          <li
+            id="IAE-page3-step1"
+            className="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5"
+          >
             <span className="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
               2
             </span>
           </li>
-          <li id="IAE-page3-step1" className="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5">
+          <li
+            id="IAE-page3-step1"
+            className="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5"
+          >
             <span className="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
               3
             </span>
           </li>
-          <li id="IAE-page3-step2" className="flex items-center font-bold text-yellow-600 dark:text-yellow-500 space-x-2.5">
+          <li
+            id="IAE-page3-step2"
+            className="flex items-center font-bold text-yellow-600 dark:text-yellow-500 space-x-2.5"
+          >
             <span className="flex items-center justify-center w-8 h-8 border border-yellow-600 rounded-full shrink-0 dark:border-yellow-500">
               4
             </span>
           </li>
-          <li id="IAE-page3-step5" className="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5">
+          <li
+            id="IAE-page3-step5"
+            className="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5"
+          >
             <span className="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
               5
             </span>
           </li>
         </ol>
-      </div> 
+      </div>
 
       <div className="flex flex-col items-center justify-center mt-10 mb-6">
         <div>
           <div className="bg-gray-100 p-8 rounded-lg w-full sm:w-[700px] h-auto sm:h-[1120px] flex flex-col items-center justify-center">
-            <p className="text-black-500 text-xl font-bold mt-3">Audit Proper</p><br></br>
-            
+            <p className="text-black-500 text-xl font-bold mt-3">
+              Audit Proper
+            </p>
+            <br></br>
+
             <p className="text-black-500 text-xl font-bold mt-3">
               1. The auditor observed well the audit schedule.
             </p>
@@ -101,7 +119,10 @@ const IAEval3: FC = () => {
                       onChange={handleChange}
                       className="form-radio h-5 w-5 text-gray-600"
                     />
-                    <label htmlFor={`IAE-page3-q1-${number}`} className="block text-center text-gray-700 dark:text-gray-500">
+                    <label
+                      htmlFor={`IAE-page3-q1-${number}`}
+                      className="block text-center text-gray-700 dark:text-gray-500"
+                    >
                       {number}
                     </label>
                   </div>
@@ -109,14 +130,14 @@ const IAEval3: FC = () => {
               </div>
             </div>
 
-
             <p className="text-black-500 text-xl font-bold mt-8">
-            2. The auditor clearly introduced the methodologies, activities, or objectives of the audit.
+              2. The auditor clearly introduced the methodologies, activities,
+              or objectives of the audit.
             </p>
             <div className="flex justify-center mt-5">
               <div className="flex flex-row space-x-4">
                 {[1, 2, 3, 4, 5].map((number) => (
-                 <div key={number} className="flex flex-col items-center">
+                  <div key={number} className="flex flex-col items-center">
                     <input
                       type="radio"
                       id={`IAE-page3-q2-${number}`}
@@ -126,21 +147,24 @@ const IAEval3: FC = () => {
                       onChange={handleChange2}
                       className="form-radio h-5 w-5 text-gray-600"
                     />
-                    <label htmlFor={`IAE-page3-q2-${number}`} className="block text-center text-gray-700 dark:text-gray-500">
+                    <label
+                      htmlFor={`IAE-page3-q2-${number}`}
+                      className="block text-center text-gray-700 dark:text-gray-500"
+                    >
                       {number}
                     </label>
-                 </div>
+                  </div>
                 ))}
               </div>
             </div>
 
             <p className="text-black-500 text-xl font-bold mt-8">
-            3. The auditor is well-groomed and appropriately dressed.
+              3. The auditor is well-groomed and appropriately dressed.
             </p>
             <div className="flex justify-center mt-5">
               <div className="flex flex-row space-x-4">
                 {[1, 2, 3, 4, 5].map((number) => (
-                 <div key={number} className="flex flex-col items-center">
+                  <div key={number} className="flex flex-col items-center">
                     <input
                       type="radio"
                       id={`IAE-page3-q3-${number}`}
@@ -150,21 +174,25 @@ const IAEval3: FC = () => {
                       onChange={handleChange3}
                       className="form-radio h-5 w-5 text-gray-600"
                     />
-                    <label htmlFor={`IAE-page3-q3-${number}`} className="block text-center text-gray-700 dark:text-gray-500">
+                    <label
+                      htmlFor={`IAE-page3-q3-${number}`}
+                      className="block text-center text-gray-700 dark:text-gray-500"
+                    >
                       {number}
                     </label>
-                 </div>
+                  </div>
                 ))}
               </div>
             </div>
 
             <p className="text-black-500 text-xl font-bold mt-8">
-            4. The auditor arrived well-prepared and conducted the audit with ease.
+              4. The auditor arrived well-prepared and conducted the audit with
+              ease.
             </p>
             <div className="flex justify-center mt-5">
               <div className="flex flex-row space-x-4">
                 {[1, 2, 3, 4, 5].map((number) => (
-                 <div key={number} className="flex flex-col items-center">
+                  <div key={number} className="flex flex-col items-center">
                     <input
                       type="radio"
                       id={`IAE-page3-q4-${number}`}
@@ -174,96 +202,125 @@ const IAEval3: FC = () => {
                       onChange={handleChange4}
                       className="form-radio h-5 w-5 text-gray-600"
                     />
-                    <label htmlFor={`IAE-page3-q4-${number}`} className="block text-center text-gray-700 dark:text-gray-500">
+                    <label
+                      htmlFor={`IAE-page3-q4-${number}`}
+                      className="block text-center text-gray-700 dark:text-gray-500"
+                    >
                       {number}
                     </label>
-                 </div>
+                  </div>
                 ))}
               </div>
             </div>
 
-                <p className="text-black-500 text-xl font-bold mt-8">
-            5. The auditor demonstrated a good understanding of the audit process.
+            <p className="text-black-500 text-xl font-bold mt-8">
+              5. The auditor demonstrated a good understanding of the audit
+              process.
             </p>
             <div className="flex justify-center mt-5">
-            <div className="flex flex-row space-x-4">
+              <div className="flex flex-row space-x-4">
                 {[1, 2, 3, 4, 5].map((number) => (
-                <div key={number} className="flex flex-col items-center">
+                  <div key={number} className="flex flex-col items-center">
                     <input
-                    type="radio"
-                    id={`IAE-page3-q5-${number}`}
-                    name="rating5"
-                    value={number}
-                    checked={selectedValue5 === number}
-                    onChange={handleChange5}
-                    className="form-radio h-5 w-5 text-gray-600"
+                      type="radio"
+                      id={`IAE-page3-q5-${number}`}
+                      name="rating5"
+                      value={number}
+                      checked={selectedValue5 === number}
+                      onChange={handleChange5}
+                      className="form-radio h-5 w-5 text-gray-600"
                     />
-                    <label htmlFor={`IAE-page3-q5-${number}`} className="block text-center text-gray-700 dark:text-gray-500">
-                    {number}
+                    <label
+                      htmlFor={`IAE-page3-q5-${number}`}
+                      className="block text-center text-gray-700 dark:text-gray-500"
+                    >
+                      {number}
                     </label>
-                </div>
+                  </div>
                 ))}
-            </div>
+              </div>
             </div>
 
-                <p className="text-black-500 text-xl font-bold mt-8">
-            6. The auditor effectively communicated with the auditee.
+            <p className="text-black-500 text-xl font-bold mt-8">
+              6. The auditor effectively communicated with the auditee.
             </p>
             <div className="flex justify-center mt-5">
-            <div className="flex flex-row space-x-4">
+              <div className="flex flex-row space-x-4">
                 {[1, 2, 3, 4, 5].map((number) => (
-                <div key={number} className="flex flex-col items-center">
+                  <div key={number} className="flex flex-col items-center">
                     <input
-                    type="radio"
-                    id={`IAE-page3-q6-${number}`}
-                    name="rating6"
-                    value={number}
-                    checked={selectedValue6 === number}
-                    onChange={handleChange6}
-                    className="form-radio h-5 w-5 text-gray-600"
+                      type="radio"
+                      id={`IAE-page3-q6-${number}`}
+                      name="rating6"
+                      value={number}
+                      checked={selectedValue6 === number}
+                      onChange={handleChange6}
+                      className="form-radio h-5 w-5 text-gray-600"
                     />
-                    <label htmlFor={`IAE-page3-q6-${number}`} className="block text-center text-gray-700 dark:text-gray-500">
-                    {number}
+                    <label
+                      htmlFor={`IAE-page3-q6-${number}`}
+                      className="block text-center text-gray-700 dark:text-gray-500"
+                    >
+                      {number}
                     </label>
-                </div>
+                  </div>
                 ))}
-            </div>
+              </div>
             </div>
 
-                <p className="text-black-500 text-xl font-bold mt-8">
-            7. The auditor demonstrated professionalism and competence throughout the audit.
+            <p className="text-black-500 text-xl font-bold mt-8">
+              7. The auditor demonstrated professionalism and competence
+              throughout the audit.
             </p>
             <div className="flex justify-center mt-5">
-            <div className="flex flex-row space-x-4">
+              <div className="flex flex-row space-x-4">
                 {[1, 2, 3, 4, 5].map((number) => (
-                <div key={number} className="flex flex-col items-center">
+                  <div key={number} className="flex flex-col items-center">
                     <input
-                    type="radio"
-                    id={`IAE-page3-q7-${number}`}
-                    name="rating7"
-                    value={number}
-                    checked={selectedValue7 === number}
-                    onChange={handleChange7}
-                    className="form-radio h-5 w-5 text-gray-600"
+                      type="radio"
+                      id={`IAE-page3-q7-${number}`}
+                      name="rating7"
+                      value={number}
+                      checked={selectedValue7 === number}
+                      onChange={handleChange7}
+                      className="form-radio h-5 w-5 text-gray-600"
                     />
-                    <label htmlFor={`IAE-page3-q7-${number}`} className="block text-center text-gray-700 dark:text-gray-500">
-                    {number}
+                    <label
+                      htmlFor={`IAE-page3-q7-${number}`}
+                      className="block text-center text-gray-700 dark:text-gray-500"
+                    >
+                      {number}
                     </label>
-                </div>
+                  </div>
                 ))}
-            </div>
+              </div>
             </div>
 
             <div className="flex justify-center mt-5">
               {/* Navigation buttons */}
-              <Link to="/iaeval2" className="bg-yellow-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-5">Back</Link>
-              <Link to="/iaeval4" className={`bg-yellow-500 ${isNextButtonDisabled ? 'cursor-not-allowed opacity-50' : 'hover:bg-blue-700'} text-white font-bold py-2 px-4 rounded`} disabled={isNextButtonDisabled}>Next</Link>
+              <Link
+                to="/iaeval2"
+                className="bg-yellow-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-5"
+              >
+                Back
+              </Link>
+              <Link
+                to="/iaeval4"
+                className={`bg-yellow-500 ${
+                  isNextButtonDisabled
+                    ? "cursor-not-allowed opacity-50"
+                    : "hover:bg-blue-700"
+                } text-white font-bold py-2 px-4 rounded`}
+                disabled={isNextButtonDisabled}
+              >
+                Next
+              </Link>
             </div>
           </div>
         </div>
       </div>
-      </div>
- );
+    </div>
+  );
 };
 
 export default IAEval3;

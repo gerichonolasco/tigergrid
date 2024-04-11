@@ -1,5 +1,5 @@
 import React, { FC, useState } from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 interface Post {
   title: string;
@@ -14,29 +14,33 @@ const Dashboard: FC = () => {
     {
       title: "Stakeholder's Feedback",
       img: "/images/meeting.jpg",
-      content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      content:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       route: "/admin/sfanalytics",
-      showOnUserSide: true
+      showOnUserSide: true,
     },
     {
       title: "Internal Auditor's Evaluation",
       img: "/images/audit.jpg",
-      content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      content:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       route: "/admin/iaeanalytics",
-      showOnUserSide: true
+      showOnUserSide: true,
     },
     {
       title: "QMS Evaluation",
       img: "/images/magnifying.jpg",
-      content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      content:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       route: "/admin/unitoria",
-      showOnUserSide: true
+      showOnUserSide: true,
     },
     {
       title: "RIF Tracker",
       img: "/images/rif.jpg",
-      content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      showOnUserSide: true
+      content:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      showOnUserSide: true,
     },
   ]);
 
@@ -68,9 +72,7 @@ const Dashboard: FC = () => {
               <h4 className="text-xl font-semibold text-blue-600">
                 {item.title}
               </h4>
-              <p className="mb-2 leading-normal">
-                {item.content}
-              </p>
+              <p className="mb-2 leading-normal">{item.content}</p>
               <div className="flex justify-center items-center">
                 {/* Toggle button with checkmark or X icon */}
                 <button
@@ -108,7 +110,9 @@ const Dashboard: FC = () => {
                       />
                     </svg>
                   )}
-                  {item.showOnUserSide ? "Show on User Side" : "Hide from User Side"}
+                  {item.showOnUserSide
+                    ? "Show on User Side"
+                    : "Hide from User Side"}
                 </button>
                 {/* View button */}
                 {item.route && (

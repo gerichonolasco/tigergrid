@@ -47,17 +47,15 @@ const Home: React.FC = () => {
             </a>
           </div>
           <div className="hidden lg:flex lg:mt-10 lg:col-span-5 h-auto">
-  <div className="relative rounded-lg overflow-hidden">
-    <img
-      src="https://c0.wallpaperflare.com/preview/453/640/998/building-philippines-ust.jpg"
-      alt="mockup"
-      className="w-full h-full object-cover object-center"
-    />
-    <div className="absolute inset-0 bg-gradient-to-r from-yellow-500 via-yellow-400 to-yellow-300 opacity-50"></div>
-  </div>
-</div>
-
-
+            <div className="relative rounded-lg overflow-hidden">
+              <img
+                src="https://c0.wallpaperflare.com/preview/453/640/998/building-philippines-ust.jpg"
+                alt="mockup"
+                className="w-full h-full object-cover object-center"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-yellow-500 via-yellow-400 to-yellow-300 opacity-50"></div>
+            </div>
+          </div>
         </div>
       </section>
     </>

@@ -1,30 +1,34 @@
 import React, { FC } from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const LandingPage: FC = () => {
   const posts = [
     {
-        title: "Stakeholder's Feedback",
-        img: "../public/images/meeting.jpg",
-        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        route: "/dataprivacySF"
+      title: "Stakeholder's Feedback",
+      img: "../public/images/meeting.jpg",
+      content:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      route: "/dataprivacySF",
     },
     {
-        title: "Internal Auditor's Evaluation",
-        img: "../public/images/audit.jpg",
-        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        route: "/dataprivacyIAE"
+      title: "Internal Auditor's Evaluation",
+      img: "../public/images/audit.jpg",
+      content:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      route: "/dataprivacyIAE",
     },
     {
-        title: "QMS Evaluation",
-        img: "../public/images/magnifying.jpg",
-        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        route: "/dataprivacyQMS"
+      title: "QMS Evaluation",
+      img: "../public/images/magnifying.jpg",
+      content:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      route: "/dataprivacyQMS",
     },
     {
-        title: "RIF Tracker",
-        img: "../public/images/rif.jpg",
-        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      title: "RIF Tracker",
+      img: "../public/images/rif.jpg",
+      content:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     },
   ];
 
@@ -42,11 +46,12 @@ const LandingPage: FC = () => {
               <h4 className="text-xl font-semibold text-blue-600">
                 {items.title}
               </h4>
-              <p className="mb-2 leading-normal">
-                {items.content}
-              </p>
+              <p className="mb-2 leading-normal">{items.content}</p>
               <div className="flex justify-center items-center">
-                <Link to={items.route || '#'} className="px-4 py-2 text-sm text-blue-100 bg-yellow-500 rounded shadow text-white">
+                <Link
+                  to={items.route || "#"}
+                  className="px-4 py-2 text-sm text-blue-100 bg-yellow-500 rounded shadow text-white"
+                >
                   Add Feedback
                 </Link>
               </div>
@@ -56,6 +61,6 @@ const LandingPage: FC = () => {
       </div>
     </>
   );
-}
+};
 
 export default LandingPage;
