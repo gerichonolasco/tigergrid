@@ -26,6 +26,7 @@ import AdminPDCA from "./admin/pages/AdminPDCA";
 import IAPDCA from "./admin/pages/IAPDCA";
 import AdminProfile from "./admin/pages/AdminProfile";
 import AcademicOrAdmin from "./admin/pages/AcademicOrAdmin";
+import AddQuestionSF from "./admin/pages/AddQuestionSF";
 import DocumentGrid from "./admin/pages/DocumentGrid";
 
 import Home from "./user-side/pages/Home";
@@ -106,6 +107,7 @@ const App: FC = () => {
                       <Route path="adminPDCA" element={<AdminPDCA />} />
                       <Route path="iaPDCA" element={<IAPDCA />} />
                       <Route path="adminprofile" element={<AdminProfile />} />
+                      <Route path="addquestionSF" element={<AddQuestionSF />} />
                       <Route path="grid" element={<DocumentGrid />} />
                     </Routes>
                   </div>
