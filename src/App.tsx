@@ -75,7 +75,7 @@ const App: FC = () => {
               <>
                 <SideNavbar />
                 <div className="p-4 sm:ml-64">
-                  <div className="p-2 border-2 border-gray-200 border-dashed rounded-lg mt-14">
+                  <div className="p-2 border-gray-200 border-dashed rounded-lg mt-14">
                     <Routes>
                       <Route path="dashboard" element={<Dashboard />} />
                       <Route
@@ -120,10 +120,8 @@ const App: FC = () => {
               <>  
               <SideNavbarUser />
                 <div className="p-4 sm:ml-64">
-                  <div className="p-2 border-2 border-gray-200 border-dashed rounded-lg mt-14">
+                  <div className="p-2 border-gray-200 border-dashed rounded-lg mt-9">
                     <Routes>
-
-
                       <Route path="/landingpage" element={<LandingPage />} />
                       <Route path="/stakeholderfeedback" element={<StakeholderFeedback />} />
                       <Route path="/stakeholderfeedback2" element={<StakeholderFeedback2 />} />
@@ -158,8 +156,6 @@ const App: FC = () => {
             }
           />
         </Routes>
-
-        
       </Router>
     </>
   );

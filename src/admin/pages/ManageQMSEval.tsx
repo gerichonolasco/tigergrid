@@ -13,7 +13,7 @@ const ManageQMSEval: FC = () => {
           </p>
         </div>
         <br></br>
-        <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <div className="relative overflow-x-auto">
           <button className="px-4 py-2 mb-3 ml-1 text-sm text-blue-100 bg-yellow-500">
             Add Question
           </button>

@@ -15,13 +15,13 @@ const StakeholderFeedback: FC = () => {
   return (
     <div className="w-screen-xl px-4 bg-white min-h-screen flex flex-col items-center justify-center">
       <div className="flex justify-center">
-        <ol className="items-center space-y-4 sm:flex sm:space-x-8 sm:space-y-0">
+        <ol className="flex items-center space-x-8">
           {/* Add IDs to each list item */}
           <li
             id="SF-page1-step1"
             className="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5"
           >
-            <span className="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+            <span className="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full dark:border-gray-400">
               1
             </span>
           </li>
@@ -29,7 +29,7 @@ const StakeholderFeedback: FC = () => {
             id="SF-page1-step2"
             className="flex items-center font-bold text-yellow-600 dark:text-yellow-500 space-x-2.5"
           >
-            <span className="flex items-center justify*-center w-8 h-8 border border-yellow-600 rounded-full shrink-0 dark:border-yellow-500">
+            <span className="flex items-center justify-center w-8 h-8 border border-yellow-600 rounded-full dark:border-yellow-500">
               2
             </span>
           </li>
@@ -37,7 +37,7 @@ const StakeholderFeedback: FC = () => {
             id="SF-page1-step3"
             className="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5"
           >
-            <span className="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+            <span className="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full dark:border-gray-400">
               3
             </span>
           </li>
@@ -45,7 +45,7 @@ const StakeholderFeedback: FC = () => {
             id="SF-page1-step4"
             className="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5"
           >
-            <span className="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+            <span className="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full dark:border-gray-400">
               4
             </span>
           </li>
@@ -53,7 +53,7 @@ const StakeholderFeedback: FC = () => {
             id="SF-page1-step5"
             className="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5"
           >
-            <span className="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+            <span className="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full dark:border-gray-400">
               5
             </span>
           </li>
