@@ -55,7 +55,7 @@ const Dashboard: FC = () => {
     <>
       <div className="relative overflow-x-auto">
         <Link to="/admin/addform">
-          <button className="px-4 py-2 mb-3 ml-1 mt-2 text-sm text-blue-100 bg-yellow-500">
+          <button className="px-4 py-2 mb-3 ml-2 mt-2 text-sm text-blue-100 bg-yellow-500">
             Add Form
           </button>
         </Link>

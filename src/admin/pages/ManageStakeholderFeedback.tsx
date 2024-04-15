@@ -1,10 +1,11 @@
 import React, { FC } from "react";
+import { Link } from "react-router-dom";
 
 const ManageStakeholderFeedback: FC = () => {
   return (
     <div className="w-screen-xl px-4 bg-white min-h-screen">
       <div className="flex flex-col items-right">
-        <h2 className="font-bold text-5xl mt-5 tracking-tight">
+        <h2 className="font-bold text-5xl mt-5 tracking-tight">``
           Manage Stakeholder Feedback Form
         </h2>
         <div className="flex justify-between items-center">
@@ -14,9 +15,11 @@ const ManageStakeholderFeedback: FC = () => {
         </div>
         <br></br>
         <div className="relative overflow-x-auto">
+        <Link to="/admin/addquestionSF">
           <button className="px-4 py-2 mb-3 ml-1 text-sm text-blue-100 bg-yellow-500">
             Add Question
           </button>
+          </Link>
           <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
             <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
               <tr>

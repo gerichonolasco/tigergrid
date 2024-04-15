@@ -38,14 +38,15 @@ const IAEval3: FC = () => {
     setSelectedValue7(Number(event.target.value));
   };
 
-  const isNextButtonDisabled =
-    selectedValue === null ||
-    selectedValue2 === null ||
-    selectedValue3 === null ||
-    selectedValue4 === null ||
-    selectedValue5 === null ||
-    selectedValue6 === null ||
-    selectedValue7 === null;
+  const isNextButtonDisabled = selectedValue === null || selectedValue2 === null || selectedValue3 === null ||
+  selectedValue4 === null || selectedValue5 === null || selectedValue6 === null || selectedValue7 === null;
+
+  const handleNextButtonClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    if (isNextButtonDisabled) {
+      e.preventDefault();
+      alert("Please answer all questions before proceeding.");
+    }
+  };
 
   return (
     <div className="w-screen-xl px-4 bg-white min-h-screen flex flex-col items-center justify-center">
@@ -305,16 +306,16 @@ const IAEval3: FC = () => {
                 Back
               </Link>
               <Link
-                to="/iaeval4"
-                className={`bg-yellow-500 ${
-                  isNextButtonDisabled
-                    ? "cursor-not-allowed opacity-50"
-                    : "hover:bg-blue-700"
-                } text-white font-bold py-2 px-4 rounded`}
-                disabled={isNextButtonDisabled}
-              >
-                Next
-              </Link>
+              to="/iaeval4"
+              className={`bg-yellow-500 ${
+                isNextButtonDisabled
+                  ? "cursor-not-allowed opacity-50"
+                  : "hover:bg-blue-700"
+              } text-white font-bold py-2 px-4 rounded`}
+              onClick={handleNextButtonClick}
+            >
+              Next
+            </Link>
             </div>
           </div>
         </div>

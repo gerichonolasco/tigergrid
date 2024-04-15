@@ -64,7 +64,7 @@ const AddQuestionSF: FC = () => {
             type="text"
             id="dropdownQuestion"
             className="mt-1 p-2 w-full border rounded-md"
-            placeholder="Enter your dropdown question"
+            placeholder="Enter Question Here"
             value={dropdownQuestion}
             onChange={handleQuestionChange}
             required
@@ -113,7 +113,7 @@ const AddQuestionSF: FC = () => {
             type="text"
             id="additionalTextInput"
             className="mt-1 p-2 w-full border rounded-md"
-            placeholder="Enter additional text"
+            placeholder="Enter Question Here"
             value={additionalTextInput}
             onChange={handleAdditionalInputChange}
             required
@@ -130,7 +130,7 @@ const AddQuestionSF: FC = () => {
             type="text"
             id="additionalTextInput"
             className="mt-1 p-2 w-full border rounded-md"
-            placeholder="Enter additional text"
+            placeholder="Enter Question Here"
             value={additionalTextInput}
             onChange={handleAdditionalInputChange}
             required

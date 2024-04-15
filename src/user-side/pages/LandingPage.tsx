@@ -5,28 +5,28 @@ const LandingPage: FC = () => {
   const posts = [
     {
       title: "Stakeholder's Feedback",
-      img: "../public/images/meeting.jpg",
+      img: "/images/meeting.jpg",
       content:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       route: "/dataprivacySF",
     },
     {
       title: "Internal Auditor's Evaluation",
-      img: "../public/images/audit.jpg",
+      img: "/images/audit.jpg",
       content:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       route: "/dataprivacyIAE",
     },
     {
       title: "QMS Evaluation",
-      img: "../public/images/magnifying.jpg",
+      img: "/images/magnifying.jpg",
       content:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       route: "/dataprivacyQMS",
     },
     {
       title: "RIF Tracker",
-      img: "../public/images/rif.jpg",
+      img: "/images/rif.jpg",
       content:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     },
