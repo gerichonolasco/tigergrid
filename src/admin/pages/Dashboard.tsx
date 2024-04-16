@@ -6,7 +6,7 @@ interface Post {
   img: string;
   content: string;
   route?: string;
-  showOnUserSide: boolean; // New property to indicate whether to show on user side
+  showOnUserSide: boolean;
 }
 
 const Dashboard: FC = () => {
@@ -44,7 +44,6 @@ const Dashboard: FC = () => {
     },
   ]);
 
-  // Function to toggle the showOnUserSide property of a post
   const toggleShowOnUserSide = (index: number) => {
     const updatedPosts = [...posts];
     updatedPosts[index].showOnUserSide = !updatedPosts[index].showOnUserSide;
@@ -55,11 +54,7 @@ const Dashboard: FC = () => {
     <>
       <div className="relative overflow-x-auto">
         <Link to="/admin/addform">
-<<<<<<< HEAD
-          <button className="px-4 py-2 mb-3 ml-2 mt-2 text-sm text-blue-100 bg-yellow-500">
-=======
-          <button className="px-4 py-2 mb-3 ml-1 mt-2 text-sm text-blue-100 bg-yellow-500 text-white">
->>>>>>> 54a6819a9ec63a25f833b59ba9d20834a4b40130
+          <button className="px-4 py-2 mb-3 ml-1 mt-2 text-sm text-blue-100 bg-yellow-500 rounded text-white">
             Add Form
           </button>
         </Link>
@@ -73,16 +68,12 @@ const Dashboard: FC = () => {
               alt="image"
             />
             <div className="p-4">
-              <h4 className="text-xl font-semibold text-blue-600">
-                {item.title}
-              </h4>
+              <h4 className="text-xl font-semibold text-blue-600">{item.title}</h4>
               <p className="mb-2 leading-normal">{item.content}</p>
               <div className="flex justify-center items-center">
-                {/* Toggle button with checkmark or X icon */}
                 <button
-                  className={`flex items-center justify-center px-4 py-2 text-sm rounded shadow mr-2 ${
-                    item.showOnUserSide ? "bg-green-500" : "bg-red-500"
-                  }`}
+                  className={`flex items-center justify-center px-4 py-2 text-sm rounded shadow mr-2 ${item.showOnUserSide ? "bg-green-500" : "bg-red-500"
+                    }`}
                   onClick={() => toggleShowOnUserSide(index)}
                 >
                   {item.showOnUserSide ? (
@@ -93,12 +84,7 @@ const Dashboard: FC = () => {
                       fill="none"
                       stroke="currentColor"
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M5 13l4 4L19 7"
-                      />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                     </svg>
                   ) : (
                     <svg
@@ -107,23 +93,13 @@ const Dashboard: FC = () => {
                       viewBox="0 0 20 20"
                       fill="currentColor"
                     >
-                      <path
-                        fillRule="evenodd"
-                        d="M15.707 4.293a1 1 0 010 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 011.414-1.414L10 8.586l4.293-4.293a1 1 0 011.414 0z"
-                        clipRule="evenodd"
-                      />
+                      <path fillRule="evenodd" d="M15.707 4.293a1 1 0 010 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 011.414-1.414L10 8.586l4.293-4.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   )}
-                  {item.showOnUserSide
-                    ? "Show on User Side"
-                    : "Hide from User Side"}
+                  {item.showOnUserSide ? "Show on User Side" : "Hide from User Side"}
                 </button>
-                {/* View button */}
                 {item.route && (
-                  <Link
-                    to={item.route}
-                    className="px-4 py-2 text-sm text-blue-100 bg-yellow-500 rounded shadow text-white"
-                  >
+                  <Link to={item.route} className="px-4 py-2 text-sm text-blue-100 bg-yellow-500 rounded shadow text-white">
                     View
                   </Link>
                 )}
