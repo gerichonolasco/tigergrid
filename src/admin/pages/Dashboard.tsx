@@ -55,7 +55,11 @@ const Dashboard: FC = () => {
     <>
       <div className="relative overflow-x-auto">
         <Link to="/admin/addform">
+<<<<<<< HEAD
           <button className="px-4 py-2 mb-3 ml-2 mt-2 text-sm text-blue-100 bg-yellow-500">
+=======
+          <button className="px-4 py-2 mb-3 ml-1 mt-2 text-sm text-blue-100 bg-yellow-500 text-white">
+>>>>>>> 54a6819a9ec63a25f833b59ba9d20834a4b40130
             Add Form
           </button>
         </Link>
@@ -118,7 +122,7 @@ const Dashboard: FC = () => {
                 {item.route && (
                   <Link
                     to={item.route}
-                    className="px-4 py-2 text-sm text-blue-100 bg-yellow-500 rounded shadow"
+                    className="px-4 py-2 text-sm text-blue-100 bg-yellow-500 rounded shadow text-white"
                   >
                     View
                   </Link>
