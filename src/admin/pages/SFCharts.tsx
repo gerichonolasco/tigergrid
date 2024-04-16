@@ -15,7 +15,9 @@ const SFCharts: FC = () => {
         const myChart1 = new Chart(ctx1, {
           type: 'line',
           data: {
-            labels: ['Mar 2023', 'Apr 2023', 'May 2023', 'June 2023', 'July 2023', 'Aug 2023', 'Sep 2023', 'Oct 2023', 'Nov 2023', 'Dec 2023', 'Jan 2024', 'Feb 2024'],
+            labels: ['Mar 2023', 'Apr 2023', 'May 2023', 'June 2023', 
+            'July 2023', 'Aug 2023', 'Sep 2023', 'Oct 2023', 
+            'Nov 2023', 'Dec 2023', 'Jan 2024', 'Feb 2024'],
             datasets: [{
               label: 'No. of Responses per Month (Academic Unit)',
               data: [0, 15, 29, 9, 16, 2, 34, 1, 20, 16, 9, 7],
@@ -41,7 +43,9 @@ const SFCharts: FC = () => {
         const myChart2 = new Chart(ctx2, {
           type: 'line',
           data: {
-            labels: ['Mar 2023', 'Apr 2023', 'May 2023', 'June 2023', 'July 2023', 'Aug 2023', 'Sep 2023', 'Oct 2023', 'Nov 2023', 'Dec 2023', 'Jan 2024', 'Feb 2024'],
+            labels: ['Mar 2023', 'Apr 2023', 'May 2023', 'June 2023', 
+            'July 2023', 'Aug 2023', 'Sep 2023', 'Oct 2023', 
+            'Nov 2023', 'Dec 2023', 'Jan 2024', 'Feb 2024'],
             datasets: [{
               label: 'No. of Users per Month (Admin Unit)',
               data: [7, 10, 25, 8, 20, 5, 30, 3, 15, 12, 6, 4],
@@ -67,7 +71,11 @@ const SFCharts: FC = () => {
         const myChart3 = new Chart(ctx3, {
           type: 'bar',
           data: {
-            labels: ['Nursing', 'Engineering', 'Fine Arts and Design', 'CTHM', 'Pharmacy', 'Graduate School', 'Science', 'SHS', 'Commerce and Business', 'JHS', 'Medicine and Surgery', 'Arts and Letters', 'Accountancy', 'Education', 'CICS', 'Architecture', 'IR', 'Music', 'Education High School', 'Rehabilitation Sciences', 'IPEA', 'Civil Law', 'Graduate School of Law', 'Ecclesiastical'],
+            labels: ['Nursing', 'Engineering', 'Fine Arts and Design', 'CTHM', 
+            'Pharmacy', 'Graduate School', 'Science', 'SHS', 'Commerce and Business', 
+            'JHS', 'Medicine and Surgery', 'Arts and Letters', 'Accountancy', 'Education', 
+            'CICS', 'Architecture', 'IR', 'Music', 'Education High School', 
+            'Rehabilitation Sciences', 'IPEA', 'Civil Law', 'Graduate School of Law', 'Ecclesiastical'],
             datasets: [{
               label: 'Bar Chart 1',
               data: Array.from({ length: 24 }, () => Math.floor(Math.random() * 50)), // Generate random data for 24 records
@@ -101,7 +109,12 @@ const SFCharts: FC = () => {
         const myChart4 = new Chart(ctx4, {
           type: 'bar',
           data: {
-            labels: ['Category A', 'Category B', 'Category C', 'Category D', 'Category E', 'Category F', 'Category G', 'Category H', 'Category I', 'Category J', 'Category K', 'Category L', 'Category M', 'Category N', 'Category O', 'Category P', 'Category Q', 'Category R', 'Category S', 'Category T', 'Category U', 'Category V', 'Category W', 'Category X'],
+            labels: ['Category A', 'Category B', 'Category C', 'Category D', 
+            'Category E', 'Category F', 'Category G', 'Category H', 
+            'Category I', 'Category J', 'Category K', 'Category L', 
+            'Category M', 'Category N', 'Category O', 'Category P', 
+            'Category Q', 'Category R', 'Category S', 'Category T', 
+            'Category U', 'Category V', 'Category W', 'Category X'],
             datasets: [{
               label: 'Bar Chart 2',
               data: Array.from({ length: 24 }, () => Math.floor(Math.random() * 50)), // Generate random data for 24 records
