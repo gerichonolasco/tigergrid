@@ -135,22 +135,22 @@ const SFCharts: FC = () => {
       {/* Charts Container */}
       <div className="grid grid-cols-2 gap-4">
         {/* First Chart */}
-        <div className="bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6" style={{ width: '400px', height: '250px' }}>
+        <div className="bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6" style={{ width: '450px', height: '250px' }}>
           <canvas ref={chartRef1}></canvas>
         </div>
 
         {/* Second Chart */}
-        <div className="bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6" style={{ width: '400px', height: '250px' }}>
+        <div className="bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6" style={{ width: '450px', height: '250px' }}>
           <canvas ref={chartRef2}></canvas>
         </div>
 
         {/* Third Chart (Bar Chart 1) */}
-        <div className="bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6" style={{ width: '400px', height: '250px' }}>
+        <div className="bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6" style={{ width: '450px', height: '250px' }}>
           <canvas ref={chartRef3}></canvas>
         </div>
 
         {/* Fourth Chart (Bar Chart 2) */}
-        <div className="bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6" style={{ width: '400px', height: '250px' }}>
+        <div className="bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6" style={{ width: '450px', height: '250px' }}>
           <canvas ref={chartRef4}></canvas>
         </div>
       </div>
