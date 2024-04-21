@@ -82,7 +82,7 @@ const StakeholderFeedback3ver2: FC = () => {
             value={academicUnit}
             onChange={(e) => setAcademicUnit(e.target.value)}
           >
-            <option value="">Choose specific Academic Unit/Office</option>
+            <option value="">Choose specific Administrative Unit/Office</option>
             <option value="option1">Office of the Rector</option>
             <option value="option2">Office of the Vice-Rector</option>
             <option value="option3">Office of the Vice-Rector for Academic Affairs</option>
