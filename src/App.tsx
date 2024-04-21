@@ -28,6 +28,8 @@ import AdminProfile from "./admin/pages/AdminProfile";
 import AcademicOrAdmin from "./admin/pages/AcademicOrAdmin";
 import AddQuestionSF from "./admin/pages/AddQuestionSF";
 import SFCharts from "./admin/pages/SFCharts";
+import QMSCharts from "./admin/pages/QMSCharts";
+import IACharts from "./admin/pages/IACharts";
 import DocumentGrid from "./admin/pages/DocumentGrid";
 
 import Home from "./user-side/pages/Home";
@@ -37,7 +39,9 @@ import DataPrivacyIAE from "./user-side/pages/DataPrivacyIAE";
 import DataPrivacyQMS from "./user-side/pages/DataPrivacyQMS";
 import StakeholderFeedback from "./user-side/pages/StakeholderFeedback";
 import StakeholderFeedback2 from "./user-side/pages/StakeholderFeedback2";
+import StakeholderFeedback2ver2 from "./user-side/pages/StakeholderFeedback2";
 import StakeholderFeedback3 from "./user-side/pages/StakeholderFeedback3";
+// import StakeholderFeedback3ver2 from "./user-side/pages/StakeholderFeedback3ver2";
 import StakeholderFeedback4 from "./user-side/pages/StakeholderFeedback4";
 import IAEval from "./user-side/pages/IAEval";
 import IAEval2 from "./user-side/pages/IAEval2";
@@ -63,7 +67,6 @@ import Login from "./admin/pages/Login";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import SideNavbar from "./admin/components/SideNavbar";
 import SideNavbarUser from "./user-side/components/SideNavbarUser";
-import SfCharts from "./admin/pages/SFCharts";
 
 const App: FC = () => {
   return (
@@ -111,6 +114,8 @@ const App: FC = () => {
                       <Route path="adminprofile" element={<AdminProfile />} />
                       <Route path="addquestionSF" element={<AddQuestionSF />} />
                       <Route path="sfcharts" element={<SFCharts />} />
+                      <Route path="iacharts" element={<IACharts />} />
+                      <Route path="qmscharts" element={<QMSCharts />} />
                       <Route path="grid" element={<DocumentGrid />} />
                     </Routes>
                   </div>
@@ -131,6 +136,8 @@ const App: FC = () => {
                       <Route path="/stakeholderfeedback" element={<StakeholderFeedback />} />
                       <Route path="/stakeholderfeedback2" element={<StakeholderFeedback2 />} />
                       <Route path="/stakeholderfeedback3" element={<StakeholderFeedback3 />} />
+                      <Route path="/stakeholderfeedback2ver2" element={<StakeholderFeedback2 />} />
+                      {/* <Route path="/stakeholderfeedback3ver2" element={<StakeholderFeedback3 />} /> */}
                       <Route path="/stakeholderfeedback4" element={<StakeholderFeedback4 />} />
                       <Route path="/iaeval" element={<IAEval />} />
                       <Route path="/iaeval2" element={<IAEval2 />} />

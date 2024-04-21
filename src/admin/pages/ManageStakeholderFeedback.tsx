@@ -5,7 +5,8 @@ const ManageStakeholderFeedback: FC = () => {
   return (
     <div className="w-screen-xl px-4 bg-white min-h-screen">
       <div className="flex flex-col items-right">
-        <h2 className="font-bold text-5xl mt-5 tracking-tight">``
+        <h2 className="font-bold text-5xl mt-5 tracking-tight"> 
+
           Manage Stakeholder Feedback Form
         </h2>
         <div className="flex justify-between items-center">
@@ -29,7 +30,7 @@ const ManageStakeholderFeedback: FC = () => {
                 <th scope="col" className="px-6 py-3 w-4/5">
                   Question
                 </th>
-                <th scope="col" className="px-6 py-3 w-1/10">
+                <th scope="col" className="px-6 py-3 w-1/xx10">
                   Input Type
                 </th>
                 <th scope="col" className="px-6 py-3 w-1/5">
