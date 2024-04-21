@@ -146,7 +146,7 @@ const IACharts: FC = () => {
   return (
     <div className="flex flex-col items-center mt-8">
       {/* Page Title */}
-      <h1 className="text-3xl font-bold mb-4">Stakeholder's Feedback Analytics</h1>
+      <h1 className="text-3xl font-bold mb-4">Internal Auditor's Evaluation Analytics</h1>
 
       {/* Charts Container */}
       <div className="flex flex-wrap justify-center gap-4">
