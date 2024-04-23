@@ -6,6 +6,7 @@ const IACharts: FC = () => {
   const iaChart2 = useRef<HTMLCanvasElement>(null); // Reference to the third chart canvas
   const iaChart3 = useRef<HTMLCanvasElement>(null); // Reference to the third chart canvas
   const iaChart4 = useRef<HTMLCanvasElement>(null); // Reference to the third chart canvas
+  const iaChart5 = useRef<HTMLCanvasElement>(null); // Reference to the third chart canvas
 
   useEffect(() => {
     if (iaChart1.current) {
@@ -143,6 +144,70 @@ const IACharts: FC = () => {
     }
   }, []); // Run effect only once on component mount
 
+  useEffect(() => {
+    if (iaChart5.current) {
+      const iab5 = iaChart5.current.getContext('2d');
+  
+      if (iab5) {
+        const iaLineChart5 = new Chart(iab5, {
+          type: 'line',
+          data: {
+            labels: ['1st Internal Audit Cycle', '2nd Internal Audit Cycle', '3rd Internal Audit Cycle', '4th Internal Audit Cycle', 'Verification'],
+            datasets: [{
+              label: '2018-2019',
+              data: [3.85, 3.90, 3.70, 3.50, 4],
+              borderColor: 'magenta',
+              tension: 0.1,
+              fill: false
+            }, {
+              label: '2019-2020',
+              data: [4, 3.77, 3.85, 3.94, 4],
+              borderColor: 'orange',
+              tension: 0.1,
+              fill: false
+            }, {
+              label: '2020-2021',
+              data: [3.65, 3.96, 3.73, 3.60, 3.80],
+              borderColor: 'blue',
+              tension: 0.1,
+              fill: false
+            }, {
+              label: '2022-2023',
+              data: [3.75, 3.68, 3.90, 3.52, 3.64],
+              borderColor: 'pink',
+              tension: 0.1,
+              fill: false
+            }, {
+              label: '2023-2024',
+              data: [3.30, 3.65, 3.91, 4, 4],
+              borderColor: 'yellow',
+              tension: 0.1,
+              fill: false
+            }]
+          },
+          options: {
+            plugins: {
+              legend: {
+                display: true,
+                position: 'bottom',
+                labels: {
+                  boxWidth: 20,
+                  usePointStyle: true
+                }
+              }
+            }
+          }
+        });
+  
+        // Clean up function to destroy chart on component unmount
+        return () => {
+          iaLineChart5.destroy();
+        };
+      }
+    }
+  }, []); // Run effect only once on component mount
+  
+
   return (
     <div className="flex flex-col items-center mt-8">
       {/* Page Title */}
@@ -152,20 +217,23 @@ const IACharts: FC = () => {
       <div className="flex flex-wrap justify-center gap-4">
 
         {/* First Chart (Bar Chart) */}
-        <div className="bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6" style={{ width: '800px', height: '400px' }}>
+        <div className="bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6" style={{ width: '700px', height: '400px' }}>
           <canvas ref={iaChart1}></canvas>
         </div>
         {/* Second Chart (Bar Chart) */}
-        <div className="bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6" style={{ width: '800px', height: '400px' }}>
+        <div className="bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6" style={{ width: '700px', height: '400px' }}>
           <canvas ref={iaChart2}></canvas>
         </div>
         {/* Third Chart (Bar Chart) */}
-        <div className="bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6" style={{ width: '800px', height: '400px' }}>
+        <div className="bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6" style={{ width: '700px', height: '400px' }}>
           <canvas ref={iaChart3}></canvas>
         </div>
         {/* Fourth Chart (Bar Chart) */}
-        <div className="bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6" style={{ width: '800px', height: '400px' }}>
+        <div className="bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6" style={{ width: '700px', height: '400px' }}>
           <canvas ref={iaChart4}></canvas>
+        </div>
+        <div className="bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6" style={{ width: '750px', height: '400px' }}>
+          <canvas ref={iaChart5}></canvas>
         </div>
       </div>
     </div>

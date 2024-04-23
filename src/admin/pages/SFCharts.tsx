@@ -2,10 +2,12 @@ import React, { FC, useEffect, useRef } from "react";
 import Chart from 'chart.js/auto';
 
 const SFCharts: FC = () => {
-  const chartRef1 = useRef<HTMLCanvasElement>(null); // Reference to the first chart canvas
-  const chartRef2 = useRef<HTMLCanvasElement>(null); // Reference to the second chart canvas
-  const chartRef3 = useRef<HTMLCanvasElement>(null); // Reference to the third chart canvas
-  const chartRef4 = useRef<HTMLCanvasElement>(null); // Reference to the third chart canvas
+  const chartRef1 = useRef<HTMLCanvasElement>(null); 
+  const chartRef2 = useRef<HTMLCanvasElement>(null); 
+  const chartRef3 = useRef<HTMLCanvasElement>(null); 
+  const chartRef4 = useRef<HTMLCanvasElement>(null); 
+  const chartRef5 = useRef<HTMLCanvasElement>(null); 
+  const chartRef6 = useRef<HTMLCanvasElement>(null); 
 
   useEffect(() => {
     if (chartRef1.current) {
@@ -77,6 +79,7 @@ const SFCharts: FC = () => {
             }]
           },
           options: {
+            indexAxis: 'y',
             scales: {
               y: {
                 beginAtZero: true
@@ -111,9 +114,12 @@ const SFCharts: FC = () => {
             }]
           },
           options: {
+            indexAxis: 'y',
             scales: {
               y: {
-                beginAtZero: true
+                beginAtZero: true,
+                suggestedMin: 40, 
+                suggestedMax: 100 
               }
             }
           }
@@ -127,12 +133,88 @@ const SFCharts: FC = () => {
     }
   }, []); // Run effect only once on component mount
 
+  useEffect(() => {
+    if (chartRef5.current) {
+      const ctx5 = chartRef5.current.getContext('2d');
+
+      if (ctx5) {
+        const myChart5 = new Chart(ctx5, {
+          type: 'bar',
+          data: {
+            labels: ['OSG', 'Student Affairs', 'Registrar', 'Community Development', 'EDTech', 'Admissions', 'OVRRI', 'OVRAA', 'Property Custodian', 'CCC', 'CITED', 'OPQM', 'Library', 'FMO', 'OVRF', 'RCSSED', 'Safety and Security', 'HRD', 'Campus Ministry', 'STEPS', 'LESO', 'GRANTS', 'OFED', 'Creative Writing', 'Alumni', 'OIRP', 'Vice Rector', 'Language Center', 'RCNAS', 'RCCAH', 'CTRSE', 'CCCPED', 'CCPET', 'QS/The Ranking', 'Purchasing', 'Publishing', 'Public Affairs', 'Museum', 'Internal Audit', 'OICT', 'Health Service', 'DMST', 'Communications', 'Archives', 'APQAO', 'OVRAA', 'Rector'],
+            datasets: [{
+              label: 'Satisfaction Rating: Admin Units',
+              data: [4, 4, 4, 3.82, 3.81, 3.61, 3.80, 3.90, 4, 3.85, 3.69, 3.81,3.82, 3.81, 3.61, 3.80, 3.90, 4, 3.85, 3.69, 3.81,3.82, 3.81, 3.61, 3.80, 3.90, 4, 3.85, 3.69, 3.81,3.82, 3.81, 3.61, 3.80, 3.90, 4, 3.85, 3.69, 3.81
+                ,3.82, 3.81, 3.61, 3.80, 3.90, 4, 3.85, 3.69, 3.81
+              ], // Generate random data for 24 records
+              backgroundColor: 'rgba(54, 162, 235, 0.6)',
+              borderColor: 'rgba(54, 162, 235, 1)',
+              borderWidth: 1
+            }]
+          },
+          options: {
+            indexAxis: 'y',
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+
+        // Clean up function to destroy chart on component unmount
+        return () => {
+          myChart5.destroy();
+        };
+      }
+    }
+  }, []); // Run effect only once on component mount
+
+  useEffect(() => {
+    if (chartRef6.current) {
+      const ctx6 = chartRef6.current.getContext('2d');
+
+      if (ctx6) {
+        const myChart6 = new Chart(ctx6, {
+          type: 'bar',
+          data: {
+            labels: ['Person(s) who attended to the concern was corteous', 'Over-all experience was helpful', 'Person(s) who attended to the concern was competent', 'The service received was excellent', 'Over-all experience was pleasant', 'Information obtained was complete', 'Information obtained was clear',
+              'The time it took to complete the transaction was reasonable', 'The time it took to complete the transaction was quick'
+            ],
+            datasets: [{
+              label: 'Satisfaction Rating per Indicator',
+              data: [3.82, 3.81, 3.61, 3.80, 3.90, 4, 3.85, 3.69, 3.81],
+              backgroundColor: 'rgba(54, 162, 235, 0.6)',
+              borderColor: 'rgba(54, 162, 235, 1)',
+              borderWidth: 1
+            }]
+          },
+          options: {
+            indexAxis: 'y',
+            scales: {
+              y: {
+                beginAtZero: true,
+                suggestedMin: 40, 
+                suggestedMax: 100 
+              }
+            }
+          }
+        });
+
+        // Clean up function to destroy chart on component unmount
+        return () => {
+          myChart6.destroy();
+        };
+      }
+    }
+  }, []); // Run effect only once on component mount
+
   return (
-    <div>
+    
     <div className="flex flex-col items-center mt-8">
       {/* Page Title */}
       <h1 className="text-3xl font-bold mb-4">Stakeholder's Feedback Analytics</h1>
-
+      <div>
       {/* Charts Container */}
       <div className="flex flex-wrap justify-center gap-4">
         {/* First Chart */}
@@ -154,7 +236,8 @@ const SFCharts: FC = () => {
           <canvas ref={chartRef4}></canvas>
         </div>
         </div>
-        <div className="table-container mt-12">
+        <div className="flex flex-col items-center mt-2">
+        <div className="table-container mt-6">
         <table className="table-auto border border-collapse border-black-500">
           <thead>
             <tr className="bg-yellow-500">
@@ -165,25 +248,34 @@ const SFCharts: FC = () => {
           <tbody>
             <tr>
               <td className="border px-4 py-2  bg-gray-50">4.00 – 3.50</td>
-              <td className="border px-4 py-2">Very Satisfied</td>
+              <td className="border px-4 py-2 bg-yellow-200">Very Satisfied</td>
             </tr>
             <tr>
               <td className="border px-4 py-2 bg-gray-50">3.499 – 2.50</td>
-              <td className="border px-4 py-2 bg-gray-50">Satisfied</td>
+              <td className="border px-4 py-2 bg-blue-200">Satisfied</td>
             </tr>
             <tr>
               <td className="border px-4 py-2 bg-gray-50">2.499 – 1.50</td>
-              <td className="border px-4 py-2 bg-gray-50">Unsatisfied</td>
+              <td className="border px-4 py-2 bg-gray-200">Unsatisfied</td>
             </tr>
             <tr>
               <td className="border px-4 py-2 bg-gray-50">1.499 – 1.00</td>
-              <td className="border px-4 py-2">Very Unsatisfied</td>
+              <td className="border px-4 py-2 bg-red-400">Very Unsatisfied</td>
             </tr>
           </tbody>
         </table>
+        </div>
+                {/* Fourth Chart (Bar Chart) */}
+            <div className="bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6 mt-6" style={{ width: '800px', height: '400px' }}>
+          <canvas ref={chartRef5}></canvas>
+        </div>
+        <div className="bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6 mt-4" style={{ width: '800px', height: '400px' }}>
+          <canvas ref={chartRef6}></canvas>
+        </div>
+        </div>
+        
       </div><br></br>
       </div>
-    </div>
   );
 };
 
