@@ -179,7 +179,7 @@ const IAEAnalytics: FC<IAEAnalyticsProps> = (props) => {
             </button>
           </Link>
           <div>
-            <Link to="/admin/iachoosetype">
+            <Link to="/admin/iacharts">
               <button
                 type="button"
                 className="text-white bg-yellow-500 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-500 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-yellow-500 dark:hover:bg-yellow-500 focus:outline-none dark:focus:ring-yellow-500"

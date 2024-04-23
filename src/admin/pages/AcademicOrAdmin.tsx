@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"; // Import Link from react-router-dom
 const AcademicOrAdmin: FC = () => {
   return (
     <div className="flex justify-center h-screen mt-32">
-      <Link to="/admin/acadPDCA">
+      <Link to="/admin/acadscorepdca">
         {" "}
         {/* Add Link component and specify route */}
         <div className="flex flex-col items-center">
@@ -24,7 +24,7 @@ const AcademicOrAdmin: FC = () => {
           <span className="text-sm mt-1 font-bold">Academic</span>
         </div>
       </Link>
-      <Link to="/admin/adminPDCA">
+      <Link to="/admin/adminscorePDCA">
         {" "}
         {/* Add Link component and specify route */}
         <div className="flex flex-col items-center">

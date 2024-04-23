@@ -128,6 +128,7 @@ const SFCharts: FC = () => {
   }, []); // Run effect only once on component mount
 
   return (
+    <div>
     <div className="flex flex-col items-center mt-8">
       {/* Page Title */}
       <h1 className="text-3xl font-bold mb-4">Stakeholder's Feedback Analytics</h1>
@@ -152,6 +153,35 @@ const SFCharts: FC = () => {
         <div className="bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6" style={{ width: '800px', height: '400px' }}>
           <canvas ref={chartRef4}></canvas>
         </div>
+        </div>
+        <div className="table-container mt-12">
+        <table className="table-auto border border-collapse border-black-500">
+          <thead>
+            <tr className="bg-yellow-500">
+              <th className="px-4 py-2">Rating Range</th>
+              <th className="px-4 py-2">Verbal Interpretation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td className="border px-4 py-2  bg-gray-50">4.00 – 3.50</td>
+              <td className="border px-4 py-2">Very Satisfied</td>
+            </tr>
+            <tr>
+              <td className="border px-4 py-2 bg-gray-50">3.499 – 2.50</td>
+              <td className="border px-4 py-2 bg-gray-50">Satisfied</td>
+            </tr>
+            <tr>
+              <td className="border px-4 py-2 bg-gray-50">2.499 – 1.50</td>
+              <td className="border px-4 py-2 bg-gray-50">Unsatisfied</td>
+            </tr>
+            <tr>
+              <td className="border px-4 py-2 bg-gray-50">1.499 – 1.00</td>
+              <td className="border px-4 py-2">Very Unsatisfied</td>
+            </tr>
+          </tbody>
+        </table>
+      </div><br></br>
       </div>
     </div>
   );

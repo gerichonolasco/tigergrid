@@ -1,7 +1,7 @@
 import React, { FC, useState } from "react";
 import { Link } from "react-router-dom";
 
-const IATableCheck: FC = () => {
+const IAEvalScoreSummaryPlan: FC = () => {
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
   const [newDropdownOpen, setNewDropdownOpen] = useState<boolean>(false);
 
@@ -161,22 +161,40 @@ const IATableCheck: FC = () => {
       <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
-              {/* Adjusted column widths */}
-              <th scope="col" className="px-4 py-3" colSpan={1}>
-                3. Check
+              {/* Merge the first two columns */}
+              <th scope="col" className="px-4 py-3" colSpan={2}>
+                4. Act
               </th>
               <th scope="col" className="px-4 py-3">
-                Administrative Units
+                Question
               </th>
               <th scope="col" className="px-4 py-3">
-                Academic Units
+                AcU
               </th>
               <th scope="col" className="px-4 py-3">
-                IQAs
+                AcU
+              </th>
+              <th scope="col" className="px-4 py-3">
+                AcU
+              </th>
+              <th scope="col" className="px-4 py-3">
+                AcU
+              </th>
+              <th scope="col" className="px-4 py-3">
+                AcU
+              </th>
+              <th scope="col" className="px-4 py-3">
+                AcU
               </th>
 
               <th scope="col" className="px-4 py-3">
-                AVERAGE
+                AcU
+              </th>
+              <th scope="col" className="px-4 py-3">
+                AcU
+              </th>
+              <th scope="col" className="px-4 py-3">
+                Average
               </th>
             </tr>
           </thead>
@@ -193,12 +211,35 @@ const IATableCheck: FC = () => {
                   {row}
                 </td>
                 {/* Add 7 more <td> elements for each action */}
-                <td className="px-4 py-4">5.00</td>
-                <td className="px-4 py-4">5.00</td>
-                <td className="px-4 py-4">5.00</td>
-                <td className="px-4 py-4">5.00</td>
+                <td className="px-4 py-4"></td>
+                <td className="px-4 py-4">Question</td>
+                <td className="px-4 py-4">4</td>
+                <td className="px-4 py-4">5</td>
+                <td className="px-4 py-4">4.5</td>
+                <td className="px-4 py-4">4</td>
+                <td className="px-4 py-4">5</td>
+                <td className="px-4 py-4">4</td>
+                <td className="px-4 py-4">4</td>
+                <td className="px-4 py-4">4</td>
+                <td className="px-4 py-4">Here is the average per row</td>
               </tr>
             ))}
+            <tr className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+              <td className="px-4 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                Average
+              </td>
+              <td className="px-4 py-4"></td>
+              <td className="px-4 py-4"></td>
+              <td className="px-4 py-4">Here is the average per column</td>
+              <td className="px-4 py-4">Here is the average per column</td>
+              <td className="px-4 py-4">Here is the average per column</td>
+              <td className="px-4 py-4">Here is the average per column</td>
+              <td className="px-4 py-4">Here is the average per column</td>
+              <td className="px-4 py-4">Here is the average per column</td>
+              <td className="px-4 py-4">Here is the average per column</td>
+              <td className="px-4 py-4">Here is the average per column</td>
+              <td className="px-4 py-4"></td>
+            </tr>
           </tbody>
         </table>
 
@@ -236,4 +277,4 @@ const IATableCheck: FC = () => {
   );
 };
 
-export default IATableCheck;
+export default IAEvalScoreSummaryPlan;

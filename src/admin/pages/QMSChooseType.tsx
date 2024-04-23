@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"; // Import Link from react-router-dom
 const IAChooseType: FC = () => {
   return (
     <div className="flex justify-center h-screen mt-32">
-      <Link to="/route1">
+      <Link to="/admin/unitoria">
         {" "}
         {/* Add Link component and specify route */}
         <div className="flex flex-col items-center">
@@ -32,7 +32,7 @@ const IAChooseType: FC = () => {
           </span>
         </div>
       </Link>
-      <Link to="/route2">
+      <Link to="/admin/adminpdca">
         {" "}
         {/* Add Link component and specify route */}
         <div className="flex flex-col items-center">

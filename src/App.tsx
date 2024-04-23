@@ -19,7 +19,7 @@ import IATableDo from "./admin/pages/IATableDo";
 import IATableCheck from "./admin/pages/IATableCheck";
 import IATableAct from "./admin/pages/IATableAct";
 import AddForm from "./admin/pages/AddForm";
-import IAChooseType from "./admin/pages/IAChooseType";
+import QMSChooseType from "./admin/pages/QMSChooseType";
 import QMSunitorIA from "./admin/pages/QMSunitorIA";
 import AcadPDCA from "./admin/pages/AcadPDCA";
 import AdminPDCA from "./admin/pages/AdminPDCA";
@@ -30,6 +30,21 @@ import AddQuestionSF from "./admin/pages/AddQuestionSF";
 import SFCharts from "./admin/pages/SFCharts";
 import QMSCharts from "./admin/pages/QMSCharts";
 import IACharts from "./admin/pages/IACharts";
+import AcadEvalScorePDCA from "./admin/pages/AcadEvalScorePDCA";
+import AcadEvalScoreSummaryPlan from "./admin/pages/AcadEvalScoreSummaryPlan";
+import AcadEvalScoreSummaryDo from "./admin/pages/AcadEvalScoreSummaryDo";
+import AcadEvalScoreSummaryCheck from "./admin/pages/AcadEvalScoreSummaryCheck";
+import AcadEvalScoreSummaryAct from "./admin/pages/AcadEvalScoreSummaryAct";
+import AdminEvalScorePDCA from "./admin/pages/AdminEvalScorePDCA";
+import AdminEvalScoreSummaryPlan from "./admin/pages/AdminEvalScoreSummaryPlan";
+import AdminEvalScoreSummaryDo from "./admin/pages/AdminEvalScoreSummaryDo";
+import AdminEvalScoreSummaryCheck from "./admin/pages/AdminEvalScoreSummaryCheck";
+import AdminEvalScoreSummaryAct from "./admin/pages/AdminEvalScoreSummaryAct";
+import IAScorePDCA from "./admin/pages/IAScorePDCA";
+import IAEvalScoreSummaryPlan from "./admin/pages/IAEvalScoreSummaryPlan";
+import IAEvalScoreSummaryDo from "./admin/pages/IAEvalScoreSummaryDo";
+import IAEvalScoreSummaryCheck from "./admin/pages/IAEvalScoreSummaryCheck";
+import IAEvalScoreSummaryAct from "./admin/pages/IAEvalScoreSummaryAct";
 import DocumentGrid from "./admin/pages/DocumentGrid";
 
 import Home from "./user-side/pages/Home";
@@ -105,7 +120,7 @@ const App: FC = () => {
                       <Route path="iatabledo" element={<IATableDo />} />
                       <Route path="iatablecheck" element={<IATableCheck />} />
                       <Route path="iatableact" element={<IATableAct />} />
-                      <Route path="iachoosetype" element={<IAChooseType />} />
+                      <Route path="qmschoosetype" element={<QMSChooseType />} />
                       <Route path="unitoria" element={<QMSunitorIA />} />
                       <Route path="acadoradmin" element={<AcademicOrAdmin />} />
                       <Route path="acadPDCA" element={<AcadPDCA />} />
@@ -116,6 +131,21 @@ const App: FC = () => {
                       <Route path="sfcharts" element={<SFCharts />} />
                       <Route path="iacharts" element={<IACharts />} />
                       <Route path="qmscharts" element={<QMSCharts />} />
+                      <Route path="acadscorepdca" element={<AcadEvalScorePDCA />} />
+                      <Route path="acadscoreplan" element={<AcadEvalScoreSummaryPlan />} />
+                      <Route path="acadscoredo" element={<AcadEvalScoreSummaryDo />} />
+                      <Route path="acadscorecheck" element={<AcadEvalScoreSummaryCheck />} />
+                      <Route path="acadscoreact" element={<AcadEvalScoreSummaryAct />} />
+                      <Route path="adminscorepdca" element={<AdminEvalScorePDCA />} />
+                      <Route path="adminscoreplan" element={<AdminEvalScoreSummaryPlan />} />
+                      <Route path="adminscoredo" element={<AdminEvalScoreSummaryDo />} />
+                      <Route path="adminscorecheck" element={<AdminEvalScoreSummaryCheck />} />
+                      <Route path="adminscoreact" element={<AdminEvalScoreSummaryAct />} />
+                      <Route path="iascorePDCA" element={<IAScorePDCA />} />
+                      <Route path="iascoreplan" element={<IAEvalScoreSummaryPlan />} />
+                      <Route path="iascoredo" element={<IAEvalScoreSummaryDo />} />
+                      <Route path="iascorecheck" element={<IAEvalScoreSummaryCheck />} />
+                      <Route path="iascoreact" element={<IAEvalScoreSummaryAct />} />
                       <Route path="grid" element={<DocumentGrid />} />
                     </Routes>
                   </div>

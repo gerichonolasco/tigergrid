@@ -1,10 +1,10 @@
 import React, { FC } from "react";
 import { Link } from "react-router-dom";
 
-const IAPDCA: FC = () => {
+const IAScorePDCA: FC = () => {
   return (
     <div className="flex justify-center h-screen mt-32">
-      <Link to="/admin/iascoreplan">
+      <Link to="/admin/acadscoreplan">
         <div className="flex flex-col items-center">
           <svg
             className="h-56 w-56 text-black-500"
@@ -26,7 +26,7 @@ const IAPDCA: FC = () => {
           <span className="text-sm mt-1 font-bold">Plan</span>
         </div>
       </Link>
-      <Link to="/admin/iascoredo">
+      <Link to="/admin/acadscoredo">
         <div className="flex flex-col items-center">
           <svg
             className="h-56 w-56 text-black-500"
@@ -44,7 +44,7 @@ const IAPDCA: FC = () => {
         </div>
       </Link>
       {/* Repeating the first two SVGs */}
-      <Link to="/admin/iascorecheck">
+      <Link to="/admin/acadscorecheck">
         <div className="flex flex-col items-center">
           <svg
             className="h-56 w-56 text-black-500"
@@ -62,7 +62,7 @@ const IAPDCA: FC = () => {
           <span className="text-sm mt-1 font-bold">Check</span>
         </div>
       </Link>
-      <Link to="/admin/iascoreact">
+      <Link to="/admin/acadscoreact">
         <div className="flex flex-col items-center">
           <svg
             className="h-56 w-56 text-black-500"
@@ -85,4 +85,4 @@ const IAPDCA: FC = () => {
   );
 };
 
-export default IAPDCA;
+export default IAScorePDCA;

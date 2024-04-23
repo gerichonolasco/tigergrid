@@ -158,31 +158,23 @@ const AdminTableDo: FC = () => {
       </div>
 
       <div className="overflow-x-auto mt-4">
-        <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+      <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
               {/* Adjusted column widths */}
-              <th scope="col" className="px-4 py-3" colSpan={2}>
+              <th scope="col" className="px-4 py-3" colSpan={1}>
                 2. Do
               </th>
               <th scope="col" className="px-4 py-3">
-                AcU 18
+                Administrative Units
               </th>
               <th scope="col" className="px-4 py-3">
-                AcU 19
+                Academic Units
               </th>
               <th scope="col" className="px-4 py-3">
-                AcU 20
+                IQAs
               </th>
-              <th scope="col" className="px-4 py-3">
-                AcU 21
-              </th>
-              <th scope="col" className="px-4 py-3">
-                AcU 22
-              </th>
-              <th scope="col" className="px-4 py-3">
-                AcU 23
-              </th>
+
               <th scope="col" className="px-4 py-3">
                 AVERAGE
               </th>
@@ -200,11 +192,7 @@ const AdminTableDo: FC = () => {
                 <td className="px-4 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                   {row}
                 </td>
-                <td className="px-4 py-4">Sample Input</td>
-                <td className="px-4 py-4">Text Input</td>
                 {/* Add 7 more <td> elements for each action */}
-                <td className="px-4 py-4">5.00</td>
-                <td className="px-4 py-4">5.00</td>
                 <td className="px-4 py-4">5.00</td>
                 <td className="px-4 py-4">5.00</td>
                 <td className="px-4 py-4">5.00</td>
@@ -225,7 +213,7 @@ const AdminTableDo: FC = () => {
           </Link>
 
           <div>
-            <Link to="#">
+            <Link to="/admin/qmscharts">
               <button
                 type="button"
                 className="text-white bg-yellow-500 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-500 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-yellow-500 dark:hover:bg-yellow-500 focus:outline-none dark:focus:ring-yellow-500"
