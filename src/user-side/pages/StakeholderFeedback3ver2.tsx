@@ -73,7 +73,7 @@ const StakeholderFeedback3ver2: FC = () => {
       <div className="flex flex-col items-center justify-center mt-6">
         <div className="bg-gray-100 p-8 rounded-lg w-full sm:w-[700px] h-auto sm:h-[800px] flex flex-col items-center justify-center">
           <p className="text-black-500 text-xl font-bold mt-1">
-            Specific ACADEMIC UNIT/OFFICE you transacted business with:
+            Specific ADMINISTRATIVE UNIT/OFFICE you transacted business with:
           </p>
           {/* Updated ID for the select element */}
           <select
@@ -210,7 +210,7 @@ const StakeholderFeedback3ver2: FC = () => {
             onChange={(e) => setDesignation(e.target.value)}
           >
             <option value="" disabled selected>
-              Choose Specific Academic Unit/Office
+              Designation of person
             </option>
             <option value="option1">Administrative/Academic Official</option>
             <option value="option2">Support Staff</option>

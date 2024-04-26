@@ -54,9 +54,9 @@ import DataPrivacyIAE from "./user-side/pages/DataPrivacyIAE";
 import DataPrivacyQMS from "./user-side/pages/DataPrivacyQMS";
 import StakeholderFeedback from "./user-side/pages/StakeholderFeedback";
 import StakeholderFeedback2 from "./user-side/pages/StakeholderFeedback2";
-import StakeholderFeedback2ver2 from "./user-side/pages/StakeholderFeedback2";
+import StakeholderFeedback2ver2 from "./user-side/pages/StakeholderFeedback2ver2";
 import StakeholderFeedback3 from "./user-side/pages/StakeholderFeedback3";
-// import StakeholderFeedback3ver2 from "./user-side/pages/StakeholderFeedback3ver2";
+import StakeholderFeedback3ver2 from "./user-side/pages/StakeholderFeedback3ver2";
 import StakeholderFeedback4 from "./user-side/pages/StakeholderFeedback4";
 import IAEval from "./user-side/pages/IAEval";
 import IAEval2 from "./user-side/pages/IAEval2";
@@ -166,8 +166,8 @@ const App: FC = () => {
                       <Route path="/stakeholderfeedback" element={<StakeholderFeedback />} />
                       <Route path="/stakeholderfeedback2" element={<StakeholderFeedback2 />} />
                       <Route path="/stakeholderfeedback3" element={<StakeholderFeedback3 />} />
-                      <Route path="/stakeholderfeedback2ver2" element={<StakeholderFeedback2 />} />
-                      {/* <Route path="/stakeholderfeedback3ver2" element={<StakeholderFeedback3 />} /> */}
+                      <Route path="/stakeholderfeedback2ver2" element={<StakeholderFeedback2ver2 />} />
+                      <Route path="/stakeholderfeedback3ver2" element={<StakeholderFeedback3ver2 />} />
                       <Route path="/stakeholderfeedback4" element={<StakeholderFeedback4 />} />
                       <Route path="/iaeval" element={<IAEval />} />
                       <Route path="/iaeval2" element={<IAEval2 />} />

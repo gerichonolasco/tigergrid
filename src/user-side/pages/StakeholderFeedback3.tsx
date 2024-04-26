@@ -185,7 +185,7 @@ const StakeholderFeedback3: FC = () => {
             onChange={(e) => setDesignation(e.target.value)}
           >
             <option value="" disabled selected>
-              Choose Specific Academic Unit/Office
+              Designation of Person
             </option>
             <option value="option1">Administrative/Academic Official</option>
             <option value="option2">Support Staff</option>
