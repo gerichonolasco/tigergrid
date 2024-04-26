@@ -101,6 +101,9 @@ const SFAnalytics: FC = () => {
                 Type of Office
               </th>
               <th scope="col" className="px-4 py-3">
+                Unit/Office
+              </th>
+              <th scope="col" className="px-4 py-3">
                 Purpose of Visit
               </th>
               <th scope="col" className="px-4 py-3">
@@ -138,6 +141,8 @@ const SFAnalytics: FC = () => {
                 <td className="px-4 py-4">Action 5</td>
                 <td className="px-4 py-4">Action 6</td>
                 <td className="px-4 py-4">Action 7</td>
+                <td className="px-4 py-4">Action 8</td>
+                <td className="px-4 py-4">Action 9</td>
               </tr>
             ))}
           </tbody>

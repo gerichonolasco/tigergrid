@@ -37,8 +37,8 @@ const StakeholderFeedback2ver2: FC = () => {
               2
             </span>
           </li>
-          <li className="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5">
-            <span className="flex items-center justify-center w-8 h-8 border border-blue-600 rounded-full shrink-0 dark:border-blue-500">
+          <li className="flex items-center font-bold text-yellow-600 dark:text-yellow-500 space-x-2.5">
+            <span className="flex items-center justify-center w-8 h-8 border border-yellow-600 rounded-full shrink-0 dark:border-yellow-500">
               3
             </span>
           </li>
@@ -88,7 +88,7 @@ const StakeholderFeedback2ver2: FC = () => {
           </select>
 
           <p className="text-black-500 text-xl font-bold mt-3">
-            Type of Field
+            Type of Office
           </p>
           <select
             className="mt-3 mb-5 bg-white border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500"
