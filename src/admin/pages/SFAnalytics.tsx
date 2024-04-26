@@ -98,6 +98,9 @@ const SFAnalytics: FC = () => {
                 Type of Transaction
               </th>
               <th scope="col" className="px-4 py-3">
+                Type of Office
+              </th>
+              <th scope="col" className="px-4 py-3">
                 Purpose of Visit
               </th>
               <th scope="col" className="px-4 py-3">
