@@ -8,6 +8,7 @@ const SFCharts: FC = () => {
   const chartRef4 = useRef<HTMLCanvasElement>(null); 
   const chartRef5 = useRef<HTMLCanvasElement>(null); 
   const chartRef6 = useRef<HTMLCanvasElement>(null); 
+  const chartRef7 = useRef<HTMLCanvasElement>(null); 
 
   useEffect(() => {
     if (chartRef1.current) {
@@ -209,6 +210,43 @@ const SFCharts: FC = () => {
     }
   }, []); // Run effect only once on component mount
 
+  useEffect(() => {
+    if (chartRef7.current) {
+      const ctx7 = chartRef7.current.getContext('2d');
+
+      if (ctx7) {
+        const myChart7 = new Chart(ctx7, {
+          type: 'bar',
+          data: {
+            labels: ['Nursing', 'Engineering', 'Fine Arts and Design', 'CTHM', 'Pharmacy', 'Graduate School', 'Science', 'SHS', 'Commerce and Business', 'JHS', 'Medicine and Surgery', 'Arts and Letters', 'Accountancy', 'Education', 'CICS', 'Architecture', 'IR', 'Music', 'Education High School', 'Rehabilitation Sciences', 'IPEA', 'Civil Law', 'Graduate School of Law', 'Ecclesiastical'],
+            datasets: [{
+              label: 'Satisfaction Rating: Academic Units',
+              data: [3.82, 3.81, 3.61, 3.80, 3.90, 4, 3.85, 3.69, 3.81,3.82, 3.81, 3.61, 3.80, 3.90, 4, 3.85, 3.69, 3.81,3.82, 3.81, 3.61, 3.80, 3.90, 4, 3.85, 3.69, 3.81
+                ,3.82, 3.81, 3.61, 3.80, 3.90, 4, 3.85, 3.69, 3.81
+              ], // Generate random data for 24 records
+              backgroundColor: 'rgba(54, 162, 235, 0.6)',
+              borderColor: 'rgba(54, 162, 235, 1)',
+              borderWidth: 1
+            }]
+          },
+          options: {
+            indexAxis: 'y',
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+
+        // Clean up function to destroy chart on component unmount
+        return () => {
+          myChart7.destroy();
+        };
+      }
+    }
+  }, []); // Run effect only once on component mount
+
   return (
     
     <div className="flex flex-col items-center mt-8">
@@ -265,7 +303,9 @@ const SFCharts: FC = () => {
           </tbody>
         </table>
         </div>
-                {/* Fourth Chart (Bar Chart) */}
+        <div className="bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6 mt-6" style={{ width: '800px', height: '400px' }}>
+          <canvas ref={chartRef7}></canvas>
+        </div>
             <div className="bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6 mt-6" style={{ width: '800px', height: '400px' }}>
           <canvas ref={chartRef5}></canvas>
         </div>
