@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const ManageUsers = () => {
-  const [user, setUser] = useState({ name: "", email: "", password: "", role: "User" });
+  const [user, setUser] = useState({ firstName: "", lastName: "", email: "", password: "", role: "User" });
   const [users, setUsers] = useState([]);
 
   const handleInputChange = (e) => {
@@ -11,7 +11,7 @@ const ManageUsers = () => {
 
   const addUser = () => {
     setUsers([...users, user]);
-    setUser({ name: "", email: "", password: "", role: "User" });
+    setUser({ firstName: "", lastName: "", email: "", password: "", role: "User" });
   };
 
   return (
@@ -24,7 +24,8 @@ const ManageUsers = () => {
           <table className="w-full text-md bg-white shadow-md rounded mb-4">
             <tbody>
               <tr className="border-b">
-                <th className="text-left p-3 px-5">Name</th>
+                <th className="text-left p-3 px-5">First Name</th>
+                <th className="text-left p-3 px-5">Last Name</th>
                 <th className="text-left p-3 px-5">Email</th>
                 <th className="text-left p-3 px-5">Password</th>
                 <th className="text-left p-3 px-5">Role</th>
@@ -33,7 +34,10 @@ const ManageUsers = () => {
               {users.map((user, index) => (
                 <tr key={index} className="border-b hover:bg-orange-100 bg-gray-100">
                   <td className="p-3 px-5">
-                    <input type="text" placeholder="Enter Name" className="bg-transparent border-b-2 border-gray-300 py-2" value={user.name} />
+                    <input type="text" placeholder="Enter First Name" className="bg-transparent border-b-2 border-gray-300 py-2" value={user.firstName} />
+                  </td>
+                  <td className="p-3 px-5">
+                    <input type="text" placeholder="Enter Last Name" className="bg-transparent border-b-2 border-gray-300 py-2" value={user.lastName} />
                   </td>
                   <td className="p-3 px-5">
                     <input type="text" placeholder="Enter Email" className="bg-transparent border-b-2 border-gray-300 py-2" value={user.email} />
@@ -55,7 +59,10 @@ const ManageUsers = () => {
               ))}
               <tr className="border-b hover:bg-orange-100 bg-gray-100">
                 <td className="p-3 px-5">
-                  <input type="text" name="name" placeholder="Enter Name" className="bg-transparent border-b-2 border-gray-300 py-2" value={user.name} onChange={handleInputChange} />
+                  <input type="text" name="firstName" placeholder="Enter First Name" className="bg-transparent border-b-2 border-gray-300 py-2" value={user.firstName} onChange={handleInputChange} />
+                </td>
+                <td className="p-3 px-5">
+                  <input type="text" name="lastName" placeholder="Enter Last Name" className="bg-transparent border-b-2 border-gray-300 py-2" value={user.lastName} onChange={handleInputChange} />
                 </td>
                 <td className="p-3 px-5">
                   <input type="text" name="email" placeholder="Enter Email" className="bg-transparent border-b-2 border-gray-300 py-2" value={user.email} onChange={handleInputChange} />

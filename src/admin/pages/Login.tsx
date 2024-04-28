@@ -45,7 +45,7 @@ const Login = () => {
         <div className="flex justify-center items-center bg-cover bg-center bg-main-building">
           <div className="container w-full md:w-3/4 lg:w-1/2 xl:w-1/3 bg-white p-8 rounded-lg shadow-md mt-28">
             <div className="flex justify-between items-center">
-              <div className="flex justify-center mb-6 border-r-2 border-yellow-500 pr-4">
+              <div className="flex justify-center mb-6 ml-8">
                 <img src="/images/ustlogo.png" alt="Logo" className="w-40" />
               </div>
               <form
