@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const ManageUsers = () => {
-  const [user, setUser] = useState({ name: "", email: "", role: "User" });
+  const [user, setUser] = useState({ name: "", email: "", password: "", role: "User" });
   const [users, setUsers] = useState([]);
 
   const handleInputChange = (e) => {
@@ -11,7 +11,7 @@ const ManageUsers = () => {
 
   const addUser = () => {
     setUsers([...users, user]);
-    setUser({ name: "", email: "", role: "User" });
+    setUser({ name: "", email: "", password: "", role: "User" });
   };
 
   return (
@@ -26,6 +26,7 @@ const ManageUsers = () => {
               <tr className="border-b">
                 <th className="text-left p-3 px-5">Name</th>
                 <th className="text-left p-3 px-5">Email</th>
+                <th className="text-left p-3 px-5">Password</th>
                 <th className="text-left p-3 px-5">Role</th>
                 <th></th>
               </tr>
@@ -36,6 +37,9 @@ const ManageUsers = () => {
                   </td>
                   <td className="p-3 px-5">
                     <input type="text" placeholder="Enter Email" className="bg-transparent border-b-2 border-gray-300 py-2" value={user.email} />
+                  </td>
+                  <td className="p-3 px-5">
+                    <input type="password" placeholder="Enter Password" className="bg-transparent border-b-2 border-gray-300 py-2" value={user.password} />
                   </td>
                   <td className="p-3 px-5">
                     <select value={user.role} className="bg-transparent border-b-2 border-gray-300 py-2">
@@ -55,6 +59,9 @@ const ManageUsers = () => {
                 </td>
                 <td className="p-3 px-5">
                   <input type="text" name="email" placeholder="Enter Email" className="bg-transparent border-b-2 border-gray-300 py-2" value={user.email} onChange={handleInputChange} />
+                </td>
+                <td className="p-3 px-5">
+                  <input type="password" name="password" placeholder="Enter Password" className="bg-transparent border-b-2 border-gray-300 py-2" value={user.password} onChange={handleInputChange} />
                 </td>
                 <td className="p-3 px-5">
                   <select name="role" value={user.role} className="bg-transparent border-b-2 border-gray-300 py-2" onChange={handleInputChange}>
