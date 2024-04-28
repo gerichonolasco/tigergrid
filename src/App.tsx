@@ -45,6 +45,7 @@ import IAEvalScoreSummaryPlan from "./admin/pages/IAEvalScoreSummaryPlan";
 import IAEvalScoreSummaryDo from "./admin/pages/IAEvalScoreSummaryDo";
 import IAEvalScoreSummaryCheck from "./admin/pages/IAEvalScoreSummaryCheck";
 import IAEvalScoreSummaryAct from "./admin/pages/IAEvalScoreSummaryAct";
+import ManageUsers from "./admin/pages/ManageUsers";
 import DocumentGrid from "./admin/pages/DocumentGrid";
 
 import Home from "./user-side/pages/Home";
@@ -78,6 +79,7 @@ import QMSIACheck from "./user-side/pages/QMSIACheck";
 import QMSIAAct from "./user-side/pages/QMSIAAct";
 import UserProfile from "./user-side/pages/UserProfile";
 import Login from "./admin/pages/Login";
+import Register from "./admin/pages/Register";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import SideNavbar from "./admin/components/SideNavbar";
@@ -90,6 +92,7 @@ const App: FC = () => {
         <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
           <Route
             path="/admin/*"
             element={
@@ -146,6 +149,7 @@ const App: FC = () => {
                       <Route path="iascoredo" element={<IAEvalScoreSummaryDo />} />
                       <Route path="iascorecheck" element={<IAEvalScoreSummaryCheck />} />
                       <Route path="iascoreact" element={<IAEvalScoreSummaryAct />} />
+                      <Route path="manageusers" element={<ManageUsers />} />
                       <Route path="grid" element={<DocumentGrid />} />
                     </Routes>
                   </div>

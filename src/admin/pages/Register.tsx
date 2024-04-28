@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom"; // Import Link from React Router
 
-const Login = () => {
+const Register = () => {
   useEffect(() => {
     document.body.classList.add("login-page-body");
     return () => {
@@ -9,26 +9,24 @@ const Login = () => {
     };
   }, []);
 
-  const [username, setUsername] = React.useState("");
-  const [password, setPassword] = React.useState("");
-  const [error, setError] = React.useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const handleLogin = async (e) => {
+  const handleSignUp = async (e) => {
     e.preventDefault();
+    if (!username.trim() || !password.trim()) {
+      setError("Please input both email and password.");
+      return;
+    }
+
     try {
-      if (username.trim() !== "" && password.trim() !== "") {
-        setIsLoggedIn(true);
-        alert("Login Successful!");
-      } else if (username.trim() == "" && password.trim() == "") {
-        setError("Please input Email and password.");
-      } else if (username.trim() == "" && password.trim() !== "") {
-        setError("Please input Email.");
-      } else if (username.trim() !== "" && password.trim() == "") {
-        setError("Please input password.");
-      }
+      // Implement your sign-up logic here
+      setIsLoggedIn(true);
+      alert("Sign up successful!");
     } catch (error) {
-      setError("An error occurred while logging in");
+      setError("An error occurred while signing up");
     }
   };
 
@@ -44,12 +42,12 @@ const Login = () => {
       >
         <div className="flex justify-center items-center bg-cover bg-center bg-main-building">
           <div className="container w-full md:w-3/4 lg:w-1/2 xl:w-1/3 bg-white p-8 rounded-lg shadow-md mt-28">
-            <div className="flex justify-between items-center">
-              <div className="flex justify-center mb-6 border-r-2 border-yellow-500 pr-4">
+            <div className="flex justify-between items-center flex-col md:flex-row">
+              <div className="flex justify-center mb-6 border-r-0 md:border-r-2 md:border-yellow-500 pr-4">
                 <img src="/images/ustlogo.png" alt="Logo" className="w-40" />
               </div>
               <form
-                onSubmit={handleLogin}
+                onSubmit={handleSignUp}
                 className="flex flex-col items-center"
               >
                 <h1 className="text-center text-2xl font-bold mb-4"></h1>
@@ -76,11 +74,11 @@ const Login = () => {
                   type="submit"
                   className="bg-yellow-500 text-black px-4 py-2 rounded mt-4 hover:bg-yellow-600"
                 >
-                  Login
+                  Sign Up
                 </button>
                 <p className="mt-2">
-                  Don't have an account?{" "}
-                  <Link to="/register" className="text-blue-500">Sign Up</Link>
+                  Already have an account?{" "}
+                  <Link to="/login" className="text-blue-500">Log In</Link>
                 </p>
               </form>
             </div>
@@ -91,4 +89,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
