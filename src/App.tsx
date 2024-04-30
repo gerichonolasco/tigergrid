@@ -46,6 +46,7 @@ import IAEvalScoreSummaryDo from "./admin/pages/IAEvalScoreSummaryDo";
 import IAEvalScoreSummaryCheck from "./admin/pages/IAEvalScoreSummaryCheck";
 import IAEvalScoreSummaryAct from "./admin/pages/IAEvalScoreSummaryAct";
 import ManageUsers from "./admin/pages/ManageUsers";
+import QMSAnalytics from "./admin/pages/QMSAnalytics";
 import DocumentGrid from "./admin/pages/DocumentGrid";
 
 import Home from "./user-side/pages/Home";
@@ -150,6 +151,7 @@ const App: FC = () => {
                       <Route path="iascorecheck" element={<IAEvalScoreSummaryCheck />} />
                       <Route path="iascoreact" element={<IAEvalScoreSummaryAct />} />
                       <Route path="manageusers" element={<ManageUsers />} />
+                      <Route path="qmsanalytics" element={<QMSAnalytics />} />
                       <Route path="grid" element={<DocumentGrid />} />
                     </Routes>
                   </div>

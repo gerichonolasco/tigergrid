@@ -32,7 +32,7 @@ const Dashboard: FC = () => {
       img: "/images/magnifying.jpg",
       content:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      route: "/admin/qmschoosetype",
+      route: "/admin/qmsanalytics",
       showOnUserSide: true,
     },
     {
