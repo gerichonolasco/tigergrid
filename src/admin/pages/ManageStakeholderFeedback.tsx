@@ -1,143 +1,185 @@
-import React, { FC, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { FC, useState, ChangeEvent } from "react";
+import ManageStakeholderPage1 from "../components/ManageStakeholderFeedback/ManageStakeholderPage1";
+import ManageStakeholderPage2 from "../components/ManageStakeholderFeedback/ManageStakeholderPage2";
+import ManageStakeholderPage3 from "../components/ManageStakeholderFeedback/ManageStakeholderPage3";
+import ManageStakeholderPage4 from "../components/ManageStakeholderFeedback/ManageStakeholderPage4";
+
+interface SFQuestion {
+  sfQuestion: string;
+  sfInputType: string;
+  sfDropdownChoices: string[];
+}
 
 const ManageStakeholderFeedback: FC = () => {
-  const [question, setQuestion] = useState({ text: "", inputType: "Text", dropdownChoices: [] });
-  const [questions, setQuestions] = useState([]);
-  const [editingIndex, setEditingIndex] = useState<number | null>(null);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [users, setUsers] = useState<SFQuestion[]>([]);
+  const [user, setUser] = useState<SFQuestion>({
+    sfQuestion: "",
+    sfInputType: "",
+    sfDropdownChoices: [],
+  });
   const [error, setError] = useState<string>("");
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setQuestion({ ...question, [name]: value });
+  const handleInputChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLSelectElement>,
+    field: string
+  ) => {
+    const { value } = e.target;
+    setUser((prevUser) => ({
+      ...prevUser,
+      [field]: value,
+    }));
   };
 
-  const handleDropdownChange = (index, e) => {
+  const handleDropdownChange = (
+    index: number,
+    e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     const { value } = e.target;
-    const updatedDropdownChoices = [...question.dropdownChoices];
-    updatedDropdownChoices[index] = value;
-    setQuestion({ ...question, dropdownChoices: updatedDropdownChoices });
+    setUser((prevUser) => {
+      const updatedDropdownChoices = [...prevUser.sfDropdownChoices];
+      updatedDropdownChoices[index] = value;
+      return {
+        ...prevUser,
+        sfDropdownChoices: updatedDropdownChoices,
+      };
+    });
   };
 
   const addDropdownChoice = () => {
-    setQuestion({ ...question, dropdownChoices: [...question.dropdownChoices, ""] });
+    setUser((prevUser) => ({
+      ...prevUser,
+      sfDropdownChoices: [...prevUser.sfDropdownChoices, ""],
+    }));
   };
 
-  const removeDropdownChoice = (index) => {
-    const updatedDropdownChoices = question.dropdownChoices.filter((_, i) => i !== index);
-    setQuestion({ ...question, dropdownChoices: updatedDropdownChoices });
+  const removeDropdownChoice = (index: number) => {
+    setUser((prevUser) => {
+      const updatedDropdownChoices = [...prevUser.sfDropdownChoices];
+      updatedDropdownChoices.splice(index, 1);
+      return {
+        ...prevUser,
+        sfDropdownChoices: updatedDropdownChoices,
+      };
+    });
   };
 
-  const validateInputs = () => {
-    if (!question.text || !question.inputType) {
-      setError("Please fill in all required fields.");
-      return false;
-    }
-    if (question.inputType === "Dropdown" && question.dropdownChoices.some(choice => !choice)) {
-      setError("Please fill in all dropdown choices.");
-      return false;
-    }
-    setError("");
-    return true;
-  };
-
-  const addQuestion = () => {
-    if (!validateInputs()) return;
-    const newQuestion = { ...question };
-    if (newQuestion.inputType !== "Dropdown") {
-      delete newQuestion.dropdownChoices;
-    }
-    if (editingIndex !== null) {
-      const updatedQuestions = [...questions];
-      updatedQuestions[editingIndex] = newQuestion;
-      setQuestions(updatedQuestions);
-      setEditingIndex(null);
+  const addUser = () => {
+    if (user.sfQuestion && user.sfInputType) {
+      setUsers((prevUsers) => [...prevUsers, user]);
+      setUser({
+        sfQuestion: "",
+        sfInputType: "",
+        sfDropdownChoices: [],
+      });
+      setError("");
     } else {
-      setQuestions([...questions, newQuestion]);
+      setError("Please complete all fields before adding.");
     }
-    setQuestion({ text: "", inputType: "Text", dropdownChoices: [] });
   };
 
-  const editQuestion = (index) => {
-    const editingQuestion = questions[index];
-    setQuestion(editingQuestion);
-    setEditingIndex(index);
+  const editUser = (index: number, updatedUser: SFQuestion) => {
+    setUsers((prevUsers) => {
+      const newUsers = [...prevUsers];
+      newUsers[index] = updatedUser; // Replace old user with updated user
+      return newUsers;
+    });
+    setUser({
+      sfQuestion: updatedUser.sfQuestion,
+      sfInputType: updatedUser.sfInputType,
+      sfDropdownChoices: [...updatedUser.sfDropdownChoices], // Make sure sfDropdownChoices is copied
+    });
   };
 
-  const deleteQuestion = (index) => {
-    const updatedQuestions = questions.filter((_, i) => i !== index);
-    setQuestions(updatedQuestions);
+  const deleteUser = (index: number) => {
+    setUsers((prevUsers) => prevUsers.filter((_, i) => i !== index));
+  };
+
+  const handlePageChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    setCurrentPage(Number(e.target.value));
   };
 
   return (
     <div className="flex justify-center items-center bg-cover bg-center bg-main-building">
-      <div className="text-gray-900 bg-gray-200">
-        <div className="p-4 flex">
-          <h1 className="text-2xl">Manage Stakeholder's Feedback Questions</h1>
+      <div>
+        <div className="text-gray-900 bg-gray-200">
+          <div className="p-4 flex">
+            <h1 className="text-2xl">Manage Stakeholder's Feedback Form</h1>
+          </div>
+          <div className="px-3 py-4 flex justify-center">
+            <div className="mb-4">
+              <label htmlFor="pageSelector" className="mr-2">
+                Select Page:
+              </label>
+              <select
+                id="pageSelector"
+                value={currentPage}
+                onChange={handlePageChange}
+              >
+                <option value={1}>Page 1</option>
+                <option value={2}>Page 2</option>
+                <option value={3}>Page 3</option>
+                <option value={4}>Page 4</option>
+              </select>
+            </div>
+          </div>
         </div>
-        <div className="px-3 py-4 flex justify-center">
-          <table className="w-full text-md bg-white shadow-md rounded mb-4">
-            <tbody>
-              <tr className="border-b">
-                <th className="text-left p-3 px-5">Number</th>
-                <th className="text-left p-3 px-5">Question</th>
-                <th className="text-left p-3 px-5">Input Type</th>
-                <th className="text-left p-3 px-5">Actions</th>
-                <th></th>
-              </tr>
-              {questions.map((question, index) => (
-                <tr key={index} className="border-b hover:bg-orange-100 bg-gray-100">
-                  <td className="p-3 px-5">{index + 1}</td>
-                  <td className="p-3 px-5">{question.text}</td>
-                  <td className="p-3 px-5">{question.inputType}</td>
-                  <td className="p-3 px-5">
-                    <button type="button" className="text-blue-500" onClick={() => editQuestion(index)}>Edit</button>
-                    <span className="text-blue-500 mx-1 underline">|</span>
-                    <button type="button" className="text-blue-500" onClick={() => deleteQuestion(index)}>Delete</button>
-                  </td>
-                </tr>
-              ))}
-              <tr className="border-b hover:bg-orange-100 bg-gray-100">
-                <td className="p-3 px-5">{questions.length + 1}</td>
-                <td className="p-3 px-5">
-                  <input type="text" name="text" placeholder="Enter Question" className="bg-transparent border-b-2 border-gray-300 py-2" value={question.text} onChange={handleInputChange} />
-                </td>
-                <td className="p-3 px-5">
-                  <select name="inputType" value={question.inputType} className="bg-transparent border-b-2 border-gray-300 py-2" onChange={handleInputChange}>
-                    <option value="Text">Text</option>
-                    <option value="Dropdown">Dropdown</option>
-                    <option value="Radio Button">Radio Button</option>
-                  </select>
-                  {question.inputType === "Dropdown" && (
-                    <div>
-                      {question.dropdownChoices.map((choice, index) => (
-                        <div key={index} className="mt-2">
-                          <input
-                            type="text"
-                            placeholder={`Choice ${index + 1}`}
-                            className="bg-transparent border-b-2 border-gray-300 py-2"
-                            value={choice}
-                            onChange={(e) => handleDropdownChange(index, e)}
-                          />
-                          <button type="button" className="ml-2 text-red-500" onClick={() => removeDropdownChoice(index)}>Remove</button>
-                        </div>
-                      ))}
-                      <button type="button" className="mt-2 text-green-500" onClick={addDropdownChoice}>Add Choice</button>
-                    </div>
-                  )}
-                </td>
-                <td className="p-3 px-5">
-                  <button type="button" onClick={addQuestion} className="text-sm bg-green-500 hover:bg-green-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Add</button>
-                </td>
-              </tr>
-              {error && (
-                <tr className="bg-red-100">
-                  <td colSpan={5} className="p-3 text-red-500">{error}</td>
-                </tr>
-              )}
-            </tbody>
-          </table>
-        </div>
+        {currentPage === 1 && (
+          <ManageStakeholderPage1
+            users={users}
+            user={user}
+            handleInputChange={handleInputChange}
+            handleDropdownChange={handleDropdownChange}
+            addDropdownChoice={addDropdownChoice}
+            removeDropdownChoice={removeDropdownChoice}
+            addUser={addUser}
+            editUser={editUser}
+            deleteUser={deleteUser}
+            error={error}
+          />
+        )}
+        {currentPage === 2 && (
+          <ManageStakeholderPage2
+            users={users}
+            user={user}
+            handleInputChange={handleInputChange}
+            handleDropdownChange={handleDropdownChange}
+            addDropdownChoice={addDropdownChoice}
+            removeDropdownChoice={removeDropdownChoice}
+            addUser={addUser}
+            editUser={editUser}
+            deleteUser={deleteUser}
+            error={error}
+          />
+        )}
+        {currentPage === 3 && (
+          <ManageStakeholderPage3
+            users={users}
+            user={user}
+            handleInputChange={handleInputChange}
+            handleDropdownChange={handleDropdownChange}
+            addDropdownChoice={addDropdownChoice}
+            removeDropdownChoice={removeDropdownChoice}
+            addUser={addUser}
+            editUser={editUser}
+            deleteUser={deleteUser}
+            error={error}
+          />
+        )}
+        {currentPage === 4 && (
+          <ManageStakeholderPage4
+            users={users}
+            user={user}
+            handleInputChange={handleInputChange}
+            handleDropdownChange={handleDropdownChange}
+            addDropdownChoice={addDropdownChoice}
+            removeDropdownChoice={removeDropdownChoice}
+            addUser={addUser}
+            editUser={editUser}
+            deleteUser={deleteUser}
+            error={error}
+          />
+        )}
       </div>
     </div>
   );
