@@ -1,64 +1,185 @@
-import React, { FC } from "react";
+import React, { FC, useState, ChangeEvent } from "react";
+import ManageIAEvalPage1 from "../components/ManageIAEval/ManageIAEvalPage1";
+import ManageIAEvalPage2 from "../components/ManageIAEval/ManageIAEvalPage2";
+import ManageIAEvalPage3 from "../components/ManageIAEval/ManageIAEvalPage3";
+import ManageIAEvalPage4 from "../components/ManageIAEval/ManageIAEvalPage4";
+
+interface SFQuestion {
+  sfQuestion: string;
+  sfInputType: string;
+  sfDropdownChoices: string[];
+}
 
 const ManageIAEval: FC = () => {
-  return (
-    <div className="w-screen-xl px-4 bg-white min-h-screen">
-      <div className="flex flex-col items-right">
-        <h2 className="font-bold text-5xl mt-5 tracking-tight">
-          Manage Internal Auditor's Evaluation Form
-        </h2>
-        <div className="flex justify-between items-center">
-          <p className="text-neutral-500 text-xl mt-3">
-            For the management of the Internal Auditor's Evaluation Form.
-          </p>
-        </div>
-        <br></br>
-        <div className="relative overflow-x-auto">
-          <button className="px-4 py-2 mb-3 ml-1 text-sm text-blue-100 bg-yellow-500">
-            Add Question
-          </button>
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [users, setUsers] = useState<SFQuestion[]>([]);
+  const [user, setUser] = useState<SFQuestion>({
+    sfQuestion: "",
+    sfInputType: "",
+    sfDropdownChoices: [],
+  });
+  const [error, setError] = useState<string>("");
 
-          <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-              <tr>
-                <th scope="col" className="px-6 py-3 w-10">
-                  Number
-                </th>
-                <th scope="col" className="px-6 py-3 w-4/5">
-                  Question
-                </th>
-                <th scope="col" className="px-6 py-3 w-1/10">
-                  Input Type
-                </th>
-                <th scope="col" className="px-6 py-3 w-1/5">
-                  Action
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {/* Repeat the following structure for each row */}
-              <tr className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                <th
-                  scope="row"
-                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                >
-                  1
-                </th>
-                <td className="px-6 py-4">Profile of Respondent</td>
-                <td className="px-6 py-4">Text Input</td>
-                <td className="px-10 py-4 flex justify-between">
-                  <button className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                    Edit
-                  </button>
-                  <button className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                    Archive
-                  </button>
-                </td>
-              </tr>
-              {/* Add more rows as needed */}
-            </tbody>
-          </table>
+  const handleInputChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLSelectElement>,
+    field: string
+  ) => {
+    const { value } = e.target;
+    setUser((prevUser) => ({
+      ...prevUser,
+      [field]: value,
+    }));
+  };
+
+  const handleDropdownChange = (
+    index: number,
+    e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    const { value } = e.target;
+    setUser((prevUser) => {
+      const updatedDropdownChoices = [...prevUser.sfDropdownChoices];
+      updatedDropdownChoices[index] = value;
+      return {
+        ...prevUser,
+        sfDropdownChoices: updatedDropdownChoices,
+      };
+    });
+  };
+
+  const addDropdownChoice = () => {
+    setUser((prevUser) => ({
+      ...prevUser,
+      sfDropdownChoices: [...prevUser.sfDropdownChoices, ""],
+    }));
+  };
+
+  const removeDropdownChoice = (index: number) => {
+    setUser((prevUser) => {
+      const updatedDropdownChoices = [...prevUser.sfDropdownChoices];
+      updatedDropdownChoices.splice(index, 1);
+      return {
+        ...prevUser,
+        sfDropdownChoices: updatedDropdownChoices,
+      };
+    });
+  };
+
+  const addUser = () => {
+    if (user.sfQuestion && user.sfInputType) {
+      setUsers((prevUsers) => [...prevUsers, user]);
+      setUser({
+        sfQuestion: "",
+        sfInputType: "",
+        sfDropdownChoices: [],
+      });
+      setError("");
+    } else {
+      setError("Please complete all fields before adding.");
+    }
+  };
+
+  const editUser = (index: number, updatedUser: SFQuestion) => {
+    setUsers((prevUsers) => {
+      const newUsers = [...prevUsers];
+      newUsers[index] = updatedUser; // Replace old user with updated user
+      return newUsers;
+    });
+    setUser({
+      sfQuestion: updatedUser.sfQuestion,
+      sfInputType: updatedUser.sfInputType,
+      sfDropdownChoices: [...updatedUser.sfDropdownChoices], // Make sure sfDropdownChoices is copied
+    });
+  };
+
+  const deleteUser = (index: number) => {
+    setUsers((prevUsers) => prevUsers.filter((_, i) => i !== index));
+  };
+
+  const handlePageChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    setCurrentPage(Number(e.target.value));
+  };
+
+  return (
+    <div className="flex justify-center items-center bg-cover bg-center bg-main-building">
+      <div>
+        <div className="text-gray-900 bg-gray-200">
+          <div className="p-4 flex">
+            <h1 className="text-2xl">Manage Internal Auditor's Evaluation Form</h1>
+          </div>
+          <div className="px-3 py-4 flex justify-center">
+            <div className="mb-4">
+              <label htmlFor="pageSelector" className="mr-2">
+                Select Page:
+              </label>
+              <select
+                id="pageSelector"
+                value={currentPage}
+                onChange={handlePageChange}
+              >
+                <option value={1}>Page 1</option>
+                <option value={2}>Page 2</option>
+                <option value={3}>Page 3</option>
+                <option value={4}>Page 4</option>
+              </select>
+            </div>
+          </div>
         </div>
+        {currentPage === 1 && (
+          <ManageIAEvalPage1
+            users={users}
+            user={user}
+            handleInputChange={handleInputChange}
+            handleDropdownChange={handleDropdownChange}
+            addDropdownChoice={addDropdownChoice}
+            removeDropdownChoice={removeDropdownChoice}
+            addUser={addUser}
+            editUser={editUser}
+            deleteUser={deleteUser}
+            error={error}
+          />
+        )}
+        {currentPage === 2 && (
+          <ManageIAEvalPage2
+            users={users}
+            user={user}
+            handleInputChange={handleInputChange}
+            handleDropdownChange={handleDropdownChange}
+            addDropdownChoice={addDropdownChoice}
+            removeDropdownChoice={removeDropdownChoice}
+            addUser={addUser}
+            editUser={editUser}
+            deleteUser={deleteUser}
+            error={error}
+          />
+        )}
+        {currentPage === 3 && (
+          <ManageIAEvalPage3
+            users={users}
+            user={user}
+            handleInputChange={handleInputChange}
+            handleDropdownChange={handleDropdownChange}
+            addDropdownChoice={addDropdownChoice}
+            removeDropdownChoice={removeDropdownChoice}
+            addUser={addUser}
+            editUser={editUser}
+            deleteUser={deleteUser}
+            error={error}
+          />
+        )}
+        {currentPage === 4 && (
+          <ManageIAEvalPage4
+            users={users}
+            user={user}
+            handleInputChange={handleInputChange}
+            handleDropdownChange={handleDropdownChange}
+            addDropdownChoice={addDropdownChoice}
+            removeDropdownChoice={removeDropdownChoice}
+            addUser={addUser}
+            editUser={editUser}
+            deleteUser={deleteUser}
+            error={error}
+          />
+        )}
       </div>
     </div>
   );
