@@ -7,8 +7,8 @@ interface SFQuestion {
 }
 
 interface ManageStakeholderPage1Props {
-  users: SFQuestion[];
-  user: SFQuestion;
+  questions: SFQuestion[];
+  question: SFQuestion;
   handleInputChange: (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement>,
     field: string
@@ -19,27 +19,27 @@ interface ManageStakeholderPage1Props {
   ) => void;
   addDropdownChoice: () => void;
   removeDropdownChoice: (index: number) => void;
-  addUser: () => void;
-  editUser: (index: number, updatedUser: SFQuestion) => void; // Pass updated user data
-  deleteUser: (index: number) => void;
+  addQuestion: () => void;
+  editquestion: (index: number, updatedQuestion: SFQuestion) => void; // Pass updated user data
+  deleteQuestion: (index: number) => void;
   error: string;
 }
 
 const ManageStakeholderPage1: FC<ManageStakeholderPage1Props> = ({
-  users,
-  user,
+  questions,
+  question, 
   handleInputChange,
   handleDropdownChange,
   addDropdownChoice,
   removeDropdownChoice,
-  addUser,
-  editUser,
-  deleteUser,
+  addQuestion,
+  editQuestion,
+  deleteQuestion,
   error,
 }) => {
   const [editMode, setEditMode] = useState<boolean>(false);
   const [editingIndex, setEditingIndex] = useState<number>(-1);
-  const [editedUser, setEditedUser] = useState<SFQuestion>({
+  const [editedQuestion, setEditedQuestion] = useState<SFQuestion>({
     sfQuestion: "",
     sfInputType: "",
     sfDropdownChoices: [],
@@ -48,9 +48,9 @@ const ManageStakeholderPage1: FC<ManageStakeholderPage1Props> = ({
   const handleEdit = (index: number) => {
     setEditMode(true);
     setEditingIndex(index);
-    setEditedUser(users[index]);
+    setEditedQuestion(questions[index]);
     // If the selected question is a Dropdown type, clear its choices
-    if (users[index].sfInputType === "Dropdown") {
+    if (questions[index].sfInputType === "Dropdown") {
       handleInputChange(
         { target: { value: "" } } as ChangeEvent<
           HTMLInputElement | HTMLSelectElement
@@ -63,9 +63,9 @@ const ManageStakeholderPage1: FC<ManageStakeholderPage1Props> = ({
   const handleSaveChanges = () => {
     setEditMode(false);
     setEditingIndex(-1);
-    editUser(editingIndex, editedUser);
+    editQuestion(editingIndex, editedQuestion);
     // Clear the edited user state
-    setEditedUser({
+    setEditedQuestion({
       sfQuestion: "",
       sfInputType: "",
       sfDropdownChoices: [],
@@ -93,8 +93,8 @@ const ManageStakeholderPage1: FC<ManageStakeholderPage1Props> = ({
 
   const handleInputTypeChange = (e: ChangeEvent<HTMLSelectElement>) => {
     const { value } = e.target;
-    setEditedUser((prevUser) => ({
-      ...prevUser,
+    setEditedQuestion((prevQuestion) => ({
+      ...prevQuestion,
       sfInputType: value,
     }));
     if (value === "Dropdown") {
@@ -126,7 +126,7 @@ const ManageStakeholderPage1: FC<ManageStakeholderPage1Props> = ({
               <th></th>
             </tr>
             {/* Table content */}
-            {users.map((SFQuestion, index) => (
+            {questions.map((SFQuestion, index) => (
               <tr
                 key={index}
                 className="border-b hover:bg-orange-100 bg-gray-100"
@@ -146,7 +146,7 @@ const ManageStakeholderPage1: FC<ManageStakeholderPage1Props> = ({
                   <button
                     type="button"
                     className="text-blue-500"
-                    onClick={() => deleteUser(index)}
+                    onClick={() => deleteQuestion(index)}
                   >
                     Delete
                   </button>
@@ -162,10 +162,10 @@ const ManageStakeholderPage1: FC<ManageStakeholderPage1Props> = ({
                     name={`sfQuestion-${editingIndex}`}
                     placeholder="Enter Question"
                     className="bg-transparent border-b-2 border-gray-300 py-2"
-                    value={editedUser.sfQuestion}
+                    value={editedQuestion.sfQuestion}
                     onChange={(e) =>
-                      setEditedUser({
-                        ...editedUser,
+                      setEditedQuestion({
+                        ...editedQuestion,
                         sfQuestion: e.target.value,
                       })
                     }
@@ -173,7 +173,7 @@ const ManageStakeholderPage1: FC<ManageStakeholderPage1Props> = ({
                 </td>
                 <td className="p-3 px-5">
                   <select
-                    value={editedUser.sfInputType}
+                    value={editedQuestion.sfInputType}
                     className="bg-transparent border-b-2 border-gray-300 py-2"
                     onChange={handleInputTypeChange}
                   >
@@ -185,9 +185,9 @@ const ManageStakeholderPage1: FC<ManageStakeholderPage1Props> = ({
                     <option value="Radio Button">Radio Button</option>
                   </select>
 
-                  {editedUser.sfInputType === "Dropdown" && (
+                  {editedQuestion.sfInputType === "Dropdown" && (
                     <div>
-                      {editedUser.sfDropdownChoices.map((choice, choiceIndex) => (
+                      {editedQuestion.sfDropdownChoices.map((choice, choiceIndex) => (
                         <div key={choiceIndex} className="mt-2">
                           <input
                             type="text"
@@ -195,11 +195,11 @@ const ManageStakeholderPage1: FC<ManageStakeholderPage1Props> = ({
                             className="bg-transparent border-b-2 border-gray-300 py-2"
                             value={choice}
                             onChange={(e) =>
-                              setEditedUser((prevUser) => {
-                                const updatedChoices = [...prevUser.sfDropdownChoices];
+                              setEditedQuestion((prevQuestion) => {
+                                const updatedChoices = [...prevQuestion.sfDropdownChoices];
                                 updatedChoices[choiceIndex] = e.target.value;
                                 return {
-                                  ...prevUser,
+                                  ...prevQuestion,
                                   sfDropdownChoices: updatedChoices,
                                 };
                               })
@@ -209,10 +209,10 @@ const ManageStakeholderPage1: FC<ManageStakeholderPage1Props> = ({
                             type="button"
                             className="ml-2 text-red-500"
                             onClick={() => {
-                              const updatedChoices = [...editedUser.sfDropdownChoices];
+                              const updatedChoices = [...editedQuestion.sfDropdownChoices];
                               updatedChoices.splice(choiceIndex, 1);
-                              setEditedUser((prevUser) => ({
-                                ...prevUser,
+                              setEditedQuestion((prevQuestion) => ({
+                                ...prevQuestion,
                                 sfDropdownChoices: updatedChoices,
                               }));
                             }}
@@ -225,9 +225,9 @@ const ManageStakeholderPage1: FC<ManageStakeholderPage1Props> = ({
                         type="button"
                         className="mt-2 text-green-500"
                         onClick={() =>
-                          setEditedUser((prevUser) => ({
-                            ...prevUser,
-                            sfDropdownChoices: [...prevUser.sfDropdownChoices, ""],
+                          setEditedQuestion((prevQuestion) => ({
+                            ...prevQuestion,
+                            sfDropdownChoices: [...prevQuestion.sfDropdownChoices, ""],
                           }))
                         }
                       >
@@ -249,20 +249,20 @@ const ManageStakeholderPage1: FC<ManageStakeholderPage1Props> = ({
             )}
             {!editMode && (
               <tr className="border-b hover:bg-orange-100 bg-gray-100">
-                <td className="p-3 px-5">{users.length + 1}</td>
+                <td className="p-3 px-5">{questions.length + 1}</td>
                 <td className="p-3 px-5">
                   <input
                     type="text"
-                    name={`sfQuestion-${users.length}`}
+                    name={`sfQuestion-${questions.length}`}
                     placeholder="Enter Question"
                     className="bg-transparent border-b-2 border-gray-300 py-2"
-                    value={user.sfQuestion}
+                    value={question.sfQuestion}
                     onChange={(e) => handleInputChange(e, "sfQuestion")}
                   />
                 </td>
                 <td className="p-3 px-5">
                   <select
-                    value={user.sfInputType}
+                    value={question.sfInputType}
                     className="bg-transparent border-b-2 border-gray-300 py-2"
                     onChange={(e) => handleInputChange(e, "sfInputType")}
                   >
@@ -274,9 +274,9 @@ const ManageStakeholderPage1: FC<ManageStakeholderPage1Props> = ({
                     <option value="Radio Button">Radio Button</option>
                   </select>
 
-                  {user.sfInputType === "Dropdown" && (
+                  {question.sfInputType === "Dropdown" && (
                     <div>
-                      {user.sfDropdownChoices.map((choice, index) => (
+                      {question.sfDropdownChoices.map((choice, index) => (
                         <div key={index} className="mt-2">
                           <input
                             type="text"
@@ -309,7 +309,7 @@ const ManageStakeholderPage1: FC<ManageStakeholderPage1Props> = ({
                 <td className="p-3 px-5">
                   <button
                     type="button"
-                    onClick={addUser}
+                    onClick={addQuestion}
                     className="text-sm bg-green-500 hover:bg-green-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline"
                   >
                     Add

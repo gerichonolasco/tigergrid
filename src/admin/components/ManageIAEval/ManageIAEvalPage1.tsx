@@ -7,8 +7,8 @@ interface IAQuestion {
 }
 
 interface ManageIAEvalPage1Props {
-  users: IAQuestion[];
-  user: IAQuestion;
+  questions: IAQuestion[];
+  question: IAQuestion;
   handleInputChange: (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement>,
     field: string
@@ -19,27 +19,27 @@ interface ManageIAEvalPage1Props {
   ) => void;
   addDropdownChoice: () => void;
   removeDropdownChoice: (index: number) => void;
-  addUser: () => void;
-  editUser: (index: number, updatedUser: IAQuestion) => void; // Pass updated user data
-  deleteUser: (index: number) => void;
+  addQuestion: () => void;
+  editQuestion: (index: number, updatedQuestion: IAQuestion) => void; // Pass updated user data
+  deleteQuestion: (index: number) => void;
   error: string;
 }
 
 const ManageIAEvalPage1: FC<ManageIAEvalPage1Props> = ({
-  users,
-  user,
+  questions,
+  question,
   handleInputChange,
   handleDropdownChange,
   addDropdownChoice,
   removeDropdownChoice,
-  addUser,
-  editUser,
-  deleteUser,
+  addQuestion,
+  editQuestion,
+  deleteQuestion,
   error,
 }) => {
   const [editMode, setEditMode] = useState<boolean>(false);
   const [editingIndex, setEditingIndex] = useState<number>(-1);
-  const [editedUser, setEditedUser] = useState<IAQuestion>({
+  const [editedQuestion, setEditedQuestion] = useState<IAQuestion>({
     iaQuestion: "",
     iaInputType: "",
     iaDropdownChoices: [],
@@ -48,9 +48,9 @@ const ManageIAEvalPage1: FC<ManageIAEvalPage1Props> = ({
   const handleEdit = (index: number) => {
     setEditMode(true);
     setEditingIndex(index);
-    setEditedUser(users[index]);
+    setEditedQuestion(questions[index]);
     // If the selected question is a Dropdown type, clear its choices
-    if (users[index].iaInputType === "Dropdown") {
+    if (questions[index].iaInputType === "Dropdown") {
       handleInputChange(
         { target: { value: "" } } as ChangeEvent<
           HTMLInputElement | HTMLSelectElement
@@ -63,9 +63,9 @@ const ManageIAEvalPage1: FC<ManageIAEvalPage1Props> = ({
   const handleSaveChanges = () => {
     setEditMode(false);
     setEditingIndex(-1);
-    editUser(editingIndex, editedUser);
+    editQuestion(editingIndex, editedQuestion);
     // Clear the edited user state
-    setEditedUser({
+    setEditedQuestion({
       iaQuestion: "",
       iaInputType: "",
       iaDropdownChoices: [],
@@ -93,8 +93,8 @@ const ManageIAEvalPage1: FC<ManageIAEvalPage1Props> = ({
 
   const handleInputTypeChange = (e: ChangeEvent<HTMLSelectElement>) => {
     const { value } = e.target;
-    setEditedUser((prevUser) => ({
-      ...prevUser,
+    setEditedQuestion((prevQuestion) => ({
+      ...prevQuestion,
       iaInputType: value,
     }));
     if (value === "Dropdown") {
@@ -126,7 +126,7 @@ const ManageIAEvalPage1: FC<ManageIAEvalPage1Props> = ({
               <th></th>
             </tr>
             {/* Table content */}
-            {users.map((IAQuestion, index) => (
+            {questions.map((IAQuestion, index) => (
               <tr
                 key={index}
                 className="border-b hover:bg-orange-100 bg-gray-100"
@@ -146,7 +146,7 @@ const ManageIAEvalPage1: FC<ManageIAEvalPage1Props> = ({
                   <button
                     type="button"
                     className="text-blue-500"
-                    onClick={() => deleteUser(index)}
+                    onClick={() => deleteQuestion(index)}
                   >
                     Delete
                   </button>
@@ -162,10 +162,10 @@ const ManageIAEvalPage1: FC<ManageIAEvalPage1Props> = ({
                     name={`iaQuestion-${editingIndex}`}
                     placeholder="Enter Question"
                     className="bg-transparent border-b-2 border-gray-300 py-2"
-                    value={editedUser.iaQuestion}
+                    value={editedQuestion.iaQuestion}
                     onChange={(e) =>
-                      setEditedUser({
-                        ...editedUser,
+                      setEditedQuestion({
+                        ...editedQuestion,
                         iaQuestion: e.target.value,
                       })
                     }
@@ -173,7 +173,7 @@ const ManageIAEvalPage1: FC<ManageIAEvalPage1Props> = ({
                 </td>
                 <td className="p-3 px-5">
                   <select
-                    value={editedUser.iaInputType}
+                    value={editedQuestion.iaInputType}
                     className="bg-transparent border-b-2 border-gray-300 py-2"
                     onChange={handleInputTypeChange}
                   >
@@ -185,9 +185,9 @@ const ManageIAEvalPage1: FC<ManageIAEvalPage1Props> = ({
                     <option value="Radio Button">Radio Button</option>
                   </select>
 
-                  {editedUser.iaInputType === "Dropdown" && (
+                  {editedQuestion.iaInputType === "Dropdown" && (
                     <div>
-                      {editedUser.iaDropdownChoices.map((choice, choiceIndex) => (
+                      {editedQuestion.iaDropdownChoices.map((choice, choiceIndex) => (
                         <div key={choiceIndex} className="mt-2">
                           <input
                             type="text"
@@ -195,11 +195,11 @@ const ManageIAEvalPage1: FC<ManageIAEvalPage1Props> = ({
                             className="bg-transparent border-b-2 border-gray-300 py-2"
                             value={choice}
                             onChange={(e) =>
-                              setEditedUser((prevUser) => {
-                                const updatedChoices = [...prevUser.iaDropdownChoices];
+                              setEditedQuestion((prevQuestion) => {
+                                const updatedChoices = [...prevQuestion.iaDropdownChoices];
                                 updatedChoices[choiceIndex] = e.target.value;
                                 return {
-                                  ...prevUser,
+                                  ...prevQuestion,
                                   iaDropdownChoices: updatedChoices,
                                 };
                               })
@@ -209,10 +209,10 @@ const ManageIAEvalPage1: FC<ManageIAEvalPage1Props> = ({
                             type="button"
                             className="ml-2 text-red-500"
                             onClick={() => {
-                              const updatedChoices = [...editedUser.iaDropdownChoices];
+                              const updatedChoices = [...editedQuestion.iaDropdownChoices];
                               updatedChoices.splice(choiceIndex, 1);
-                              setEditedUser((prevUser) => ({
-                                ...prevUser,
+                              setEditedQuestion((prevQuestion) => ({
+                                ...prevQuestion,
                                 iaDropdownChoices: updatedChoices,
                               }));
                             }}
@@ -225,9 +225,9 @@ const ManageIAEvalPage1: FC<ManageIAEvalPage1Props> = ({
                         type="button"
                         className="mt-2 text-green-500"
                         onClick={() =>
-                          setEditedUser((prevUser) => ({
-                            ...prevUser,
-                            iaDropdownChoices: [...prevUser.iaDropdownChoices, ""],
+                          setEditedQuestion((prevQuestion) => ({
+                            ...prevQuestion,
+                            iaDropdownChoices: [...prevQuestion.iaDropdownChoices, ""],
                           }))
                         }
                       >
@@ -249,20 +249,20 @@ const ManageIAEvalPage1: FC<ManageIAEvalPage1Props> = ({
             )}
             {!editMode && (
               <tr className="border-b hover:bg-orange-100 bg-gray-100">
-                <td className="p-3 px-5">{users.length + 1}</td>
+                <td className="p-3 px-5">{questions.length + 1}</td>
                 <td className="p-3 px-5">
                   <input
                     type="text"
-                    name={`iaQuestion-${users.length}`}
+                    name={`iaQuestion-${questions.length}`}
                     placeholder="Enter Question"
                     className="bg-transparent border-b-2 border-gray-300 py-2"
-                    value={user.iaQuestion}
+                    value={question.iaQuestion}
                     onChange={(e) => handleInputChange(e, "iaQuestion")}
                   />
                 </td>
                 <td className="p-3 px-5">
                   <select
-                    value={user.iaInputType}
+                    value={question.iaInputType}
                     className="bg-transparent border-b-2 border-gray-300 py-2"
                     onChange={(e) => handleInputChange(e, "iaInputType")}
                   >
@@ -274,9 +274,9 @@ const ManageIAEvalPage1: FC<ManageIAEvalPage1Props> = ({
                     <option value="Radio Button">Radio Button</option>
                   </select>
 
-                  {user.iaInputType === "Dropdown" && (
+                  {question.iaInputType === "Dropdown" && (
                     <div>
-                      {user.iaDropdownChoices.map((choice, index) => (
+                      {question.iaDropdownChoices.map((choice, index) => (
                         <div key={index} className="mt-2">
                           <input
                             type="text"
@@ -309,7 +309,7 @@ const ManageIAEvalPage1: FC<ManageIAEvalPage1Props> = ({
                 <td className="p-3 px-5">
                   <button
                     type="button"
-                    onClick={addUser}
+                    onClick={addQuestion}
                     className="text-sm bg-green-500 hover:bg-green-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline"
                   >
                     Add

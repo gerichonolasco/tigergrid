@@ -12,8 +12,8 @@ interface SFQuestion {
 
 const ManageStakeholderFeedback: FC = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [users, setUsers] = useState<SFQuestion[]>([]);
-  const [user, setUser] = useState<SFQuestion>({
+  const [questions, setQuestions] = useState<SFQuestion[]>([]);
+  const [question, setQuestion] = useState<SFQuestion>({
     sfQuestion: "",
     sfInputType: "",
     sfDropdownChoices: [],
@@ -25,8 +25,8 @@ const ManageStakeholderFeedback: FC = () => {
     field: string
   ) => {
     const { value } = e.target;
-    setUser((prevUser) => ({
-      ...prevUser,
+    setQuestion((prevQuestion) => ({
+      ...prevQuestion,
       [field]: value,
     }));
   };
@@ -36,38 +36,38 @@ const ManageStakeholderFeedback: FC = () => {
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     const { value } = e.target;
-    setUser((prevUser) => {
-      const updatedDropdownChoices = [...prevUser.sfDropdownChoices];
+    setQuestion((prevQuestion) => {
+      const updatedDropdownChoices = [...prevQuestion.sfDropdownChoices];
       updatedDropdownChoices[index] = value;
       return {
-        ...prevUser,
+        ...prevQuestion,
         sfDropdownChoices: updatedDropdownChoices,
       };
     });
   };
 
   const addDropdownChoice = () => {
-    setUser((prevUser) => ({
-      ...prevUser,
-      sfDropdownChoices: [...prevUser.sfDropdownChoices, ""],
+    setQuestion((prevQuestion) => ({
+      ...prevQuestion,
+      sfDropdownChoices: [...prevQuestion.sfDropdownChoices, ""],
     }));
   };
 
   const removeDropdownChoice = (index: number) => {
-    setUser((prevUser) => {
-      const updatedDropdownChoices = [...prevUser.sfDropdownChoices];
+    setQuestion((prevQuestion) => {
+      const updatedDropdownChoices = [...prevQuestion.sfDropdownChoices];
       updatedDropdownChoices.splice(index, 1);
       return {
-        ...prevUser,
+        ...prevQuestion,
         sfDropdownChoices: updatedDropdownChoices,
       };
     });
   };
 
-  const addUser = () => {
-    if (user.sfQuestion && user.sfInputType) {
-      setUsers((prevUsers) => [...prevUsers, user]);
-      setUser({
+  const addQuestion = () => {
+    if (question.sfQuestion && question.sfInputType) {
+      setQuestions((prevQuestions) => [...prevQuestions, question]);
+      setQuestion({
         sfQuestion: "",
         sfInputType: "",
         sfDropdownChoices: [],
@@ -78,21 +78,21 @@ const ManageStakeholderFeedback: FC = () => {
     }
   };
 
-  const editUser = (index: number, updatedUser: SFQuestion) => {
-    setUsers((prevUsers) => {
-      const newUsers = [...prevUsers];
-      newUsers[index] = updatedUser; // Replace old user with updated user
-      return newUsers;
+  const editQuestion = (index: number, updatedQuestion: SFQuestion) => {
+    setQuestions((prevQuestions) => {
+      const newQuestions = [...prevQuestions];
+      newQuestions[index] = updatedQuestion; // Replace old question with updated question
+      return newQuestions;
     });
-    setUser({
-      sfQuestion: updatedUser.sfQuestion,
-      sfInputType: updatedUser.sfInputType,
-      sfDropdownChoices: [...updatedUser.sfDropdownChoices], // Make sure sfDropdownChoices is copied
+    setQuestion({
+      sfQuestion: updatedQuestion.sfQuestion,
+      sfInputType: updatedQuestion.sfInputType,
+      sfDropdownChoices: [...updatedQuestion.sfDropdownChoices], // Make sure sfDropdownChoices is copied
     });
   };
 
-  const deleteUser = (index: number) => {
-    setUsers((prevUsers) => prevUsers.filter((_, i) => i !== index));
+  const deleteQuestion = (index: number) => {
+    setQuestions((prevQuestions) => prevQuestions.filter((_, i) => i !== index));
   };
 
   const handlePageChange = (e: ChangeEvent<HTMLSelectElement>) => {
@@ -126,57 +126,57 @@ const ManageStakeholderFeedback: FC = () => {
         </div>
         {currentPage === 1 && (
           <ManageStakeholderPage1
-            users={users}
-            user={user}
+            questions={questions}
+            question={question}
             handleInputChange={handleInputChange}
             handleDropdownChange={handleDropdownChange}
             addDropdownChoice={addDropdownChoice}
             removeDropdownChoice={removeDropdownChoice}
-            addUser={addUser}
-            editUser={editUser}
-            deleteUser={deleteUser}
+            addQuestion={addQuestion}
+            editQuestion={editQuestion}
+            deleteQuestion={deleteQuestion}
             error={error}
           />
         )}
         {currentPage === 2 && (
           <ManageStakeholderPage2
-            users={users}
-            user={user}
+            questions={questions}
+            question={question}
             handleInputChange={handleInputChange}
             handleDropdownChange={handleDropdownChange}
             addDropdownChoice={addDropdownChoice}
             removeDropdownChoice={removeDropdownChoice}
-            addUser={addUser}
-            editUser={editUser}
-            deleteUser={deleteUser}
+            addQuestion={addQuestion}
+            editQuestion={editQuestion}
+            deleteQuestion={deleteQuestion}
             error={error}
           />
         )}
         {currentPage === 3 && (
           <ManageStakeholderPage3
-            users={users}
-            user={user}
+            questions={questions}
+            question={question}
             handleInputChange={handleInputChange}
             handleDropdownChange={handleDropdownChange}
             addDropdownChoice={addDropdownChoice}
             removeDropdownChoice={removeDropdownChoice}
-            addUser={addUser}
-            editUser={editUser}
-            deleteUser={deleteUser}
+            addQuestion={addQuestion}
+            editQuestion={editQuestion}
+            deleteQuestion={deleteQuestion}
             error={error}
           />
         )}
         {currentPage === 4 && (
           <ManageStakeholderPage4
-            users={users}
-            user={user}
+            questions={questions}
+            question={question}
             handleInputChange={handleInputChange}
             handleDropdownChange={handleDropdownChange}
             addDropdownChoice={addDropdownChoice}
             removeDropdownChoice={removeDropdownChoice}
-            addUser={addUser}
-            editUser={editUser}
-            deleteUser={deleteUser}
+            addQuestion={addQuestion}
+            editQuestion={editQuestion}
+            deleteQuestion={deleteQuestion}
             error={error}
           />
         )}

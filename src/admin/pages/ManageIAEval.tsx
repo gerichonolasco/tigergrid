@@ -4,19 +4,19 @@ import ManageIAEvalPage2 from "../components/ManageIAEval/ManageIAEvalPage2";
 import ManageIAEvalPage3 from "../components/ManageIAEval/ManageIAEvalPage3";
 import ManageIAEvalPage4 from "../components/ManageIAEval/ManageIAEvalPage4";
 
-interface SFQuestion {
-  sfQuestion: string;
-  sfInputType: string;
-  sfDropdownChoices: string[];
+interface IAQuestion {
+  iaQuestion: string;
+  iaInputType: string;
+  iaDropdownChoices: string[];
 }
 
 const ManageIAEval: FC = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [users, setUsers] = useState<SFQuestion[]>([]);
-  const [user, setUser] = useState<SFQuestion>({
-    sfQuestion: "",
-    sfInputType: "",
-    sfDropdownChoices: [],
+  const [questions, setQuestions] = useState<IAQuestion[]>([]);
+  const [question, setQuestion] = useState<IAQuestion>({
+    iaQuestion: "",
+    iaInputType: "",
+    iaDropdownChoices: [],
   });
   const [error, setError] = useState<string>("");
 
@@ -25,8 +25,8 @@ const ManageIAEval: FC = () => {
     field: string
   ) => {
     const { value } = e.target;
-    setUser((prevUser) => ({
-      ...prevUser,
+    setQuestion((prevQuestion) => ({
+      ...prevQuestion,
       [field]: value,
     }));
   };
@@ -36,41 +36,41 @@ const ManageIAEval: FC = () => {
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     const { value } = e.target;
-    setUser((prevUser) => {
-      const updatedDropdownChoices = [...prevUser.sfDropdownChoices];
+    setQuestion((prevQuestion) => {
+      const updatedDropdownChoices = [...prevQuestion.iaDropdownChoices];
       updatedDropdownChoices[index] = value;
       return {
-        ...prevUser,
-        sfDropdownChoices: updatedDropdownChoices,
+        ...prevQuestion,
+        iaDropdownChoices: updatedDropdownChoices,
       };
     });
   };
 
   const addDropdownChoice = () => {
-    setUser((prevUser) => ({
-      ...prevUser,
-      sfDropdownChoices: [...prevUser.sfDropdownChoices, ""],
+    setQuestion((prevQuestion) => ({
+      ...prevQuestion,
+      iaDropdownChoices: [...prevQuestion.iaDropdownChoices, ""],
     }));
   };
 
   const removeDropdownChoice = (index: number) => {
-    setUser((prevUser) => {
-      const updatedDropdownChoices = [...prevUser.sfDropdownChoices];
+    setQuestion((prevQuestion) => {
+      const updatedDropdownChoices = [...prevQuestion.iaDropdownChoices];
       updatedDropdownChoices.splice(index, 1);
       return {
-        ...prevUser,
-        sfDropdownChoices: updatedDropdownChoices,
+        ...prevQuestion,
+        iaDropdownChoices: updatedDropdownChoices,
       };
     });
   };
 
-  const addUser = () => {
-    if (user.sfQuestion && user.sfInputType) {
-      setUsers((prevUsers) => [...prevUsers, user]);
-      setUser({
-        sfQuestion: "",
-        sfInputType: "",
-        sfDropdownChoices: [],
+  const addQuestion = () => {
+    if (question.iaQuestion && question.iaInputType) {
+      setQuestions((prevQuestions) => [...prevQuestions, question]);
+      setQuestion({
+        iaQuestion: "",
+        iaInputType: "",
+        iaDropdownChoices: [],
       });
       setError("");
     } else {
@@ -78,21 +78,21 @@ const ManageIAEval: FC = () => {
     }
   };
 
-  const editUser = (index: number, updatedUser: SFQuestion) => {
-    setUsers((prevUsers) => {
-      const newUsers = [...prevUsers];
-      newUsers[index] = updatedUser; // Replace old user with updated user
-      return newUsers;
+  const editQuestion = (index: number, updatedQuestion: IAQuestion) => {
+    setQuestions((prevQuestions) => {
+      const newQuestions = [...prevQuestions];
+      newQuestions[index] = updatedQuestion; // Replace old question with updated question
+      return newQuestions;
     });
-    setUser({
-      sfQuestion: updatedUser.sfQuestion,
-      sfInputType: updatedUser.sfInputType,
-      sfDropdownChoices: [...updatedUser.sfDropdownChoices], // Make sure sfDropdownChoices is copied
+    setQuestion({
+      iaQuestion: updatedQuestion.iaQuestion,
+      iaInputType: updatedQuestion.iaInputType,
+      iaDropdownChoices: [...updatedQuestion.iaDropdownChoices], // Make sure sfDropdownChoices is copied
     });
   };
 
-  const deleteUser = (index: number) => {
-    setUsers((prevUsers) => prevUsers.filter((_, i) => i !== index));
+  const deleteQuestion = (index: number) => {
+    setQuestions((prevQuestions) => prevQuestions.filter((_, i) => i !== index));
   };
 
   const handlePageChange = (e: ChangeEvent<HTMLSelectElement>) => {
@@ -126,57 +126,57 @@ const ManageIAEval: FC = () => {
         </div>
         {currentPage === 1 && (
           <ManageIAEvalPage1
-            users={users}
-            user={user}
+            questions={questions}
+            question={question}
             handleInputChange={handleInputChange}
             handleDropdownChange={handleDropdownChange}
             addDropdownChoice={addDropdownChoice}
             removeDropdownChoice={removeDropdownChoice}
-            addUser={addUser}
-            editUser={editUser}
-            deleteUser={deleteUser}
+            addQuestion={addQuestion}
+            editQuestion={editQuestion}
+            deleteQuestion={deleteQuestion}
             error={error}
           />
         )}
         {currentPage === 2 && (
           <ManageIAEvalPage2
-            users={users}
-            user={user}
+            questions={questions}
+            question={question}
             handleInputChange={handleInputChange}
             handleDropdownChange={handleDropdownChange}
             addDropdownChoice={addDropdownChoice}
             removeDropdownChoice={removeDropdownChoice}
-            addUser={addUser}
-            editUser={editUser}
-            deleteUser={deleteUser}
+            addQuestion={addQuestion}
+            editQuestion={editQuestion}
+            deleteQuestion={deleteQuestion}
             error={error}
           />
         )}
         {currentPage === 3 && (
           <ManageIAEvalPage3
-            users={users}
-            user={user}
+            questions={questions}
+            question={question}
             handleInputChange={handleInputChange}
             handleDropdownChange={handleDropdownChange}
             addDropdownChoice={addDropdownChoice}
             removeDropdownChoice={removeDropdownChoice}
-            addUser={addUser}
-            editUser={editUser}
-            deleteUser={deleteUser}
+            addQuestion={addQuestion}
+            editQuestion={editQuestion}
+            deleteQuestion={deleteQuestion}
             error={error}
           />
         )}
         {currentPage === 4 && (
           <ManageIAEvalPage4
-            users={users}
-            user={user}
+            questions={questions}
+            question={question}
             handleInputChange={handleInputChange}
             handleDropdownChange={handleDropdownChange}
             addDropdownChoice={addDropdownChoice}
             removeDropdownChoice={removeDropdownChoice}
-            addUser={addUser}
-            editUser={editUser}
-            deleteUser={deleteUser}
+            addQuestion={addQuestion}
+            editQuestion={editQuestion}
+            deleteQuestion={deleteQuestion}
             error={error}
           />
         )}
