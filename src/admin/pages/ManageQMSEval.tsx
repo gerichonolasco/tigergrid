@@ -116,10 +116,10 @@ const ManageQMSEval: FC = () => {
                 value={currentPage}
                 onChange={handlePageChange}
               >
-                <option value={1}>Page 1</option>
-                <option value={2}>Page 2</option>
-                <option value={3}>Page 3</option>
-                <option value={4}>Page 4</option>
+                <option value={1}>Plan</option>
+                <option value={2}>Do</option>
+                <option value={3}>Check</option>
+                <option value={4}>Act</option>
               </select>
             </div>
           </div>
