@@ -7,8 +7,8 @@ interface QMSQuestion {
 }
 
 interface ManageQMSCheckProps {
-  users: QMSQuestion[];
-  user: QMSQuestion;
+  questions: QMSQuestion[];
+  question: QMSQuestion;
   handleInputChange: (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement>,
     field: string
@@ -19,27 +19,27 @@ interface ManageQMSCheckProps {
   ) => void;
   addDropdownChoice: () => void;
   removeDropdownChoice: (index: number) => void;
-  addUser: () => void;
-  editUser: (index: number, updatedUser: QMSQuestion) => void; // Pass updated user data
-  deleteUser: (index: number) => void;
+  addQuestion: () => void;
+  editQuestion: (index: number, updatedQuestion: QMSQuestion) => void; // Pass updated question data
+  deleteQuestion: (index: number) => void;
   error: string;
 }
 
 const ManageQMSCheck: FC<ManageQMSCheckProps> = ({
-  users,
-  user,
+  questions,
+  question,
   handleInputChange,
   handleDropdownChange,
   addDropdownChoice,
   removeDropdownChoice,
-  addUser,
-  editUser,
-  deleteUser,
+  addQuestion,
+  editQuestion,
+  deleteQuestion,
   error,
 }) => {
   const [editMode, setEditMode] = useState<boolean>(false);
   const [editingIndex, setEditingIndex] = useState<number>(-1);
-  const [editedUser, setEditedUser] = useState<QMSQuestion>({
+  const [editedQuestion, setEditedQuestion] = useState<QMSQuestion>({
     qmsQuestion: "",
     qmsInputType: "",
     qmsDropdownChoices: [],
@@ -48,9 +48,9 @@ const ManageQMSCheck: FC<ManageQMSCheckProps> = ({
   const handleEdit = (index: number) => {
     setEditMode(true);
     setEditingIndex(index);
-    setEditedUser(users[index]);
+    setEditedQuestion(questions[index]);
     // If the selected question is a Dropdown type, clear its choices
-    if (users[index].qmsInputType === "Dropdown") {
+    if (questions[index].qmsInputType === "Dropdown") {
       handleInputChange(
         { target: { value: "" } } as ChangeEvent<
           HTMLInputElement | HTMLSelectElement
@@ -63,14 +63,14 @@ const ManageQMSCheck: FC<ManageQMSCheckProps> = ({
   const handleSaveChanges = () => {
     setEditMode(false);
     setEditingIndex(-1);
-    editUser(editingIndex, editedUser);
-    // Clear the edited user state
-    setEditedUser({
+    editQuestion(editingIndex, editedQuestion);
+    // Clear the edited question state
+    setEditedQuestion({
       qmsQuestion: "",
       qmsInputType: "",
       qmsDropdownChoices: [],
     });
-    // Clear the user state for the next input
+    // Clear the question state for the next input
     handleInputChange(
       { target: { value: "" } } as ChangeEvent<
         HTMLInputElement | HTMLSelectElement
@@ -93,8 +93,8 @@ const ManageQMSCheck: FC<ManageQMSCheckProps> = ({
 
   const handleInputTypeChange = (e: ChangeEvent<HTMLSelectElement>) => {
     const { value } = e.target;
-    setEditedUser((prevUser) => ({
-      ...prevUser,
+    setEditedQuestion((prevQuestion) => ({
+      ...prevQuestion,
       qmsInputType: value,
     }));
     if (value === "Dropdown") {
@@ -126,7 +126,7 @@ const ManageQMSCheck: FC<ManageQMSCheckProps> = ({
               <th></th>
             </tr>
             {/* Table content */}
-            {users.map((QMSQuestion, index) => (
+            {questions.map((QMSQuestion, index) => (
               <tr
                 key={index}
                 className="border-b hover:bg-orange-100 bg-gray-100"
@@ -146,7 +146,7 @@ const ManageQMSCheck: FC<ManageQMSCheckProps> = ({
                   <button
                     type="button"
                     className="text-blue-500"
-                    onClick={() => deleteUser(index)}
+                    onClick={() => deleteQuestion(index)}
                   >
                     Delete
                   </button>
@@ -162,10 +162,10 @@ const ManageQMSCheck: FC<ManageQMSCheckProps> = ({
                     name={`qmsQuestion-${editingIndex}`}
                     placeholder="Enter Question"
                     className="bg-transparent border-b-2 border-gray-300 py-2"
-                    value={editedUser.qmsQuestion}
+                    value={editedQuestion.qmsQuestion}
                     onChange={(e) =>
-                      setEditedUser({
-                        ...editedUser,
+                      setEditedQuestion({
+                        ...editedQuestion,
                         qmsQuestion: e.target.value,
                       })
                     }
@@ -173,7 +173,7 @@ const ManageQMSCheck: FC<ManageQMSCheckProps> = ({
                 </td>
                 <td className="p-3 px-5">
                   <select
-                    value={editedUser.qmsInputType}
+                    value={editedQuestion.qmsInputType}
                     className="bg-transparent border-b-2 border-gray-300 py-2"
                     onChange={handleInputTypeChange}
                   >
@@ -185,9 +185,9 @@ const ManageQMSCheck: FC<ManageQMSCheckProps> = ({
                     <option value="Radio Button">Radio Button</option>
                   </select>
 
-                  {editedUser.qmsInputType === "Dropdown" && (
+                  {editedQuestion.qmsInputType === "Dropdown" && (
                     <div>
-                      {editedUser.qmsDropdownChoices.map((choice, choiceIndex) => (
+                      {editedQuestion.qmsDropdownChoices.map((choice, choiceIndex) => (
                         <div key={choiceIndex} className="mt-2">
                           <input
                             type="text"
@@ -195,11 +195,11 @@ const ManageQMSCheck: FC<ManageQMSCheckProps> = ({
                             className="bg-transparent border-b-2 border-gray-300 py-2"
                             value={choice}
                             onChange={(e) =>
-                              setEditedUser((prevUser) => {
-                                const updatedChoices = [...prevUser.qmsDropdownChoices];
+                              setEditedQuestion((prevQuestion) => {
+                                const updatedChoices = [...prevQuestion.qmsDropdownChoices];
                                 updatedChoices[choiceIndex] = e.target.value;
                                 return {
-                                  ...prevUser,
+                                  ...prevQuestion,
                                   qmsDropdownChoices: updatedChoices,
                                 };
                               })
@@ -209,10 +209,10 @@ const ManageQMSCheck: FC<ManageQMSCheckProps> = ({
                             type="button"
                             className="ml-2 text-red-500"
                             onClick={() => {
-                              const updatedChoices = [...editedUser.qmsDropdownChoices];
+                              const updatedChoices = [...editedQuestion.qmsDropdownChoices];
                               updatedChoices.splice(choiceIndex, 1);
-                              setEditedUser((prevUser) => ({
-                                ...prevUser,
+                              setEditedQuestion((prevQuestion) => ({
+                                ...prevQuestion,
                                 qmsDropdownChoices: updatedChoices,
                               }));
                             }}
@@ -225,9 +225,9 @@ const ManageQMSCheck: FC<ManageQMSCheckProps> = ({
                         type="button"
                         className="mt-2 text-green-500"
                         onClick={() =>
-                          setEditedUser((prevUser) => ({
-                            ...prevUser,
-                            qmsDropdownChoices: [...prevUser.qmsDropdownChoices, ""],
+                          setEditedQuestion((prevQuestion) => ({
+                            ...prevQuestion,
+                            qmsDropdownChoices: [...prevQuestion.qmsDropdownChoices, ""],
                           }))
                         }
                       >
@@ -249,20 +249,20 @@ const ManageQMSCheck: FC<ManageQMSCheckProps> = ({
             )}
             {!editMode && (
               <tr className="border-b hover:bg-orange-100 bg-gray-100">
-                <td className="p-3 px-5">{users.length + 1}</td>
+                <td className="p-3 px-5">{questions.length + 1}</td>
                 <td className="p-3 px-5">
                   <input
                     type="text"
-                    name={`qmsQuestion-${users.length}`}
+                    name={`qmsQuestion-${questions.length}`}
                     placeholder="Enter Question"
                     className="bg-transparent border-b-2 border-gray-300 py-2"
-                    value={user.qmsQuestion}
+                    value={question.qmsQuestion}
                     onChange={(e) => handleInputChange(e, "qmsQuestion")}
                   />
                 </td>
                 <td className="p-3 px-5">
                   <select
-                    value={user.qmsInputType}
+                    value={question.qmsInputType}
                     className="bg-transparent border-b-2 border-gray-300 py-2"
                     onChange={(e) => handleInputChange(e, "qmsInputType")}
                   >
@@ -274,9 +274,9 @@ const ManageQMSCheck: FC<ManageQMSCheckProps> = ({
                     <option value="Radio Button">Radio Button</option>
                   </select>
 
-                  {user.qmsInputType === "Dropdown" && (
+                  {question.qmsInputType === "Dropdown" && (
                     <div>
-                      {user.qmsDropdownChoices.map((choice, index) => (
+                      {question.qmsDropdownChoices.map((choice, index) => (
                         <div key={index} className="mt-2">
                           <input
                             type="text"
@@ -309,7 +309,7 @@ const ManageQMSCheck: FC<ManageQMSCheckProps> = ({
                 <td className="p-3 px-5">
                   <button
                     type="button"
-                    onClick={addUser}
+                    onClick={addQuestion}
                     className="text-sm bg-green-500 hover:bg-green-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline"
                   >
                     Add

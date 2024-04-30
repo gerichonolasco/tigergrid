@@ -4,19 +4,19 @@ import ManageQMSDo from "../components/ManageQMSEval/ManageQMSDo";
 import ManageQMSCheck from "../components/ManageQMSEval/ManageQMSCheck";
 import ManageQMSAct from "../components/ManageQMSEval/ManageQMSAct";
 
-interface SFQuestion {
-  sfQuestion: string;
-  sfInputType: string;
-  sfDropdownChoices: string[];
+interface QMSQuestion {
+  qmsQuestion: string;
+  qmsInputType: string;
+  qmsDropdownChoices: string[];
 }
 
 const ManageQMSEval: FC = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [users, setUsers] = useState<SFQuestion[]>([]);
-  const [user, setUser] = useState<SFQuestion>({
-    sfQuestion: "",
-    sfInputType: "",
-    sfDropdownChoices: [],
+  const [questions, setQuestions] = useState<QMSQuestion[]>([]);
+  const [question, setQuestion] = useState<QMSQuestion>({
+    qmsQuestion: "",
+    qmsInputType: "",
+    qmsDropdownChoices: [],
   });
   const [error, setError] = useState<string>("");
 
@@ -25,8 +25,8 @@ const ManageQMSEval: FC = () => {
     field: string
   ) => {
     const { value } = e.target;
-    setUser((prevUser) => ({
-      ...prevUser,
+    setQuestion((prevQuestion) => ({
+      ...prevQuestion,
       [field]: value,
     }));
   };
@@ -36,41 +36,41 @@ const ManageQMSEval: FC = () => {
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     const { value } = e.target;
-    setUser((prevUser) => {
-      const updatedDropdownChoices = [...prevUser.sfDropdownChoices];
+    setQuestion((prevQuestion) => {
+      const updatedDropdownChoices = [...prevQuestion.qmsDropdownChoices];
       updatedDropdownChoices[index] = value;
       return {
-        ...prevUser,
-        sfDropdownChoices: updatedDropdownChoices,
+        ...prevQuestion,
+        qmsDropdownChoices: updatedDropdownChoices,
       };
     });
   };
 
   const addDropdownChoice = () => {
-    setUser((prevUser) => ({
-      ...prevUser,
-      sfDropdownChoices: [...prevUser.sfDropdownChoices, ""],
+    setQuestion((prevQuestion) => ({
+      ...prevQuestion,
+      qmsDropdownChoices: [...prevQuestion.qmsDropdownChoices, ""],
     }));
   };
 
   const removeDropdownChoice = (index: number) => {
-    setUser((prevUser) => {
-      const updatedDropdownChoices = [...prevUser.sfDropdownChoices];
+    setQuestion((prevQuestion) => {
+      const updatedDropdownChoices = [...prevQuestion.qmsDropdownChoices];
       updatedDropdownChoices.splice(index, 1);
       return {
-        ...prevUser,
-        sfDropdownChoices: updatedDropdownChoices,
+        ...prevQuestion,
+        qmsDropdownChoices: updatedDropdownChoices,
       };
     });
   };
 
-  const addUser = () => {
-    if (user.sfQuestion && user.sfInputType) {
-      setUsers((prevUsers) => [...prevUsers, user]);
-      setUser({
-        sfQuestion: "",
-        sfInputType: "",
-        sfDropdownChoices: [],
+  const addQuestion = () => {
+    if (question.qmsQuestion && question.qmsInputType) {
+      setQuestions((prevQuestions) => [...prevQuestions, question]);
+      setQuestion({
+        qmsQuestion: "",
+        qmsInputType: "",
+        qmsDropdownChoices: [],
       });
       setError("");
     } else {
@@ -78,21 +78,21 @@ const ManageQMSEval: FC = () => {
     }
   };
 
-  const editUser = (index: number, updatedUser: SFQuestion) => {
-    setUsers((prevUsers) => {
-      const newUsers = [...prevUsers];
-      newUsers[index] = updatedUser; // Replace old user with updated user
-      return newUsers;
+  const editQuestion = (index: number, updatedQuestion: QMSQuestion) => {
+    setQuestions((prevQuestions) => {
+      const newQuestions = [...prevQuestions];
+      newQuestions[index] = updatedQuestion; // Replace old question with updated question
+      return newQuestions;
     });
-    setUser({
-      sfQuestion: updatedUser.sfQuestion,
-      sfInputType: updatedUser.sfInputType,
-      sfDropdownChoices: [...updatedUser.sfDropdownChoices], // Make sure sfDropdownChoices is copied
+    setQuestion({
+      qmsQuestion: updatedQuestion.qmsQuestion,
+      qmsInputType: updatedQuestion.qmsInputType,
+      qmsDropdownChoices: [...updatedQuestion.qmsDropdownChoices], // Make sure qmsDropdownChoices is copied
     });
   };
 
-  const deleteUser = (index: number) => {
-    setUsers((prevUsers) => prevUsers.filter((_, i) => i !== index));
+  const deleteQuestion = (index: number) => {
+    setQuestions((prevQuestions) => prevQuestions.filter((_, i) => i !== index));
   };
 
   const handlePageChange = (e: ChangeEvent<HTMLSelectElement>) => {
@@ -126,57 +126,57 @@ const ManageQMSEval: FC = () => {
         </div>
         {currentPage === 1 && (
           <ManageQMSPlan
-            users={users}
-            user={user}
+            questions={questions}
+            question={question}
             handleInputChange={handleInputChange}
             handleDropdownChange={handleDropdownChange}
             addDropdownChoice={addDropdownChoice}
             removeDropdownChoice={removeDropdownChoice}
-            addUser={addUser}
-            editUser={editUser}
-            deleteUser={deleteUser}
+            addQuestion={addQuestion}
+            editQuestion={editQuestion}
+            deleteQuestion={deleteQuestion}
             error={error}
           />
         )}
         {currentPage === 2 && (
           <ManageQMSDo
-            users={users}
-            user={user}
+            questions={questions}
+            question={question}
             handleInputChange={handleInputChange}
             handleDropdownChange={handleDropdownChange}
             addDropdownChoice={addDropdownChoice}
             removeDropdownChoice={removeDropdownChoice}
-            addUser={addUser}
-            editUser={editUser}
-            deleteUser={deleteUser}
+            addQuestion={addQuestion}
+            editQuestion={editQuestion}
+            deleteQuestion={deleteQuestion}
             error={error}
           />
         )}
         {currentPage === 3 && (
           <ManageQMSCheck
-            users={users}
-            user={user}
+            questions={questions}
+            question={question}
             handleInputChange={handleInputChange}
             handleDropdownChange={handleDropdownChange}
             addDropdownChoice={addDropdownChoice}
             removeDropdownChoice={removeDropdownChoice}
-            addUser={addUser}
-            editUser={editUser}
-            deleteUser={deleteUser}
+            addQuestion={addQuestion}
+            editQuestion={editQuestion}
+            deleteQuestion={deleteQuestion}
             error={error}
           />
         )}
         {currentPage === 4 && (
           <ManageQMSAct
-            users={users}
-            user={user}
+            questions={questions}
+            question={question}
             handleInputChange={handleInputChange}
             handleDropdownChange={handleDropdownChange}
             addDropdownChoice={addDropdownChoice}
             removeDropdownChoice={removeDropdownChoice}
-            addUser={addUser}
-            editUser={editUser}
-            deleteUser={deleteUser}
+            addQuestion={addQuestion}
+            editQuestion={editQuestion}
+            deleteQuestion={deleteQuestion}
             error={error}
           />
         )}
