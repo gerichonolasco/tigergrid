@@ -25,7 +25,7 @@ const Dashboard: FC = () => {
 						title={item.title}
 						img={item.img}
 						content={item.description}
-						sections={item.sections}
+						route={item.route}
 						showOnUserSide={item.visible}
 						toggleShowOnUserSide={() => toggleShowOnUserSide(index)}
 					/>
