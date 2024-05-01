@@ -50,7 +50,7 @@ const IAAnalytics: FC = () => {
     <div className="flex justify-center items-center bg-cover bg-center bg-main-building">
       <div className="text-gray-900 bg-gray-200">
         <div className="p-4 flex">
-          <h1 className="text-2xl">Stakeholder's Feedback</h1>
+          <h1 className="text-2xl">Internal Auditor's Evaluation</h1>
         </div>
         <div className="px-3 py-4 flex justify-center">
           <div className="relative">
@@ -151,7 +151,7 @@ const IAAnalytics: FC = () => {
           </Link>
           {/* View Report and Generate File buttons */}
           <div>
-            <Link to="/admin/IA/iacharts">
+            <Link to="/admin/iacharts">
               <button
                 type="button"
                 className="text-white bg-yellow-500 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-500 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-yellow-500 dark:hover:bg-yellow-500 focus:outline-none dark:focus:ring-yellow-500"
