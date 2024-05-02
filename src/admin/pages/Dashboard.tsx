@@ -16,7 +16,7 @@ const Dashboard: FC = () => {
 	return (
 		<>
 			<div className="relative overflow-x-auto">
-				<AddFormButton to="/admin/addform" />{" "}
+				<AddFormButton />{" "}
 			</div>
 			<div className="grid gap-2 lg:grid-cols-4">
 				{posts.map((item, index) => (
