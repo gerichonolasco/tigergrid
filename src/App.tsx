@@ -19,6 +19,7 @@ import IATableDo from "./admin/pages/IATableDo";
 import IATableCheck from "./admin/pages/IATableCheck";
 import IATableAct from "./admin/pages/IATableAct";
 import AddForm from "./admin/pages/AddForm";
+import ManageQuestions from "./admin/pages/ManageQuestions";
 import QMSChooseType from "./admin/pages/QMSChooseType";
 import QMSunitorIA from "./admin/pages/QMSunitorIA";
 import AcadPDCA from "./admin/pages/AcadPDCA";
@@ -87,126 +88,396 @@ import SideNavbar from "./admin/components/SideNavbar";
 import SideNavbarUser from "./user-side/components/SideNavbarUser";
 
 const App: FC = () => {
-  return (
-    <>
-      <Router>
-        <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-          <Route
-            path="/admin/*"
-            element={
-              <>
-                <SideNavbar />
-                <div className="p-4 sm:ml-64">
-                  <div className="p-2 border-gray-200 border-dashed rounded-lg mt-14">
-                    <Routes>
-                      <Route path="dashboard" element={<Dashboard />} />
-                      <Route
-                        path="managestakeholder"
-                        element={<ManageStakeholderFeedback />}
-                      />
-                      <Route path="manageiaeval" element={<ManageIAEval />} />
-                      <Route path="manageqmseval" element={<ManageQMSEval />} />
-                      <Route path="sfanalytics" element={<SFAnalytics />} />
-                      <Route path="iaeanalytics" element={<IAEAnalytics />} />
-                      <Route path="addform" element={<AddForm />} />
-                      <Route path="acadtableplan" element={<AcadTablePlan />} />
-                      <Route path="acadtabledo" element={<AcadTableDo />} />
-                      <Route path="acadtablecheck" element={<AcadTableCheck />} />
-                      <Route path="acadtableact" element={<AcadTableAct />} />
-                      <Route path="admintableplan" element={<AdminTablePlan />} />
-                      <Route path="admintabledo" element={<AdminTableDo />} />
-                      <Route path="admintablecheck" element={<AdminTableCheck />} />
-                      <Route path="admintableact" element={<AdminTableAct />} />
-                      <Route path="iatableplan" element={<IATablePlan />} />
-                      <Route path="iatabledo" element={<IATableDo />} />
-                      <Route path="iatablecheck" element={<IATableCheck />} />
-                      <Route path="iatableact" element={<IATableAct />} />
-                      <Route path="qmschoosetype" element={<QMSChooseType />} />
-                      <Route path="unitoria" element={<QMSunitorIA />} />
-                      <Route path="acadoradmin" element={<AcademicOrAdmin />} />
-                      <Route path="acadPDCA" element={<AcadPDCA />} />
-                      <Route path="adminPDCA" element={<AdminPDCA />} />
-                      <Route path="iaPDCA" element={<IAPDCA />} />
-                      <Route path="adminprofile" element={<AdminProfile />} />
-                      <Route path="addquestionSF" element={<AddQuestionSF />} />
-                      <Route path="sfcharts" element={<SFCharts />} />
-                      <Route path="iacharts" element={<IACharts />} />
-                      <Route path="qmscharts" element={<QMSCharts />} />
-                      <Route path="acadscorepdca" element={<AcadEvalScorePDCA />} />
-                      <Route path="acadscoreplan" element={<AcadEvalScoreSummaryPlan />} />
-                      <Route path="acadscoredo" element={<AcadEvalScoreSummaryDo />} />
-                      <Route path="acadscorecheck" element={<AcadEvalScoreSummaryCheck />} />
-                      <Route path="acadscoreact" element={<AcadEvalScoreSummaryAct />} />
-                      <Route path="adminscorepdca" element={<AdminEvalScorePDCA />} />
-                      <Route path="adminscoreplan" element={<AdminEvalScoreSummaryPlan />} />
-                      <Route path="adminscoredo" element={<AdminEvalScoreSummaryDo />} />
-                      <Route path="adminscorecheck" element={<AdminEvalScoreSummaryCheck />} />
-                      <Route path="adminscoreact" element={<AdminEvalScoreSummaryAct />} />
-                      <Route path="iascorePDCA" element={<IAScorePDCA />} />
-                      <Route path="iascoreplan" element={<IAEvalScoreSummaryPlan />} />
-                      <Route path="iascoredo" element={<IAEvalScoreSummaryDo />} />
-                      <Route path="iascorecheck" element={<IAEvalScoreSummaryCheck />} />
-                      <Route path="iascoreact" element={<IAEvalScoreSummaryAct />} />
-                      <Route path="manageusers" element={<ManageUsers />} />
-                      <Route path="qmsanalytics" element={<QMSAnalytics />} />
-                      <Route path="grid" element={<DocumentGrid />} />
-                    </Routes>
-                  </div>
-                </div>
-              </>
-            }
-          />
+	return (
+		<>
+			<Router>
+				<Routes>
+					<Route path="/" element={<Home />} />
+					<Route path="/login" element={<Login />} />
+					<Route path="/register" element={<Register />} />
+					<Route
+						path="/admin/*"
+						element={
+							<>
+								<SideNavbar />
+								<div className="p-4 sm:ml-64">
+									<div className="p-2 border-gray-200 border-dashed rounded-lg mt-14">
+										<Routes>
+											<Route
+												path="dashboard"
+												element={<Dashboard />}
+											/>
+											<Route
+												path="managestakeholder"
+												element={
+													<ManageStakeholderFeedback />
+												}
+											/>
+											<Route
+												path="manageiaeval"
+												element={<ManageIAEval />}
+											/>
+											<Route
+												path="manageqmseval"
+												element={<ManageQMSEval />}
+											/>
+											<Route
+												path="managequestions"
+												element={<ManageQuestions />}
+											/>
+											<Route
+												path="sfanalytics"
+												element={<SFAnalytics />}
+											/>
+											<Route
+												path="iaeanalytics"
+												element={<IAEAnalytics />}
+											/>
+											<Route
+												path="addform"
+												element={<AddForm />}
+											/>
+											<Route
+												path="acadtableplan"
+												element={<AcadTablePlan />}
+											/>
+											<Route
+												path="acadtabledo"
+												element={<AcadTableDo />}
+											/>
+											<Route
+												path="acadtablecheck"
+												element={<AcadTableCheck />}
+											/>
+											<Route
+												path="acadtableact"
+												element={<AcadTableAct />}
+											/>
+											<Route
+												path="admintableplan"
+												element={<AdminTablePlan />}
+											/>
+											<Route
+												path="admintabledo"
+												element={<AdminTableDo />}
+											/>
+											<Route
+												path="admintablecheck"
+												element={<AdminTableCheck />}
+											/>
+											<Route
+												path="admintableact"
+												element={<AdminTableAct />}
+											/>
+											<Route
+												path="iatableplan"
+												element={<IATablePlan />}
+											/>
+											<Route
+												path="iatabledo"
+												element={<IATableDo />}
+											/>
+											<Route
+												path="iatablecheck"
+												element={<IATableCheck />}
+											/>
+											<Route
+												path="iatableact"
+												element={<IATableAct />}
+											/>
+											<Route
+												path="qmschoosetype"
+												element={<QMSChooseType />}
+											/>
+											<Route
+												path="unitoria"
+												element={<QMSunitorIA />}
+											/>
+											<Route
+												path="acadoradmin"
+												element={<AcademicOrAdmin />}
+											/>
+											<Route
+												path="acadPDCA"
+												element={<AcadPDCA />}
+											/>
+											<Route
+												path="adminPDCA"
+												element={<AdminPDCA />}
+											/>
+											<Route
+												path="iaPDCA"
+												element={<IAPDCA />}
+											/>
+											<Route
+												path="adminprofile"
+												element={<AdminProfile />}
+											/>
+											<Route
+												path="addquestionSF"
+												element={<AddQuestionSF />}
+											/>
+											<Route
+												path="sfcharts"
+												element={<SFCharts />}
+											/>
+											<Route
+												path="iacharts"
+												element={<IACharts />}
+											/>
+											<Route
+												path="qmscharts"
+												element={<QMSCharts />}
+											/>
+											<Route
+												path="acadscorepdca"
+												element={<AcadEvalScorePDCA />}
+											/>
+											<Route
+												path="acadscoreplan"
+												element={
+													<AcadEvalScoreSummaryPlan />
+												}
+											/>
+											<Route
+												path="acadscoredo"
+												element={
+													<AcadEvalScoreSummaryDo />
+												}
+											/>
+											<Route
+												path="acadscorecheck"
+												element={
+													<AcadEvalScoreSummaryCheck />
+												}
+											/>
+											<Route
+												path="acadscoreact"
+												element={
+													<AcadEvalScoreSummaryAct />
+												}
+											/>
+											<Route
+												path="adminscorepdca"
+												element={<AdminEvalScorePDCA />}
+											/>
+											<Route
+												path="adminscoreplan"
+												element={
+													<AdminEvalScoreSummaryPlan />
+												}
+											/>
+											<Route
+												path="adminscoredo"
+												element={
+													<AdminEvalScoreSummaryDo />
+												}
+											/>
+											<Route
+												path="adminscorecheck"
+												element={
+													<AdminEvalScoreSummaryCheck />
+												}
+											/>
+											<Route
+												path="adminscoreact"
+												element={
+													<AdminEvalScoreSummaryAct />
+												}
+											/>
+											<Route
+												path="iascorePDCA"
+												element={<IAScorePDCA />}
+											/>
+											<Route
+												path="iascoreplan"
+												element={
+													<IAEvalScoreSummaryPlan />
+												}
+											/>
+											<Route
+												path="iascoredo"
+												element={
+													<IAEvalScoreSummaryDo />
+												}
+											/>
+											<Route
+												path="iascorecheck"
+												element={
+													<IAEvalScoreSummaryCheck />
+												}
+											/>
+											<Route
+												path="iascoreact"
+												element={
+													<IAEvalScoreSummaryAct />
+												}
+											/>
+											<Route
+												path="manageusers"
+												element={<ManageUsers />}
+											/>
+											<Route
+												path="qmsanalytics"
+												element={<QMSAnalytics />}
+											/>
+											<Route
+												path="grid"
+												element={<DocumentGrid />}
+											/>
+										</Routes>
+									</div>
+								</div>
+							</>
+						}
+					/>
 
-          <Route
-            path="/*"
-            element={
-              <>  
-              <SideNavbarUser />
-                <div className="p-4 sm:ml-64">
-                  <div className="p-2 border-gray-200 border-dashed rounded-lg mt-9">
-                    <Routes>
-                      <Route path="/landingpage" element={<LandingPage />} />
-                      <Route path="/stakeholderfeedback" element={<StakeholderFeedback />} />
-                      <Route path="/stakeholderfeedback2" element={<StakeholderFeedback2 />} />
-                      <Route path="/stakeholderfeedback3" element={<StakeholderFeedback3 />} />
-                      <Route path="/stakeholderfeedback2ver2" element={<StakeholderFeedback2ver2 />} />
-                      <Route path="/stakeholderfeedback3ver2" element={<StakeholderFeedback3ver2 />} />
-                      <Route path="/stakeholderfeedback4" element={<StakeholderFeedback4 />} />
-                      <Route path="/iaeval" element={<IAEval />} />
-                      <Route path="/iaeval2" element={<IAEval2 />} />
-                      <Route path="/iaeval3" element={<IAEval3 />} />
-                      <Route path="/iaeval4" element={<IAEval4 />} />
-                      <Route path="/dataprivacySF" element={<DataPrivacySF />} />
-                      <Route path="/dataprivacyIAE" element={<DataPrivacyIAE />} />
-                      <Route path="/dataprivacyQMS" element={<DataPrivacyQMS />} />
-                      <Route path="/unitoriaform" element={<UnitorIAQMSForm />} />
-                      <Route path="/acadoradminform" element={<AcadorAdminForm />} />
-                      <Route path="/academicformplan" element={<AcademicFormPlan />} />
-                      <Route path="/academicformdo" element={<AcademicFormDo />} />
-                      <Route path="/academicformcheck" element={<AcademicFormCheck />} />
-                      <Route path="/academicformact" element={<AcademicFormAct />} />
-                      <Route path="/adminformplan" element={<AdminFormPlan />} />
-                      <Route path="/adminformdo" element={<AdminFormDo />} />
-                      <Route path="/adminformcheck" element={<AdminFormCheck />} />
-                      <Route path="/adminformact" element={<AdminFormAct />} />
-                      <Route path="/qmsiaplan" element={<QMSIAPlan />} />
-                      <Route path="/qmsiado" element={<QMSIADo />} />
-                      <Route path="/qmsiacheck" element={<QMSIACheck />} />
-                      <Route path="/qmsiaact" element={<QMSIAAct />} />
-                      <Route path="/userprofile" element={<UserProfile />} />
-                    </Routes>
-                    </div>
-                    </div>
-              </>
-            }
-          />
-        </Routes>
-      </Router>
-    </>
-  );
+					<Route
+						path="/*"
+						element={
+							<>
+								<SideNavbarUser />
+								<div className="p-4 sm:ml-64">
+									<div className="p-2 border-gray-200 border-dashed rounded-lg mt-9">
+										<Routes>
+											<Route
+												path="/landingpage"
+												element={<LandingPage />}
+											/>
+											<Route
+												path="/stakeholderfeedback"
+												element={
+													<StakeholderFeedback />
+												}
+											/>
+											<Route
+												path="/stakeholderfeedback2"
+												element={
+													<StakeholderFeedback2 />
+												}
+											/>
+											<Route
+												path="/stakeholderfeedback3"
+												element={
+													<StakeholderFeedback3 />
+												}
+											/>
+											<Route
+												path="/stakeholderfeedback2ver2"
+												element={
+													<StakeholderFeedback2ver2 />
+												}
+											/>
+											<Route
+												path="/stakeholderfeedback3ver2"
+												element={
+													<StakeholderFeedback3ver2 />
+												}
+											/>
+											<Route
+												path="/stakeholderfeedback4"
+												element={
+													<StakeholderFeedback4 />
+												}
+											/>
+											<Route
+												path="/iaeval"
+												element={<IAEval />}
+											/>
+											<Route
+												path="/iaeval2"
+												element={<IAEval2 />}
+											/>
+											<Route
+												path="/iaeval3"
+												element={<IAEval3 />}
+											/>
+											<Route
+												path="/iaeval4"
+												element={<IAEval4 />}
+											/>
+											<Route
+												path="/dataprivacySF"
+												element={<DataPrivacySF />}
+											/>
+											<Route
+												path="/dataprivacyIAE"
+												element={<DataPrivacyIAE />}
+											/>
+											<Route
+												path="/dataprivacyQMS"
+												element={<DataPrivacyQMS />}
+											/>
+											<Route
+												path="/unitoriaform"
+												element={<UnitorIAQMSForm />}
+											/>
+											<Route
+												path="/acadoradminform"
+												element={<AcadorAdminForm />}
+											/>
+											<Route
+												path="/academicformplan"
+												element={<AcademicFormPlan />}
+											/>
+											<Route
+												path="/academicformdo"
+												element={<AcademicFormDo />}
+											/>
+											<Route
+												path="/academicformcheck"
+												element={<AcademicFormCheck />}
+											/>
+											<Route
+												path="/academicformact"
+												element={<AcademicFormAct />}
+											/>
+											<Route
+												path="/adminformplan"
+												element={<AdminFormPlan />}
+											/>
+											<Route
+												path="/adminformdo"
+												element={<AdminFormDo />}
+											/>
+											<Route
+												path="/adminformcheck"
+												element={<AdminFormCheck />}
+											/>
+											<Route
+												path="/adminformact"
+												element={<AdminFormAct />}
+											/>
+											<Route
+												path="/qmsiaplan"
+												element={<QMSIAPlan />}
+											/>
+											<Route
+												path="/qmsiado"
+												element={<QMSIADo />}
+											/>
+											<Route
+												path="/qmsiacheck"
+												element={<QMSIACheck />}
+											/>
+											<Route
+												path="/qmsiaact"
+												element={<QMSIAAct />}
+											/>
+											<Route
+												path="/userprofile"
+												element={<UserProfile />}
+											/>
+										</Routes>
+									</div>
+								</div>
+							</>
+						}
+					/>
+				</Routes>
+			</Router>
+		</>
+	);
 };
 
 export default App;
