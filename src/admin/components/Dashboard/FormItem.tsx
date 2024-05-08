@@ -1,52 +1,30 @@
-// FormItem.tsx
-import React from "react";
+import React, { FC } from "react";
 
-interface FormItemProps {
-	title: string;
-	img: string;
-	content: string;
-	route?: string;
-	showOnUserSide: boolean;
-	toggleShowOnUserSide: (index: number) => void;
+interface Props {
+  title: string;
+  img: string;
+  content: string;
+  showOnUserSide: boolean;
+  toggleShowOnUserSide: () => void;
 }
 
-const FormItem: React.FC<FormItemProps> = ({
-	title,
-	img,
-	content,
-	route,
-	showOnUserSide,
-	toggleShowOnUserSide,
+const FormItem: FC<Props> = ({
+  title,
+  img,
+  content,
+  showOnUserSide,
+  toggleShowOnUserSide
 }) => {
-	return (
-		<div className="w-full rounded-lg shadow-md lg:max-w-sm">
-			<img className="object-cover w-full h-48" src={img} alt="image" />
-			<div className="p-4">
-				<h4 className="text-xl font-semibold text-blue-600">{title}</h4>
-				<p className="mb-2 leading-normal">{content}</p>
-				<div className="flex justify-center items-center">
-					<button
-						className={`flex items-center justify-center px-4 py-2 text-sm rounded shadow mr-2 ${
-							showOnUserSide ? "bg-green-500" : "bg-red-500"
-						}`}
-						onClick={() => toggleShowOnUserSide(index)}
-					>
-						{showOnUserSide
-							? "Show on User Side"
-							: "Hide from User Side"}
-					</button>
-					{route && (
-						<Link
-							to={route}
-							className="px-4 py-2 text-sm text-blue-100 bg-yellow-500 rounded shadow text-white"
-						>
-							View
-						</Link>
-					)}
-				</div>
-			</div>
-		</div>
-	);
+  return (
+    <div className="bg-white shadow-md rounded-lg p-4">
+      <h2 className="text-lg font-semibold mb-2">{title}</h2>
+      {img && <img src={img} alt={title} className="mb-2" />}
+      <p>{content}</p>
+      <button onClick={toggleShowOnUserSide}>
+        {showOnUserSide ? "Hide" : "View"}
+      </button>
+    </div>
+  );
 };
 
 export default FormItem;
