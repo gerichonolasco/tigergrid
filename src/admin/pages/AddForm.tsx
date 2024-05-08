@@ -37,15 +37,45 @@ const AddForm: FC = () => {
 		}
 	};
 
+	const handleQuestionChange = (
+		event: React.ChangeEvent<HTMLInputElement>
+	) => {
+		setQuestion({
+			...question,
+			[event.target.name]: event.target.value,
+		});
+	};
+
+	const handleDropdownChange = (
+		event: React.ChangeEvent<HTMLSelectElement>
+	) => {
+		setQuestion({
+			...question,
+			newDropdownChoices: event.target.value.split(","),
+		});
+	};
+
 	const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 		const formData = {
 			title: formTitle,
 			description: description,
-			sections: {}, // Prepare sections based on your form structure
+			sections: {
+				1: {
+					id: 1,
+					title: "sectionTitle",
+					answers: questions.map((q, index) => ({
+						id: index + 1,
+						question: q.newQuestion,
+						answer:
+							q.newInputType === "dropdown"
+								? q.newDropdownChoices.join(",")
+								: q.newInputType,
+					})),
+				},
+			},
 		};
 
-		// Send formData to backend API for storage
 		try {
 			const response = await fetch("/api/addForm", {
 				method: "POST",
@@ -55,17 +85,15 @@ const AddForm: FC = () => {
 				body: JSON.stringify(formData),
 			});
 			if (response.ok) {
-				// Form successfully added
 				console.log("Form submitted!");
 				setFormTitle("");
 				setDescription("");
 				setFile(null);
+				setQuestions([]);
 			} else {
-				// Handle error response
 				setError("Failed to add form. Please try again.");
 			}
 		} catch (error) {
-			// Handle network error
 			setError("Failed to connect to the server.");
 		}
 	};
@@ -125,6 +153,7 @@ const AddForm: FC = () => {
 						onChange={handleFileChange}
 					/>
 				</div>
+				{/* Add fields for questions here */}
 				<NextButton to="/admin/managequestions" />
 			</form>
 		</div>
