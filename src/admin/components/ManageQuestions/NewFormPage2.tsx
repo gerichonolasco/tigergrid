@@ -1,5 +1,29 @@
 import React, { FC, ChangeEvent, useState } from "react";
 
+interface Choice {
+  choice: string;
+}
+
+interface FormQuestion {
+  question: string;
+  choices: Choice[];
+}
+
+interface CustomAnswer {
+  answer: string;
+}
+
+interface FormDropdown {
+  placeholder: string;
+}
+
+interface FormSection {
+  title: string;
+  dropdowns: Map<number, FormDropdown>;
+  questions: Map<number, FormQuestion>;
+  customAnswer: Map<number, CustomAnswer>;
+}
+
 interface NewQuestion {
   newQuestion: string;
   newInputType: string;
@@ -85,8 +109,9 @@ const NewFormPage2: FC<NewFormPage2Props> = ({
     );
     handleInputChange(
       { target: { value: [] } } as ChangeEvent<
-        HTMLInputElement | HTMLSelectElement
-      >,
+      HTMLInputElement | HTMLSelectElement
+    >,
+    
       "newDropdownChoices"
     );
   };
@@ -126,14 +151,14 @@ const NewFormPage2: FC<NewFormPage2Props> = ({
               <th></th>
             </tr>
             {/* Table content */}
-            {questions.map((NewQuestion, index) => (
+            {questions.map((question, index) => (
               <tr
                 key={index}
                 className="border-b hover:bg-orange-100 bg-gray-100"
               >
                 <td className="p-3 px-5">{index + 1}</td>
-                <td className="p-3 px-5">{NewQuestion.newQuestion}</td>
-                <td className="p-3 px-5">{NewQuestion.newInputType}</td>
+                <td className="p-3 px-5">{question.newQuestion}</td>
+                <td className="p-3 px-5">{question.newInputType}</td>
                 <td className="p-3 px-5">
                   <button
                     type="button"
