@@ -1,9 +1,6 @@
 import React, { FC } from "react";
 import "./App.css";
 import Dashboard from "./admin/pages/Dashboard";
-import ManageStakeholderFeedback from "./admin/pages/ManageStakeholderFeedback";
-import ManageIAEval from "./admin/pages/ManageIAEval";
-import ManageQMSEval from "./admin/pages/ManageQMSEval";
 import SFAnalytics from "./admin/pages/SFAnalytics";
 import IAEAnalytics from "./admin/pages/IAEAnalytics";
 import AcadTablePlan from "./admin/pages/AcadTablePlan";
@@ -106,20 +103,6 @@ const App: FC = () => {
 											<Route
 												path="dashboard"
 												element={<Dashboard />}
-											/>
-											<Route
-												path="managestakeholder"
-												element={
-													<ManageStakeholderFeedback />
-												}
-											/>
-											<Route
-												path="manageiaeval"
-												element={<ManageIAEval />}
-											/>
-											<Route
-												path="manageqmseval"
-												element={<ManageQMSEval />}
 											/>
 											<Route
 												path="managequestions"

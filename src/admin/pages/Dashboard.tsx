@@ -16,7 +16,24 @@ interface FormSection {
 }
 
 const Dashboard: FC = () => {
-  const [forms, setForms] = useState<Form[]>([]);
+  const [forms, setForms] = useState<Form[]>([
+    {
+      title: "Sample Form 1",
+      description: "This is a sample form for demonstration purposes.",
+      imageSource: "https://via.placeholder.com/150", 
+      userTypeVisibility: ["user", "admin"],
+      visible: true,
+      sections: new Map(),
+    },
+    {
+      title: "Sample Form 2",
+      description: "Another sample form to showcase form items.",
+      imageSource: "https://via.placeholder.com/150", 
+      userTypeVisibility: ["user", "admin"],
+      visible: true,
+      sections: new Map(),
+    }
+  ]);
 
   const toggleVisibility = (index: number) => {
     const updatedForms = [...forms];
@@ -30,10 +47,20 @@ const Dashboard: FC = () => {
       description: "",
       imageSource: "", 
       userTypeVisibility: [],
-      visible: true, // New forms are initially visible
+      visible: true,
       sections: new Map()
     };
     setForms([...forms, newForm]);
+  };
+
+  const editForm = (index: number) => {
+    // Handle edit form functionality here
+    console.log("Edit form:", forms[index]);
+  };
+
+  const viewForm = (index: number) => {
+    // Handle view form functionality here
+    console.log("View form:", forms[index]);
   };
 
   return (
@@ -50,6 +77,8 @@ const Dashboard: FC = () => {
             content={form.description}
             showOnUserSide={form.visible}
             toggleShowOnUserSide={() => toggleVisibility(index)}
+            onEdit={() => editForm(index)} // Pass edit function
+            onView={() => viewForm(index)} // Pass view function
           />
         ))}
       </div>
