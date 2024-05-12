@@ -17,6 +17,7 @@ import IATableCheck from "./admin/pages/IATableCheck";
 import IATableAct from "./admin/pages/IATableAct";
 import AddForm from "./admin/pages/AddForm";
 import ManageQuestions from "./admin/pages/ManageQuestions";
+import EditManageQuestions from "./admin/pages/EditManageQuestions";
 import QMSChooseType from "./admin/pages/QMSChooseType";
 import QMSunitorIA from "./admin/pages/QMSunitorIA";
 import AcadPDCA from "./admin/pages/AcadPDCA";
@@ -45,7 +46,6 @@ import IAEvalScoreSummaryCheck from "./admin/pages/IAEvalScoreSummaryCheck";
 import IAEvalScoreSummaryAct from "./admin/pages/IAEvalScoreSummaryAct";
 import ManageUsers from "./admin/pages/ManageUsers";
 import QMSAnalytics from "./admin/pages/QMSAnalytics";
-import DocumentGrid from "./admin/pages/DocumentGrid";
 
 import Home from "./user-side/pages/Home";
 import LandingPage from "./user-side/pages/LandingPage";
@@ -107,6 +107,10 @@ const App: FC = () => {
 											<Route
 												path="managequestions"
 												element={<ManageQuestions />}
+											/>
+											<Route
+												path="editmanagequestions"
+												element={<EditManageQuestions />}
 											/>
 											<Route
 												path="sfanalytics"
@@ -303,10 +307,6 @@ const App: FC = () => {
 											<Route
 												path="qmsanalytics"
 												element={<QMSAnalytics />}
-											/>
-											<Route
-												path="grid"
-												element={<DocumentGrid />}
 											/>
 										</Routes>
 									</div>

@@ -27,21 +27,21 @@ const FormResponse: FC<FormResponseProps> = ({ formTitle, sections, users }) => 
     return (
         <div className="form-response">
             <h2 className="form-title">{formTitle}</h2>
-            <table className="response-table">
+            <table className="w-full text-md bg-white shadow-md rounded mb-4">
                 <thead>
                     <tr>
-                        <th>User</th>
+                        <th className="py-2 px-3 bg-gray-100 border-b border-gray-300">User</th>
                         {questions && Array.from(questions).map((question, index) => (
-                            <th key={index}>{question.question}</th>
+                            <th key={index} className="py-2 px-3 bg-gray-100 border-b border-gray-300">{question.question}</th>
                         ))}
                     </tr>
                 </thead>
                 <tbody>
                     {users.map((user, userIndex) => (
-                        <tr key={userIndex}>
-                            <td>{`${user.firstName} ${user.lastName}`}</td>
+                        <tr key={userIndex} className={userIndex % 2 === 0 ? "bg-gray-50" : ""}>
+                            <td className="py-2 px-3 border-b border-gray-300">{`${user.firstName} ${user.lastName}`}</td>
                             {questions && Array.from(questions).map((question, questionIndex) => (
-                                <td key={questionIndex}>
+                                <td key={questionIndex} className="py-2 px-3 border-b border-gray-300">
                                     {sections.get(userIndex + 1)?.answers.get(questionIndex + 1)?.answer}
                                 </td>
                             ))}
