@@ -3,6 +3,7 @@ import React, { useState } from "react";
 const ManageUsers = () => {
   const [user, setUser] = useState({ firstName: "", lastName: "", email: "", password: "", role: "User" });
   const [users, setUsers] = useState([]);
+  const [editIndex, setEditIndex] = useState(null);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -12,6 +13,36 @@ const ManageUsers = () => {
   const addUser = () => {
     setUsers([...users, user]);
     setUser({ firstName: "", lastName: "", email: "", password: "", role: "User" });
+  };
+
+  const editUser = (index) => {
+    setEditIndex(index);
+    setUser(users[index]);
+  };
+
+  const archiveUser = (index) => {
+    const updatedUsers = users.filter((_, i) => i !== index);
+    setUsers(updatedUsers);
+    if (editIndex === index) {
+      setEditIndex(null);
+      setUser({ firstName: "", lastName: "", email: "", password: "", role: "User" });
+    }
+  };
+
+  const saveChanges = () => {
+    const updatedUsers = [...users];
+    updatedUsers[editIndex] = user;
+    setUsers(updatedUsers);
+    setUser({ firstName: "", lastName: "", email: "", password: "", role: "User" });
+    setEditIndex(null);
+  };
+
+  const saveUser = () => {
+    if (editIndex !== null) {
+      saveChanges();
+    } else {
+      addUser();
+    }
   };
 
   return (
@@ -24,6 +55,7 @@ const ManageUsers = () => {
           <table className="w-full text-md bg-white shadow-md rounded mb-4">
             <tbody>
               <tr className="border-b">
+                <th className="text-left p-3 px-5">#</th>
                 <th className="text-left p-3 px-5">First Name</th>
                 <th className="text-left p-3 px-5">Last Name</th>
                 <th className="text-left p-3 px-5">Email</th>
@@ -33,31 +65,33 @@ const ManageUsers = () => {
               </tr>
               {users.map((user, index) => (
                 <tr key={index} className="border-b hover:bg-orange-100 bg-gray-100">
+                  <td className="p-3 px-5">{index + 1}</td>
                   <td className="p-3 px-5">
-                    <input type="text" placeholder="Enter First Name" className="bg-transparent border-b-2 border-gray-300 py-2" value={user.firstName} />
+                    <input type="text" placeholder="Enter First Name" className="bg-transparent border-b-2 border-gray-300 py-2" value={user.firstName} readOnly />
                   </td>
                   <td className="p-3 px-5">
-                    <input type="text" placeholder="Enter Last Name" className="bg-transparent border-b-2 border-gray-300 py-2" value={user.lastName} />
+                    <input type="text" placeholder="Enter Last Name" className="bg-transparent border-b-2 border-gray-300 py-2" value={user.lastName} readOnly />
                   </td>
                   <td className="p-3 px-5">
-                    <input type="text" placeholder="Enter Email" className="bg-transparent border-b-2 border-gray-300 py-2" value={user.email} />
+                    <input type="text" placeholder="Enter Email" className="bg-transparent border-b-2 border-gray-300 py-2" value={user.email} readOnly />
                   </td>
                   <td className="p-3 px-5">
-                    <input type="password" placeholder="Enter Password" className="bg-transparent border-b-2 border-gray-300 py-2" value={user.password} />
+                    <input type="password" placeholder="Enter Password" className="bg-transparent border-b-2 border-gray-300 py-2" value={user.password} readOnly />
                   </td>
                   <td className="p-3 px-5">
-                    <select value={user.role} className="bg-transparent border-b-2 border-gray-300 py-2">
+                    <select value={user.role} className="bg-transparent border-b-2 border-gray-300 py-2" disabled>
                       <option value="User">User</option>
                       <option value="Admin">Admin</option>
                     </select>
                   </td>
                   <td className="p-3 px-5 flex justify-end">
-                    <button type="button" className="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Save</button>
-                    <button type="button" className="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Archive</button>
+                    <button type="button" onClick={() => editUser(index)} className="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Edit</button>
+                    <button type="button" onClick={() => archiveUser(index)} className="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Archive</button>
                   </td>
                 </tr>
               ))}
               <tr className="border-b hover:bg-orange-100 bg-gray-100">
+                <td className="p-3 px-5">{editIndex !== null ? editIndex + 1 : users.length + 1}</td>
                 <td className="p-3 px-5">
                   <input type="text" name="firstName" placeholder="Enter First Name" className="bg-transparent border-b-2 border-gray-300 py-2" value={user.firstName} onChange={handleInputChange} />
                 </td>
@@ -77,11 +111,14 @@ const ManageUsers = () => {
                   </select>
                 </td>
                 <td className="p-3 px-5 flex justify-end">
-                  <button type="button" onClick={addUser} className="text-sm bg-green-500 hover:bg-green-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Add</button>
+                  <button type="button" onClick={saveUser} className="text-sm bg-green-500 hover:bg-green-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">{editIndex !== null ? "Save" : "Add"}</button>
                 </td>
               </tr>
             </tbody>
           </table>
+        </div>
+        <div className="px-3 py-4 flex justify-center">
+          <button type="button" onClick={saveUser} className="text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Save Changes</button>
         </div>
       </div>
     </div>
