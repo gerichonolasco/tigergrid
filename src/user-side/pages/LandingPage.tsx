@@ -1,8 +1,17 @@
 import React, { FC, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
+interface Form {
+  id: number;
+  title: string;
+  description: string;
+  imageSource: string;
+  sections: Map<number, any>;
+}
 
 const LandingPage: FC = () => {
   const [forms, setForms] = useState<Form[]>([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchForms();
@@ -28,6 +37,10 @@ const LandingPage: FC = () => {
     }
   };
 
+  const handleAddFeedbackClick = (formId: number) => {
+    navigate(`/form/${formId}`);
+  };
+
   return (
     <>
       <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-8 mx-4">
@@ -47,12 +60,12 @@ const LandingPage: FC = () => {
               </h3>
               <p className="text-gray-600">{form.description}</p>
               <div className="mt-4 flex justify-center">
-                <Link
-                  to={`/form/${form.id}`}
+                <button
+                  onClick={() => handleAddFeedbackClick(form.id)}
                   className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
                 >
                   Add Feedback
-                </Link>
+                </button>
               </div>
             </div>
           </div>
