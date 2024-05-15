@@ -1,51 +1,14 @@
 import React, { FC } from "react";
 import "./App.css";
 import Dashboard from "./admin/pages/Dashboard";
-import SFAnalytics from "./admin/pages/SFAnalytics";
-import IAEAnalytics from "./admin/pages/IAEAnalytics";
-import AcadTablePlan from "./admin/pages/AcadTablePlan";
-import AcadTableDo from "./admin/pages/AcadTableDo";
-import AcadTableCheck from "./admin/pages/AcadTableCheck";
-import AcadTableAct from "./admin/pages/AcadTableAct";
-import AdminTablePlan from "./admin/pages/AdminTablePlan";
-import AdminTableDo from "./admin/pages/AdminTableDo";
-import AdminTableCheck from "./admin/pages/AdminTableCheck";
-import AdminTableAct from "./admin/pages/AdminTableAct";
-import IATablePlan from "./admin/pages/IATablePlan";
-import IATableDo from "./admin/pages/IATableDo";
-import IATableCheck from "./admin/pages/IATableCheck";
-import IATableAct from "./admin/pages/IATableAct";
 import AddForm from "./admin/pages/AddForm";
 import ManageQuestions from "./admin/pages/ManageQuestions";
 import EditManageQuestions from "./admin/pages/EditManageQuestions";
-import QMSChooseType from "./admin/pages/QMSChooseType";
-import QMSunitorIA from "./admin/pages/QMSunitorIA";
-import AcadPDCA from "./admin/pages/AcadPDCA";
-import AdminPDCA from "./admin/pages/AdminPDCA";
-import IAPDCA from "./admin/pages/IAPDCA";
 import AdminProfile from "./admin/pages/AdminProfile";
-import AcademicOrAdmin from "./admin/pages/AcademicOrAdmin";
-import AddQuestionSF from "./admin/pages/AddQuestionSF";
 import SFCharts from "./admin/pages/SFCharts";
 import QMSCharts from "./admin/pages/QMSCharts";
 import IACharts from "./admin/pages/IACharts";
-import AcadEvalScorePDCA from "./admin/pages/AcadEvalScorePDCA";
-import AcadEvalScoreSummaryPlan from "./admin/pages/AcadEvalScoreSummaryPlan";
-import AcadEvalScoreSummaryDo from "./admin/pages/AcadEvalScoreSummaryDo";
-import AcadEvalScoreSummaryCheck from "./admin/pages/AcadEvalScoreSummaryCheck";
-import AcadEvalScoreSummaryAct from "./admin/pages/AcadEvalScoreSummaryAct";
-import AdminEvalScorePDCA from "./admin/pages/AdminEvalScorePDCA";
-import AdminEvalScoreSummaryPlan from "./admin/pages/AdminEvalScoreSummaryPlan";
-import AdminEvalScoreSummaryDo from "./admin/pages/AdminEvalScoreSummaryDo";
-import AdminEvalScoreSummaryCheck from "./admin/pages/AdminEvalScoreSummaryCheck";
-import AdminEvalScoreSummaryAct from "./admin/pages/AdminEvalScoreSummaryAct";
-import IAScorePDCA from "./admin/pages/IAScorePDCA";
-import IAEvalScoreSummaryPlan from "./admin/pages/IAEvalScoreSummaryPlan";
-import IAEvalScoreSummaryDo from "./admin/pages/IAEvalScoreSummaryDo";
-import IAEvalScoreSummaryCheck from "./admin/pages/IAEvalScoreSummaryCheck";
-import IAEvalScoreSummaryAct from "./admin/pages/IAEvalScoreSummaryAct";
 import ManageUsers from "./admin/pages/ManageUsers";
-import QMSAnalytics from "./admin/pages/QMSAnalytics";
 
 import Home from "./user-side/pages/Home";
 import LandingPage from "./user-side/pages/LandingPage";
@@ -110,106 +73,19 @@ const App: FC = () => {
                         path="editmanagequestions"
                         element={<EditManageQuestions />}
                       />
-                      <Route path="sfanalytics" element={<SFAnalytics />} />
-                      <Route path="iaeanalytics" element={<IAEAnalytics />} />
                       <Route path="addform" element={<AddForm />} />
-                      <Route path="acadtableplan" element={<AcadTablePlan />} />
-                      <Route path="acadtabledo" element={<AcadTableDo />} />
-                      <Route
-                        path="acadtablecheck"
-                        element={<AcadTableCheck />}
-                      />
-                      <Route path="acadtableact" element={<AcadTableAct />} />
-                      <Route
-                        path="admintableplan"
-                        element={<AdminTablePlan />}
-                      />
-                      <Route path="admintabledo" element={<AdminTableDo />} />
-                      <Route
-                        path="admintablecheck"
-                        element={<AdminTableCheck />}
-                      />
-                      <Route path="admintableact" element={<AdminTableAct />} />
-                      <Route path="iatableplan" element={<IATablePlan />} />
-                      <Route path="iatabledo" element={<IATableDo />} />
-                      <Route path="iatablecheck" element={<IATableCheck />} />
-                      <Route path="iatableact" element={<IATableAct />} />
-                      <Route path="qmschoosetype" element={<QMSChooseType />} />
-                      <Route path="unitoria" element={<QMSunitorIA />} />
-                      <Route path="acadoradmin" element={<AcademicOrAdmin />} />
-                      <Route path="acadPDCA" element={<AcadPDCA />} />
-                      <Route path="adminPDCA" element={<AdminPDCA />} />
-                      <Route path="iaPDCA" element={<IAPDCA />} />
                       <Route path="adminprofile" element={<AdminProfile />} />
-                      <Route path="addquestionSF" element={<AddQuestionSF />} />
                       <Route path="sfcharts" element={<SFCharts />} />
                       <Route path="iacharts" element={<IACharts />} />
                       <Route path="qmscharts" element={<QMSCharts />} />
-                      <Route
-                        path="acadscorepdca"
-                        element={<AcadEvalScorePDCA />}
-                      />
-                      <Route
-                        path="acadscoreplan"
-                        element={<AcadEvalScoreSummaryPlan />}
-                      />
-                      <Route
-                        path="acadscoredo"
-                        element={<AcadEvalScoreSummaryDo />}
-                      />
-                      <Route
-                        path="acadscorecheck"
-                        element={<AcadEvalScoreSummaryCheck />}
-                      />
-                      <Route
-                        path="acadscoreact"
-                        element={<AcadEvalScoreSummaryAct />}
-                      />
-                      <Route
-                        path="adminscorepdca"
-                        element={<AdminEvalScorePDCA />}
-                      />
-                      <Route
-                        path="adminscoreplan"
-                        element={<AdminEvalScoreSummaryPlan />}
-                      />
-                      <Route
-                        path="adminscoredo"
-                        element={<AdminEvalScoreSummaryDo />}
-                      />
-                      <Route
-                        path="adminscorecheck"
-                        element={<AdminEvalScoreSummaryCheck />}
-                      />
-                      <Route
-                        path="adminscoreact"
-                        element={<AdminEvalScoreSummaryAct />}
-                      />
-                      <Route path="iascorePDCA" element={<IAScorePDCA />} />
-                      <Route
-                        path="iascoreplan"
-                        element={<IAEvalScoreSummaryPlan />}
-                      />
-                      <Route
-                        path="iascoredo"
-                        element={<IAEvalScoreSummaryDo />}
-                      />
-                      <Route
-                        path="iascorecheck"
-                        element={<IAEvalScoreSummaryCheck />}
-                      />
-                      <Route
-                        path="iascoreact"
-                        element={<IAEvalScoreSummaryAct />}
-                      />
                       <Route path="manageusers" element={<ManageUsers />} />
-                      <Route path="qmsanalytics" element={<QMSAnalytics />} />
                     </Routes>
                   </div>
                 </div>
               </>
             }
           />
+
 
           <Route
             path="/*"
@@ -220,7 +96,7 @@ const App: FC = () => {
                   <div className="p-2 border-gray-200 border-dashed rounded-lg mt-9">
                     <Routes>
                       <Route path="/landingpage" element={<LandingPage />} />
-					  <Route path="/form/:formId" element={<FormPage />} />
+                      <Route path="/form/:formId" element={<FormPage />} />
                       <Route
                         path="/stakeholderfeedback"
                         element={<StakeholderFeedback />}
