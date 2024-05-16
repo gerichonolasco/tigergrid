@@ -1,4 +1,4 @@
-import React, { FC, useState, ChangeEvent } from "react";
+import React, { FC, useState } from "react";
 import FormItem from "../components/Dashboard/FormItem";
 import AddFormButton from "../components/Dashboard/AddFormButton";
 import FormResponse from "../components/Dashboard/FormResponse"; // Import FormResponse component
@@ -11,7 +11,7 @@ interface Form {
   userTypeVisibility: string[];
   visible: boolean;
   sections: Map<number, FormSection>;
-}
+} 
 
 interface FormSection {
   id: number;
@@ -113,22 +113,20 @@ const Dashboard: FC = () => {
         )}
       </div>
       {viewingFormIndex !== null && ( // Render FormResponse if viewingFormIndex is not null
-        <div className="fixed inset-0 z-50 overflow-y-auto bg-white">
-          <div className="flex items-center justify-center min-h-screen">
-            <div className="relative w-full max-w-3xl">
-              <FormResponse
-                formTitle={forms[viewingFormIndex].title}
-                sections={forms[viewingFormIndex].sections}
-                users={[]} // Pass empty array for users, you can populate it as needed
-                onClose={closeFormResponse} // Pass onClose function to FormResponse
-              />
-              <button
-                className="absolute top-4 right-4 z-10 text-gray-600 hover:text-gray-900"
-                onClick={closeFormResponse}
-              >
-                Close
-              </button>
-            </div>
+        <div className="fixed inset-0 z-50 overflow-y-auto bg-gray-900 bg-opacity-50 flex items-center justify-center">
+          <div className="relative w-full max-w-3xl bg-white p-4 rounded-lg">
+            <button
+              className="absolute top-4 right-4 text-gray-600 hover:text-gray-900 bg-gray-200 rounded-full p-2"
+              onClick={closeFormResponse}
+            >
+              Close
+            </button>
+            <FormResponse
+              formTitle={forms[viewingFormIndex].title}
+              sections={forms[viewingFormIndex].sections}
+              users={[]} // Pass empty array for users, you can populate it as needed
+              onClose={closeFormResponse} // Pass onClose function to FormResponse
+            />
           </div>
         </div>
       )}

@@ -19,15 +19,16 @@ interface FormResponseProps {
     formTitle: string;
     sections: Map<number, ResponseSection>;
     users: UserInfo[];
+    onClose: () => void; // Add onClose prop
 }
 
-const FormResponse: FC<FormResponseProps> = ({ formTitle, sections, users }) => {
+const FormResponse: FC<FormResponseProps> = ({ formTitle, sections, users, onClose }) => {
     const questions = Array.from(sections.values())[0]?.answers.values(); // Assuming all sections have the same questions
     
     return (
         <div className="form-response">
-            <h2 className="form-title">{formTitle}</h2>
-            <table className="w-full text-md bg-white shadow-md rounded mb-4">
+            <h2 className="form-title text-2xl font-bold mb-4">{formTitle}</h2>
+            <table className="w-full text-md bg-white shadow-md rounded mb-4 border border-gray-300">
                 <thead>
                     <tr>
                         <th className="py-2 px-3 bg-gray-100 border-b border-gray-300">User</th>
@@ -81,7 +82,7 @@ dummySections.set(2, {
 const App: FC = () => {
     return (
         <div className="App">
-            <FormResponse formTitle="Example Form" sections={dummySections} users={dummyUsers} />
+            <FormResponse formTitle="Example Form" sections={dummySections} users={dummyUsers} onClose={() => {}} />
         </div>
     );
 };
