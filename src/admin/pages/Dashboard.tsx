@@ -1,8 +1,8 @@
 import React, { FC, useState } from "react";
 import FormItem from "../components/Dashboard/FormItem";
 import AddFormButton from "../components/Dashboard/AddFormButton";
-import FormResponse from "../components/Dashboard/FormResponse"; // Import FormResponse component
-import EditForm from "../components/Dashboard/EditForm"; // Import EditForm component
+import FormResponse from "../components/Dashboard/FormResponse";
+import EditForm from "../components/Dashboard/EditForm";
 
 interface Form {
   title: string;
@@ -11,7 +11,7 @@ interface Form {
   userTypeVisibility: string[];
   visible: boolean;
   sections: Map<number, FormSection>;
-} 
+}
 
 interface FormSection {
   id: number;
@@ -45,7 +45,7 @@ const Dashboard: FC = () => {
     }
   ]);
 
-  const [viewingFormIndex, setViewingFormIndex] = useState<number | null>(null); // State to track viewing form index
+  const [viewingFormIndex, setViewingFormIndex] = useState<number | null>(null);
   const [isEditing, setIsEditing] = useState<boolean>(false);
   const [editingFormIndex, setEditingFormIndex] = useState<number | null>(null);
 
@@ -73,15 +73,14 @@ const Dashboard: FC = () => {
   };
 
   const viewForm = (index: number) => {
-    setViewingFormIndex(index); // Set the viewing form index
+    setViewingFormIndex(index);
   };
 
   const closeFormResponse = () => {
-    setViewingFormIndex(null); // Close the FormResponse component
+    setViewingFormIndex(null);
   };
 
   const handleSubmit = async (formData: any) => {
-    // Perform form submission logic here
     console.log(formData);
     setIsEditing(false);
     setEditingFormIndex(null);
@@ -94,7 +93,9 @@ const Dashboard: FC = () => {
       </div>
       <div className="grid gap-2 lg:grid-cols-4">
         {isEditing ? (
-          <EditForm form={forms[editingFormIndex!]} onSubmit={handleSubmit} />
+          <div className="flex justify-center items-center w-full h-full fixed inset-0 z-50 bg-gray-900 bg-opacity-50">
+            <EditForm form={forms[editingFormIndex!]} onSubmit={handleSubmit} />
+          </div>
         ) : (
           <>
             {forms.map((form, index) => (
@@ -105,14 +106,14 @@ const Dashboard: FC = () => {
                 content={form.description}
                 showOnUserSide={form.visible}
                 toggleShowOnUserSide={() => toggleVisibility(index)}
-                onEdit={() => editForm(index)} // Pass edit function
-                onView={() => viewForm(index)} // Pass view function
+                onEdit={() => editForm(index)}
+                onView={() => viewForm(index)}
               />
             ))}
           </>
         )}
       </div>
-      {viewingFormIndex !== null && ( // Render FormResponse if viewingFormIndex is not null
+      {viewingFormIndex !== null && (
         <div className="fixed inset-0 z-50 overflow-y-auto bg-gray-900 bg-opacity-50 flex items-center justify-center">
           <div className="relative w-full max-w-3xl bg-white p-4 rounded-lg">
             <button
@@ -124,8 +125,8 @@ const Dashboard: FC = () => {
             <FormResponse
               formTitle={forms[viewingFormIndex].title}
               sections={forms[viewingFormIndex].sections}
-              users={[]} // Pass empty array for users, you can populate it as needed
-              onClose={closeFormResponse} // Pass onClose function to FormResponse
+              users={[]}
+              onClose={closeFormResponse}
             />
           </div>
         </div>

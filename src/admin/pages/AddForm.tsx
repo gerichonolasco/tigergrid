@@ -1,4 +1,4 @@
-import React, { FC, useState, ChangeEvent } from "react";
+import React, { FC, useState, ChangeEvent, useEffect } from "react";
 import NextButton from "../components/AddForm/NextButton";
 
 interface NewQuestion {
@@ -19,6 +19,7 @@ const AddForm: FC = () => {
     newDropdownChoices: [],
   });
   const [error, setError] = useState<string>("");
+  const [isFormValid, setIsFormValid] = useState<boolean>(false);
 
   const handleTitleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setFormTitle(event.target.value);
@@ -48,6 +49,14 @@ const AddForm: FC = () => {
       newDropdownChoices: event.target.value.split(","),
     });
   };
+
+  const validateForm = () => {
+    return formTitle.trim() !== "" && description.trim() !== "" && file !== null;
+  };
+
+  useEffect(() => {
+    setIsFormValid(validateForm());
+  }, [formTitle, description, file]);
 
   const submitForm = async (formData: any) => {
     try {
@@ -142,7 +151,7 @@ const AddForm: FC = () => {
           />
         </div>
         {/* Add fields for questions here */}
-        <NextButton to="/admin/managequestions" />
+        <NextButton to="/admin/managequestions" disabled={!isFormValid} />
       </form>
     </div>
   );

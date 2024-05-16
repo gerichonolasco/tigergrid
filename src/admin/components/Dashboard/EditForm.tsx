@@ -58,7 +58,7 @@ const EditForm: FC<EditFormProps> = ({ form, onSubmit }) => {
   };
 
   return (
-    <div className="flex justify-center items-center h-full">
+    <div className="flex justify-center items-center w-full h-full">
       <form
         className="max-w-sm bg-white rounded-lg overflow-hidden shadow-md p-6"
         onSubmit={handleSubmit}
