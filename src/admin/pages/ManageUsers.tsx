@@ -4,6 +4,7 @@ const ManageUsers = () => {
   const [user, setUser] = useState({ firstName: "", lastName: "", email: "", password: "", role: "User" });
   const [users, setUsers] = useState([]);
   const [editIndex, setEditIndex] = useState(null);
+  const [error, setError] = useState("");
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -38,6 +39,11 @@ const ManageUsers = () => {
   };
 
   const saveUser = () => {
+    if (!user.firstName || !user.lastName || !user.email || !user.password) {
+      setError("All fields are required.");
+      return;
+    }
+    setError("");
     if (editIndex !== null) {
       saveChanges();
     } else {
@@ -116,6 +122,7 @@ const ManageUsers = () => {
               </tr>
             </tbody>
           </table>
+          {error && <div className="text-red-500">{error}</div>}
         </div>
         <div className="px-3 py-4 flex justify-center">
           <button type="button" onClick={saveUser} className="text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Save Changes</button>

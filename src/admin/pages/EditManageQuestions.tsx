@@ -8,6 +8,7 @@ interface NewQuestion {
     newQuestion: string;
     newInputType: string;
     newDropdownChoices: string[];
+    page: number;
 }
 
 const EditManageQuestions: FC = () => {
@@ -17,6 +18,7 @@ const EditManageQuestions: FC = () => {
         newQuestion: "",
         newInputType: "",
         newDropdownChoices: [],
+        page: 1,
     });
     const [error, setError] = useState<string>("");
 
@@ -26,7 +28,7 @@ const EditManageQuestions: FC = () => {
     ) => {
         const { value } = e.target;
         setQuestion((prevQuestion) => ({
-          ...prevQuestion,
+            ...prevQuestion,
             [field]: value,
         }));
     };
@@ -40,7 +42,7 @@ const EditManageQuestions: FC = () => {
             const updatedDropdownChoices = [...prevQuestion.newDropdownChoices];
             updatedDropdownChoices[index] = value;
             return {
-              ...prevQuestion,
+                ...prevQuestion,
                 newDropdownChoices: updatedDropdownChoices,
             };
         });
@@ -48,7 +50,7 @@ const EditManageQuestions: FC = () => {
 
     const addDropdownChoice = () => {
         setQuestion((prevQuestion) => ({
-          ...prevQuestion,
+            ...prevQuestion,
             newDropdownChoices: [...prevQuestion.newDropdownChoices, ""],
         }));
     };
@@ -58,7 +60,7 @@ const EditManageQuestions: FC = () => {
             const updatedDropdownChoices = [...prevQuestion.newDropdownChoices];
             updatedDropdownChoices.splice(index, 1);
             return {
-              ...prevQuestion,
+                ...prevQuestion,
                 newDropdownChoices: updatedDropdownChoices,
             };
         });
@@ -66,41 +68,48 @@ const EditManageQuestions: FC = () => {
 
     const addQuestion = () => {
         if (question.newQuestion && question.newInputType) {
-            setQuestions((prevQuestions) => [...prevQuestions, question]);
+            setQuestions((prevQuestions) => [...prevQuestions, { ...question, page: currentPage }]);
             setQuestion({
                 newQuestion: "",
                 newInputType: "",
                 newDropdownChoices: [],
+                page: currentPage,
             });
-            setError(""); // Reset error message
+            setError("");
         } else {
             setError("Please complete all fields before adding.");
         }
     };
 
-	const editQuestion = (index: number, updatedQuestion: NewQuestion) => {
-		setQuestions((prevQuestions) => {
-			const newQuestions = [...prevQuestions];
-			newQuestions[index] = updatedQuestion; // Replace old question with updated question
-			return newQuestions;
-		});
-		setQuestion({
-			newQuestion: "", // Clear the question text
-			newInputType: "", // Clear the input type selection
-			newDropdownChoices: [], // Clear the dropdown choices array
-		});
-	};
-	
+    const editQuestion = (index: number, updatedQuestion: NewQuestion) => {
+        setQuestions((prevQuestions) => {
+            const newQuestions = [...prevQuestions];
+            newQuestions[index] = updatedQuestion;
+            return newQuestions;
+        });
+        setQuestion({
+            newQuestion: "",
+            newInputType: "",
+            newDropdownChoices: [],
+            page: currentPage,
+        });
+    };
 
     const deleteQuestion = (index: number) => {
-        setQuestions((prevQuestions) =>
-            prevQuestions.filter((_, i) => i!== index)
-        );
+        setQuestions((prevQuestions) => prevQuestions.filter((_, i) => i !== index));
     };
 
     const handlePageChange = (e: ChangeEvent<HTMLSelectElement>) => {
         setCurrentPage(Number(e.target.value));
+        setQuestion({
+            newQuestion: "",
+            newInputType: "",
+            newDropdownChoices: [],
+            page: Number(e.target.value),
+        });
     };
+
+    const filteredQuestions = questions.filter(q => q.page === currentPage);
 
     return (
         <div className="flex justify-center items-center bg-cover bg-center bg-main-building">
@@ -129,7 +138,7 @@ const EditManageQuestions: FC = () => {
                 </div>
                 {currentPage === 1 && (
                     <EditFormPage1
-                        questions={questions}
+                        questions={filteredQuestions}
                         question={question}
                         handleInputChange={handleInputChange}
                         handleDropdownChange={handleDropdownChange}
@@ -143,7 +152,7 @@ const EditManageQuestions: FC = () => {
                 )}
                 {currentPage === 2 && (
                     <EditFormPage2
-                        questions={questions}
+                        questions={filteredQuestions}
                         question={question}
                         handleInputChange={handleInputChange}
                         handleDropdownChange={handleDropdownChange}
@@ -157,7 +166,7 @@ const EditManageQuestions: FC = () => {
                 )}
                 {currentPage === 3 && (
                     <EditFormPage3
-                        questions={questions}
+                        questions={filteredQuestions}
                         question={question}
                         handleInputChange={handleInputChange}
                         handleDropdownChange={handleDropdownChange}
@@ -171,7 +180,7 @@ const EditManageQuestions: FC = () => {
                 )}
                 {currentPage === 4 && (
                     <EditFormPage4
-                        questions={questions}
+                        questions={filteredQuestions}
                         question={question}
                         handleInputChange={handleInputChange}
                         handleDropdownChange={handleDropdownChange}
