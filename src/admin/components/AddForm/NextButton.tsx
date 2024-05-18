@@ -2,10 +2,10 @@ import React from "react";
 
 interface NextButtonProps {
   to: string; // The URL to navigate to when the button is clicked
-  disabled?: boolean; // Whether the button should be disabled
+  disabled: boolean; // Whether the button should be disabled
 }
 
-const NextButton: React.FC<NextButtonProps> = ({ to, disabled = false }) => {
+const NextButton: React.FC<NextButtonProps> = ({ to, disabled }) => {
   const handleClick = () => {
     if (!disabled) {
       window.location.href = to; // Redirect to the specified URL if not disabled

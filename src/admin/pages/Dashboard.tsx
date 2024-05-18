@@ -25,6 +25,11 @@ interface FormQuestion {
   answer: string;
 }
 
+interface UserInfo {
+  firstName: string;
+  lastName: string;
+}
+
 const Dashboard: FC = () => {
   const [forms, setForms] = useState<Form[]>([
     {
@@ -33,7 +38,17 @@ const Dashboard: FC = () => {
       imageSource: "https://via.placeholder.com/150",
       userTypeVisibility: ["user", "admin"],
       visible: true,
-      sections: new Map(),
+      sections: new Map([
+        [1, {
+          id: 1,
+          title: "Section 1",
+          answers: [
+            { id: 1, question: "Question 1", answer: "" },
+            { id: 2, question: "Question 2", answer: "" },
+            { id: 3, question: "Question 3", answer: "" }
+          ]
+        }]
+      ]),
     },
     {
       title: "Sample Form 2",
@@ -48,6 +63,8 @@ const Dashboard: FC = () => {
   const [viewingFormIndex, setViewingFormIndex] = useState<number | null>(null);
   const [isEditing, setIsEditing] = useState<boolean>(false);
   const [editingFormIndex, setEditingFormIndex] = useState<number | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [users, setUsers] = useState<UserInfo[]>([]);
 
   const toggleVisibility = (index: number) => {
     const updatedForms = [...forms];
@@ -74,6 +91,35 @@ const Dashboard: FC = () => {
 
   const viewForm = (index: number) => {
     setViewingFormIndex(index);
+    setLoading(true);
+
+    // Simulate fetching form responses
+    setTimeout(() => {
+      const dummyUsers = [
+        { firstName: "John", lastName: "Doe" },
+        { firstName: "Jane", lastName: "Doe" },
+        { firstName: "Alice", lastName: "Smith" },
+        { firstName: "Bob", lastName: "Johnson" }
+      ];
+
+      const dummySections = new Map<number, FormSection>();
+      dummySections.set(1, {
+        id: 1,
+        title: "Section 1",
+        answers: [
+          { id: 1, question: "Question 1", answer: "3" },
+          { id: 2, question: "Question 2", answer: "2" },
+          { id: 3, question: "Question 3", answer: "5" }
+        ]
+      });
+
+      const updatedForms = [...forms];
+      updatedForms[index].sections = dummySections;
+
+      setUsers(dummyUsers);
+      setForms(updatedForms);
+      setLoading(false);
+    }, 1000);
   };
 
   const closeFormResponse = () => {
@@ -122,12 +168,16 @@ const Dashboard: FC = () => {
             >
               Close
             </button>
-            <FormResponse
-              formTitle={forms[viewingFormIndex].title}
-              sections={forms[viewingFormIndex].sections}
-              users={[]}
-              onClose={closeFormResponse}
-            />
+            {loading ? (
+              <div>Loading...</div>
+            ) : (
+              <FormResponse
+                formTitle={forms[viewingFormIndex].title}
+                sections={forms[viewingFormIndex].sections}
+                users={users}
+                onClose={closeFormResponse}
+              />
+            )}
           </div>
         </div>
       )}
