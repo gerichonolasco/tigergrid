@@ -124,8 +124,8 @@ const ManageUsers = () => {
           </table>
           {error && <div className="text-red-500">{error}</div>}
         </div>
-        <div className="px-3 py-4 flex justify-center">
-          <button type="button" onClick={saveUser} className="text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Save Changes</button>
+        <div className="px-3 py-6 flex justify-center">
+          <button type="button" onClick={saveUser} className="text-sm bg-yellow-500 hover:bg-yellow-500 text-white py-2 px-3 rounded focus:outline-none focus:shadow-outline">Save Changes</button>
         </div>
       </div>
     </div>
