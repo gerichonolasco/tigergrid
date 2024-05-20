@@ -37,7 +37,7 @@ const ManageUsers = () => {
     setUser({ firstName: "", lastName: "", email: "", password: "", role: "User" });
     setEditIndex(null);
   };
-
+  
   const saveUser = () => {
     if (!user.firstName || !user.lastName || !user.email || !user.password) {
       setError("All fields are required.");

@@ -1,9 +1,5 @@
 import React, { FC, useState } from "react";
 import { Link } from "react-router-dom";
-import StakeholderTypeSelect from "../components/StakeHolderFeedBack2/StakeHolderTypeSelect";
-import TransactionTypeSelect from "../components/StakeHolderFeedBack2/TransactionTypeSelect";
-import OfficeTypeSelect from "../components/StakeHolderFeedBack2/OfficeTypeSelect";
-import NavigationButtons from "../components/StakeHolderFeedBack2/NavigationButtons";
 
 const StakeholderFeedback2: FC = () => {
 	const [stakeholderType, setStakeholderType] = useState<string>("");
@@ -59,7 +55,7 @@ const StakeholderFeedback2: FC = () => {
 				</ol>
 			</div>
 
-			<div className="flex flex-col items-center justify-center mt-10">
+			{/* <div className="flex flex-col items-center justify-center mt-10">
 				<div className="bg-gray-100 p-8 rounded-lg w-full sm:w-[700px] h-auto sm:h-[500px] flex flex-col items-center justify-center">
 					<StakeholderTypeSelect
 						value={stakeholderType}
@@ -78,7 +74,7 @@ const StakeholderFeedback2: FC = () => {
 						isFormComplete={isFormComplete}
 					/>
 				</div>
-			</div>
+			</div> */}
 		</div>
 	);
 };
